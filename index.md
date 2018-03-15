@@ -1,35 +1,35 @@
-## Home
+# Home
 
+## Topico 101: Arquitetura do Sistema
 
+### 101.1 Visualize e configure definições de hardware
 
-Topic 101: System Architecture
-101.1 Determine and configure hardware settings
-Weight: 2
+Peso: 2
 
-Description: Candidates should be able to determine and configure fundamental system hardware.
+Descrição: Candidates should be able to determine and configure fundamental system hardware.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Tools and utilities to list various hardware information (e.g. lsusb, lspci, etc.)
 Tools and utilities to manipulate USB devices
 Conceptual understanding of sysfs, udev, dbus
 The following is a partial list of the used files, terms and utilities:
 
-/sys/
-/proc/
-/dev/
-modprobe
-lsmod
-lspci
-lsusb
+	/sys/
+	/proc/
+	/dev/
+	modprobe
+	lsmod
+	lspci
+	lsusb
  
 
-101.2 Boot the system
-Weight: 3
+## 101.2 Boot the system
+Peso: 3
 
-Description: Candidates should be able to guide the system through the booting process.
+Descrição: Candidates should be able to guide the system through the booting process.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Provide common commands to the boot loader and options to the kernel at boot time
 Demonstrate knowledge of the boot sequence from BIOS to boot completion
@@ -38,22 +38,22 @@ Awareness of Upstart
 Check boot events in the log files
 Terms and Utilities:
 
-dmesg
-BIOS
-bootloader
-kernel
-initramfs
-init
-SysVinit
-systemd
+	dmesg
+	BIOS
+	bootloader
+	kernel
+	initramfs
+	init
+	SysVinit
+	systemd
  
 
-101.3 Change runlevels / boot targets and shutdown or reboot system
-Weight: 3
+### 101.3 Mudar runlevels / boot targets and shutdown or reboot system
+Peso: 3
 
-Description: Candidates should be able to manage the SysVinit runlevel or systemd boot target of the system. This objective includes changing to single user mode, shutdown or rebooting the system. Candidates should be able to alert users before switching runlevels / boot targets and properly terminate processes. This objective also includes setting the default SysVinit runlevel or systemd boot target. It also includes awareness of Upstart as an alternative to SysVinit or systemd.
+Descrição: Candidates should be able to manage the SysVinit runlevel or systemd boot target of the system. This objective includes changing to single user mode, shutdown or rebooting the system. Candidates should be able to alert users before switching runlevels / boot targets and properly terminate processes. This objective also includes setting the default SysVinit runlevel or systemd boot target. It also includes awareness of Upstart as an alternative to SysVinit or systemd.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Set the default runlevel or boot target
 Change between runlevels / boot targets including single user mode
@@ -62,23 +62,26 @@ Alert users before switching runlevels / boot targets or other major system even
 Properly terminate processes
 Terms and Utilities:
 
-/etc/inittab
-shutdown
-init
-/etc/init.d/
-telinit
-systemd
-systemctl
-/etc/systemd/
-/usr/lib/systemd/
-wall
-Topic 102: Linux Installation and Package Management
-102.1 Design hard disk layout
-Weight: 2
+	/etc/inittab
+	shutdown
+	init
+	/etc/init.d/
+	telinit
+	systemd
+	systemctl
+	/etc/systemd/
+	/usr/lib/systemd/
+	wall
 
-Description: Candidates should be able to design a disk partitioning scheme for a Linux system.
+## Topico 102: Linux Installation and Package Management
 
-Key Knowledge Areas:
+### 102.1 Design hard disk layout
+
+Peso: 2
+
+Descrição: Candidates should be able to design a disk partitioning scheme for a Linux system.
+
+Areas Chave de Conhecimento:
 
 Allocate filesystems and swap space to separate partitions or disks
 Tailor the design to the intended use of the system
@@ -86,20 +89,21 @@ Ensure the /boot partition conforms to the hardware architecture requirements fo
 Knowledge of basic features of LVM
 Terms and Utilities:
 
-/ (root) filesystem
-/var filesystem
-/home filesystem
-/boot filesystem
-swap space
-mount points
-partitions
+	/ (root) filesystem
+	/var filesystem
+	/home filesystem
+	/boot filesystem
+	swap space
+	mount points
+	partitions
  
-102.2 Install a boot manager
-Weight: 2
+### 102.2 Install a boot manager
 
-Description: Candidates should be able to select, install and configure a boot manager.
+Peso: 2
 
-Key Knowledge Areas:
+Descrição: Candidates should be able to select, install and configure a boot manager.
+
+Areas Chave de Conhecimento:
 
 Providing alternative boot locations and backup boot options
 Install and configure a boot loader such as GRUB Legacy
@@ -107,78 +111,78 @@ Perform basic configuration changes for GRUB 2
 Interact with the boot loader
 The following is a partial list of the used files, terms and utilities:
 
-menu.lst, grub.cfg and grub.conf
-grub-install
-grub-mkconfig
-MBR
+	menu.lst, grub.cfg and grub.conf
+	grub-install
+	grub-mkconfig
+	MBR
  
 
-102.3 Manage shared libraries
-Weight: 1
+### 102.3 Manage shared libraries
+Peso: 1
 
-Description: Candidates should be able to determine the shared libraries that executable programs depend on and install them when necessary.
+Descrição: Candidates should be able to determine the shared libraries that executable programs depend on and install them when necessary.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Identify shared libraries
 Identify the typical locations of system libraries
 Load shared libraries
 Terms and Utilities:
 
-ldd
-ldconfig
-/etc/ld.so.conf
-LD_LIBRARY_PATH
+	ldd
+	ldconfig
+	/etc/ld.so.conf
+	LD_LIBRARY_PATH
  
 
-102.4 Use Debian package management
-Weight: 3
+### 102.4 Use Debian package management
+Peso: 3
 
-Description: Candidates should be able to perform package management using the Debian package tools.
+Descrição: Candidates should be able to perform package management using the Debian package tools.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Install, upgrade and uninstall Debian binary packages
 Find packages containing specific files or libraries which may or may not be installed
 Obtain package information like version, content, dependencies, package integrity and installation status (whether or not the package is installed)
 Terms and Utilities:
 
-/etc/apt/sources.list
-dpkg
-dpkg-reconfigure
-apt-get
-
-apt-cache
-
-aptitude
+	/etc/apt/sources.list
+	dpkg
+	dpkg-reconfigure
+	apt-get
+	apt-cache
+	aptitude
 
  
 
-102.5 Use RPM and YUM package management
-Weight: 3
+### 102.5 Use RPM and YUM package management
+Peso: 3
 
-Description: Candidates should be able to perform package management using RPM and YUM tools.
+Descrição: Candidates should be able to perform package management using RPM and YUM tools.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Install, re-install, upgrade and remove packages using RPM and YUM
 Obtain information on RPM packages such as version, status, dependencies, integrity and signatures
 Determine what files a package provides, as well as find which package a specific file comes from
 Terms and Utilities:
 
-rpm
-rpm2cpio
-/etc/yum.conf
-/etc/yum.repos.d/
-yum
-yumdownloader
-Topic 103: GNU and Unix Commands
-103.1 Work on the command line
-Weight: 4
+	rpm
+	rpm2cpio
+	/etc/yum.conf
+	/etc/yum.repos.d/
+	yum
+	yumdownloader
 
-Description: Candidates should be able to interact with shells and commands using the command line. The objective assumes the Bash shell.
+## Topico 103: GNU and Unix Commands
 
-Key Knowledge Areas:
+### 103.1 Work on the command line
+Peso: 4
+
+Descrição: Candidates should be able to interact with shells and commands using the command line. The objective assumes the Bash shell.
+
+Areas Chave de Conhecimento:
 
 Use single shell commands and one line command sequences to perform basic tasks on the command line
 Use and modify the shell environment including defining, referencing and exporting environment variables
@@ -186,57 +190,57 @@ Use and edit command history
 Invoke commands inside and outside the defined path
 Terms and Utilities:
 
-bash
-echo
-env
-export
-pwd
-set
-unset
-man
-uname
-history
-.bash_history
+	bash
+	echo
+	env
+	export
+	pwd
+	set
+	unset
+	man
+	uname
+	history
+	.bash_history
  
 
 103.2 Process text streams using filters
-Weight: 3
+Peso: 3
 
-Description: Candidates should should be able to apply filters to text streams.
+Descrição: Candidates should should be able to apply filters to text streams.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Send text files and output streams through text utility filters to modify the output using standard UNIX commands found in the GNU textutils package
 
 Terms and Utilities:
 
-cat
-cut
-expand
-fmt
-head
-join
-less
-nl
-od
-paste
-pr
-sed
-sort
-split
-tail
-tr
-unexpand
-uniq
-wc
+	cat
+	cut
+	expand
+	fmt
+	head
+	join
+	less
+	nl
+	od
+	paste
+	pr
+	sed
+	sort
+	split
+	tail
+	tr
+	unexpand
+	uniq
+	wc
  
 
 103.3 Perform basic file management
-Weight: 4
+Peso: 4
 
-Description: Candidates should be able to use the basic Linux commands to manage files and directories.
+Descrição: Candidates should be able to use the basic Linux commands to manage files and directories.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Copy, move and remove files and directories individually
 Copy multiple files and directories recursively
@@ -246,31 +250,31 @@ Using find to locate and act on files based on type, size, or time
 Usage of tar, cpio and dd
 Terms and Utilities:
 
-cp
-find
-mkdir
-mv
-ls
-rm
-rmdir
-touch
-tar
-cpio
-dd
-file
-gzip
-gunzip
-bzip2
-xz
-file globbing
+	cp
+	find
+	mkdir
+	mv
+	ls
+	rm
+	rmdir
+	touch
+	tar
+	cpio
+	dd
+	file
+	gzip
+	gunzip
+	bzip2
+	xz
+	file globbing
  
 
 103.4 Use streams, pipes and redirects
-Weight: 4
+Peso: 4
 
-Description: Candidates should be able to redirect streams and connect them in order to efficiently process textual data. Tasks include redirecting standard input, standard output and standard error, piping the output of one command to the input of another command, using the output of one command as arguments to another command and sending output to both stdout and a file.
+Descrição: Candidates should be able to redirect streams and connect them in order to efficiently process textual data. Tasks include redirecting standard input, standard output and standard error, piping the output of one command to the input of another command, using the output of one command as arguments to another command and sending output to both stdout and a file.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Redirecting standard input, standard output and standard error
 Pipe the output of one command to the input of another command
@@ -278,16 +282,16 @@ Use the output of one command as arguments to another command
 Send output to both stdout and a file
 Terms and Utilities:
 
-tee
-xargs
+	tee
+	xargs
  
 
-103.5 Create, monitor and kill processes
-Weight: 4
+### 103.5 Create, monitor and kill processes
+Peso: 4
 
-Description: Candidates should be able to perform basic process management.
+Descrição: Candidates should be able to perform basic process management.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Run jobs in the foreground and background
 Signal a program to continue running after logout
@@ -296,164 +300,171 @@ Select and sort processes for display
 Send signals to processes
 Terms and Utilities:
 
-&
-bg
-fg
-jobs
-kill
-nohup
-ps
-top
-free
-uptime
-pgrep
-pkill
-killall
-screen
+	&
+	bg
+	fg
+	jobs
+	kill
+	nohup
+	ps
+	top
+	free
+	uptime
+	pgrep
+	pkill
+	killall
+	screen
  
 
-103.6 Modify process execution priorities
-Weight: 2
+### 103.6 Modify process execution priorities
 
-Description: Candidates should should be able to manage process execution priorities.
+Peso: 2
 
-Key Knowledge Areas:
+Descrição: Candidates should should be able to manage process execution priorities.
+
+Areas Chave de Conhecimento:
 
 Know the default priority of a job that is created
 Run a program with higher or lower priority than the default
 Change the priority of a running process
 Terms and Utilities:
 
-nice
-ps
-renice
-top
+	nice
+	ps
+	renice
+	top
  
 
 103.7 Search text files using regular expressions
-Weight: 2
+Peso: 2
 
-Description: Candidates should be able to manipulate files and text data using regular expressions. This objective includes creating simple regular expressions containing several notational elements. It also includes using regular expression tools to perform searches through a filesystem or file content.
+Descrição: Candidates should be able to manipulate files and text data using regular expressions. This objective includes creating simple regular expressions containing several notational elements. It also includes using regular expression tools to perform searches through a filesystem or file content.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Create simple regular expressions containing several notational elements
 Use regular expression tools to perform searches through a filesystem or file content
 Terms and Utilities:
 
-grep
-egrep
-fgrep
-sed
-regex(7)
+	grep
+	egrep
+	fgrep
+	sed
+	regex(7)
  
 
-103.8 Perform basic file editing operations using vi
-Weight: 3
+### 103.8 Perform basic file editing operations using vi
+Peso: 3
 
-Description: Candidates should be able to edit text files using vi. This objective includes vi navigation, basic vi modes, inserting, editing, deleting, copying and finding text.
+Descrição: Candidates should be able to edit text files using vi. This objective includes vi navigation, basic vi modes, inserting, editing, deleting, copying and finding text.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Navigate a document using vi
 Use basic vi modes
 Insert, edit, delete, copy and find text
 Terms and Utilities:
 
-vi
-/, ?
-h,j,k,l
-i, o, a
-c, d, p, y, dd, yy
-ZZ, :w!, :q!, :e!
-Topic 104: Devices, Linux Filesystems, Filesystem Hierarchy Standard
-104.1 Create partitions and filesystems
-Weight: 2
+	vi
+	/, ?
+	h,j,k,l
+	i, o, a
+	c, d, p, y, dd, yy
+	ZZ, :w!, :q!, :e!
 
-Description: Candidates should be able to configure disk partitions and then create filesystems on media such as hard disks. This includes the handling of swap partitions.
+## Topico 104: Devices, Linux Filesystems, Filesystem Hierarchy Standard
 
-Key Knowledge Areas:
 
-Manage MBR partition tables
-Use various mkfs commands to create various filesystems such as:
-ext2/ext3/ext4
-XFS
-VFAT
-Awareness of ReiserFS and Btrfs
-Basic knowledge of gdisk and parted with GPT
+### 104.1 Create partitions and filesystems
+Peso: 2
+
+Descrição: Candidates should be able to configure disk partitions and then create filesystems on media such as hard disks. This includes the handling of swap partitions.
+
+Areas Chave de Conhecimento:
+
+	Manage MBR partition tables
+	Use various mkfs commands to create various filesystems such as:
+	ext2/ext3/ext4
+	XFS
+	VFAT
+	Awareness of ReiserFS and Btrfs
+	Basic knowledge of gdisk and parted with GPT
+
 Terms and Utilities:
 
-fdisk
-gdisk
-parted
-mkfs
-mkswap
+	fdisk
+	gdisk
+	parted
+	mkfs
+	mkswap
  
 
-104.2 Maintain the integrity of filesystems
-Weight: 2
+### 104.2 Maintain the integrity of filesystems
+Peso: 2
 
-Description: Candidates should be able to maintain a standard filesystem, as well as the extra data associated with a journaling filesystem.
+Descrição: Candidates should be able to maintain a standard filesystem, as well as the extra data associated with a journaling filesystem.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Verify the integrity of filesystems
 Monitor free space and inodes
 Repair simple filesystem problems
 Terms and Utilities:
 
-du
-df
-fsck
-e2fsck
-mke2fs
-debugfs
-dumpe2fs
-tune2fs
-XFS tools (such as xfs_metadump and xfs_info)
+	du
+	df
+	fsck
+	e2fsck
+	mke2fs
+	debugfs
+	dumpe2fs
+	tune2fs
+	XFS tools (such as xfs_metadump and xfs_info)
  
 
-104.3 Control mounting and unmounting of filesystems
-Weight: 3
+### 104.3 Control mounting and unmounting of filesystems
+Peso: 3
 
-Description: Candidates should be able to configure the mounting of a filesystem.
+Descrição: Candidates should be able to configure the mounting of a filesystem.
 
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Manually mount and unmount filesystems
 Configure filesystem mounting on bootup
 Configure user mountable removable filesystems
 Terms and Utilities:
 
-/etc/fstab
-/media/
-mount
-umount
+	/etc/fstab
+	/media/
+	mount
+	umount
  
 
-104.4 Manage disk quotas
-Weight: 1
+### 104.4 Manage disk quotas
 
-Description: Candidates should be able to manage disk quotas for users.
+Peso: 1
 
-Key Knowledge Areas:
+Descrição: Candidates should be able to manage disk quotas for users.
+
+Areas Chave de Conhecimento:
 
 Set up a disk quota for a filesystem
 Edit, check and generate user quota reports
 Terms and Utilities:
 
-quota
-edquota
-repquota
-quotaon
+	quota
+	edquota
+	repquota
+	quotaon
  
 
 104.5 Manage file permissions and ownership
-Weight: 3
 
-Description: Candidates should be able to control file access through the proper use of permissions and ownerships.
+Peso: 3
 
-Key Knowledge Areas:
+Descrição: Candidates should be able to control file access through the proper use of permissions and ownerships.
+
+Areas Chave de Conhecimento:
 
 Manage access permissions on regular and special files as well as directories
 Use access modes such as suid, sgid and the sticky bit to maintain security
@@ -461,18 +472,19 @@ Know how to change the file creation mask
 Use the group field to grant file access to group members
 Terms and Utilities:
 
-chmod
-umask
-chown
-chgrp
+	chmod
+	umask
+	chown
+	chgrp
  
 
-104.6 Create and change hard and symbolic links
-Weight: 2
+### 104.6 Create and change hard and symbolic links
 
-Description: Candidates should be able to create and manage hard and symbolic links to a file.
+Peso: 2
 
-Key Knowledge Areas:
+Descrição: Candidates should be able to create and manage hard and symbolic links to a file.
+
+Areas Chave de Conhecimento:
 
 Create links
 Identify hard and/or soft links
@@ -480,45 +492,41 @@ Copying versus linking files
 Use links to support system administration tasks
 Terms and Utilities:
 
-ln
-ls
+	ln
+	ls
  
 
-104.7 Find system files and place files in the correct location
-Weight: 2
+### 104.7 Find system files and place files in the correct location
 
-Description: Candidates should be thoroughly familiar with the Filesystem Hierarchy Standard (FHS), including typical file locations and directory classifications.
+Peso: 2
 
-Key Knowledge Areas:
+Descrição: Candidates should be thoroughly familiar with the Filesystem Hierarchy Standard (FHS), including typical file locations and directory classifications.
+
+Areas Chave de Conhecimento:
 
 Understand the correct locations of files under the FHS
 Find files and commands on a Linux system
 Know the location and purpose of important file and directories as defined in the FHS
 Terms and Utilities:
 
-find
-locate
-updatedb
-whereis
-which
-type
-/etc/updatedb.conf
+	find
+	locate
+	updatedb
+	whereis
+	which
+	type
+	/etc/updatedb.conf
 
 
+## Topico 103: GNU and Unix Commands
 
+### 103.1 Work on the command line
 
+Peso: 4
 
+Descrição: Candidates should be able to interact with shells and commands using the command line. The objective assumes the Bash shell.
 
-
-Topic 103: GNU and Unix Commands
-
-103.1 Work on the command line
-
-Weight: 4
-
-Description: Candidates should be able to interact with shells and commands using the command line. The objective assumes the Bash shell.
-
-Key Knowledge Areas:
+Areas Chave de Conhecimento:
 
 Use single shell commands and one line command sequences to perform basic tasks on the command line
 Use and modify the shell environment including defining, referencing and exporting environment variables
