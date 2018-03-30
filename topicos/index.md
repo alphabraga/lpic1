@@ -36,3 +36,6 @@ order: 2
   * [104.5 Gerenciar permissões e `ownership` de arquivos (Peso 3)](#)
   * [104.6 Criar e mudar links `hard` e `symbolic` (Peso 2)](#)
   * [104.7 Encontrar arquivos de sistema e coocar arquivos na localização correta (Peso 2)](#)
+
+
+  
