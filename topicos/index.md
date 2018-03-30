@@ -6,29 +6,29 @@ permalink: /indice/
 order: 2
 ---
 
-* [101: Arquitetura do Sistema (Peso 8)](/101/arquitetura-do-sistema)
-  * [101.1 Visualize e configure as definições de hardware (Peso 2)](/101/arquitetura-do-sistema#101.1-Visualize-e-configure-as-definicoes-de-hardware)
-  * [101.2 Inicializar o Sistema (Peso 3)](/101/arquitetura-do-sistema#101.1-Visualize-e-configure-as-definicoes-de-hardware)
-  * [101.3 Mudar runlevels / boot targets and shutdown or reboot system (Peso 3)](/101/arquitetura-do-sistema#101.1-Visualize-e-configure-as-definicoes-de-hardware)
+* [101: Arquitetura do Sistema (Peso 8)](/lpic1/101/arquitetura-do-sistema)
+  * [101.1 Visualize e configure as definições de hardware (Peso 2)](/lpic1/101/arquitetura-do-sistema#101.1-Visualize-e-configure-as-definicoes-de-hardware)
+  * [101.2 Inicializar o Sistema (Peso 3)](/lpic1/101/arquitetura-do-sistema#101.1-Visualize-e-configure-as-definicoes-de-hardware)
+  * [101.3 Mudar runlevels / boot targets and shutdown or reboot system (Peso 3)](/lpic1/101/arquitetura-do-sistema#101.1-Visualize-e-configure-as-definicoes-de-hardware)
 
-* [102: Instalação do Linux e Gerenciamento de Pacotes (Peso 10)](/102/instalacao-do-linux-e-gerenciamento-de-pacotes)
+* [102: Instalação do Linux e Gerenciamento de Pacotes (Peso 10)](/lpic1/102/instalacao-do-linux-e-gerenciamento-de-pacotes)
   * [102.1 Design hard disk layout (Peso 2)](#)
   * [102.2 Instalar um gerenciador de boot (Peso 2)](#)
-  * [102.3 Gerenciar bibliotecas compartilhadas (Peso 1)](/102/102.3-nstalacao-do-linux-e-gerenciamento-de-pacotes)
+  * [102.3 Gerenciar bibliotecas compartilhadas (Peso 1)](/lpic1/102/102.3-nstalacao-do-linux-e-gerenciamento-de-pacotes)
   * [102.4 Utilização do gerenciador de pacotes do Debian (Peso 3)](#)
   * [102.5 Utilizar o RPM e o gerenciador de pacotes YUM (Peso 3)](#)
 
 * [103: GNU e Comandos Unix (Peso 26)](#)
-  * [103.1 Trabalhando com a linha de comando (Peso 4)](/103/103.1-trabalhando-com-a-linha-de-comando)
+  * [103.1 Trabalhando com a linha de comando (Peso 4)](/lpic1/103/103.1-trabalhando-com-a-linha-de-comando)
   * [103.2 Processando fluxos de texto utilizando filtros (Peso 3)](#)
   * [103.3 Realizar gerenciamento básico de arquivos (Peso 4)](#)
   * [103.4 Utilizar fluxos, pipes e redirecionamentos (Peso 4)](#)
   * [103.5 Criar, monitorar e matar processos (Peso 4)](#)
   * [103.6 Alterar a prioridade de execução de processos (Peso 2)](#)
-  * [103.7 Buscar texto em arquivos usando expressões regulares (Peso 2)](/103/103.7-buscando-texto-em-arquivos-usando-expressoes-regulares)
+  * [103.7 Buscar texto em arquivos usando expressões regulares (Peso 2)](/lpic1/103/103.7-buscando-texto-em-arquivos-usando-expressoes-regulares)
   * [103.8 Realizar operações básicas de edição de arquivos utilizando o vi (Peso 3)](#)
 
-* [104: Dispositivos, Linux Sistema de Arquivos, `Filesystem Hierarchy Standard` (Peso 15)](/104/dispositivos-linux-sistema-de-arquivo-fhs)
+* [104: Dispositivos, Linux Sistema de Arquivos, `Filesystem Hierarchy Standard` (Peso 15)](/lpic1/104/dispositivos-linux-sistema-de-arquivo-fhs)
   * [104.1 Criar partições e sistema de arquivos (Peso 2)](#)
   * [104.2 Manter a integridade de sistemas de arquivos (Peso 2)](#)
   * [104.3 Controlar a montagem e desmontagem de sistemas de arquivos (Peso 3)](#)
