@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>101 Arquiterura do Sistema</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/101/arquitetura-do-sistema">
+  <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Livro LPIC 101 - O Curso</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/indice/">Indice</a>
+          
+        
+          
+          <a class="page-link" href="/inicio/">Inicio</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">101 Arquiterura do Sistema</h1>
+  </header>
+
+  <div class="post-content">
+    <h3 id="visualize-e-configure-definies-de-hardware-peso-2">101.1 Visualize e configure definições de hardware (Peso 2)</h3>
+
+<p>Ter habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:</p>
+
+<ul>
+  <li>Com commandos espeficicos</li>
+  <li>Vendo arquivos no sistema de arquivos especial</li>
+</ul>
+
+<p>Feramentas e utilitarios para listar diversas de informações de hardware (lsusb, lspci, etc.)
+Feramentas e utilitarios para Manipular dispositivos USB
+Entendimento conceitual de <a href="#">sysfs</a>, <a href="#">udev</a>, <a href="#">dbus</a></p>
+
+<p>A seguir uma lista de arquivos, utilitários e termos:</p>
+
+<h4 id="sys">/sys/</h4>
+
+<p>Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinamicas.Esse é um diretorio que é mais focado em <strong>guardar informações de dispositivos de hardware</strong>.</p>
+
+<p>o <code class="highlighter-rouge">/sys/</code> é montado utilizando um tipo de file system chamado de<code class="highlighter-rouge">sysfs</code>. Veja a baixo alguns arquivos desse diretorio:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~$ df -t sysfs -a
+
+Sist.fichs     1K-blocos  Ocup Livres Uso% Montado em
+sysfs                  0     0      0    - /sys
+</code></pre>
+</div>
+
+<p>Veja abaixo o conteudo do diretorio:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>├── block
+│   ├── loop0 -&gt; ../devices/virtual/block/loop0
+│   ├── loop1 -&gt; ../devices/virtual/block/loop1
+│   ├── loop2 -&gt; ../devices/virtual/block/loop2
+│   ├── loop3 -&gt; ../devices/virtual/block/loop3
+│   ├── loop4 -&gt; ../devices/virtual/block/loop4
+│   ├── loop5 -&gt; ../devices/virtual/block/loop5
+│   ├── loop6 -&gt; ../devices/virtual/block/loop6
+│   ├── loop7 -&gt; ../devices/virtual/block/loop7
+│   └── sda -&gt; ../devices/pci0000:00/0000:00:1f.2/ata1/host0/target0:0:0/0:0:0:0/block/sda
+├── bus
+│   ├── acpi
+│   ├── clockevents
+│   ├── clocksource
+│   ├── container
+│   ├── cpu
+│   ├── edac
+│   ├── event_source
+│   ├── gpio
+│   ├── hdaudio
+</code></pre>
+</div>
+
+<h4 id="proc">/proc/</h4>
+
+<p>Guarda informações sobre <strong>processos ativos no sistema e recursos de hardware</strong>. Nesse diretorio ficam arquivos que são cobrados na LPI como o <a href="#">/proc/interrups</a>, <a href="#">/proc/dma</a> e o <a href="#">/proc/ioports</a>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>├── acpi
+├── asound
+├── buddyinfo
+├── bus
+├── cgroups
+├── cmdline
+├── consoles
+├── cpuinfo
+├── crypto
+├── devices
+├── diskstats
+├── dma
+├── driver
+├── execdomains
+├── fb
+├── filesystems
+├── fs
+├── interrupts
+├── iomem
+├── ioports
+├── irq
+├── kallsyms
+├── kcore
+├── keys
+├── key-users
+├── kmsg
+</code></pre>
+</div>
+
+<p>É importante destacar os arquivos <code class="highlighter-rouge">/proc/ioports</code> e o <code class="highlighter-rouge">/proc/interrupts</code></p>
+
+<h4 id="procioports">/proc/ioports</h4>
+
+<p>Esse arquivo contem informações sobre endereços de memória utilizados pela CPU para se comunicar com dispositivos de hardware.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>0000-0000 : PCI Bus 0000:00
+0000-0000 : dma1
+0000-0000 : pic1
+0000-0000 : timer0
+0000-0000 : timer1
+0000-0000 : keyboard
+0000-0000 : PNP0C09:00
+0000-0000 : EC data
+0000-0000 : keyboard
+0000-0000 : PNP0C09:00
+0000-0000 : EC cmd
+0000-0000 : rtc0
+0000-0000 : dma page reg
+0000-0000 : pic2
+0000-0000 : dma2
+0000-0000 : fpu
+0000-0000 : pnp 00:00
+0000-0000 : pnp 00:07
+0000-0000 : PCI conf1
+0000-0000 : PCI Bus 0000:00
+0000-0000 : pnp 00:00
+0000-0000 : pnp 00:00
+0000-0000 : ACPI PM1a_EVT_BLK
+0000-0000 : ACPI PM1a_CNT_BLK
+0000-0000 : ACPI PM_TMR
+0000-0000 : iTCO_wdt.0.auto
+</code></pre>
+</div>
+
+<h4 id="procinterrupts">/proc/interrupts</h4>
+
+<p>IRQ, ou Interrups Requests, são canais de comunicação que são utilizados pelos dispositivos para enviar comandos para a CPU. Esses comandos ou sinais são enviados a CPU e ela tem que parar de fazer o que estiver fazendo a atender a essas requisições. Os canais de número menor tem maior prioridade que os demais.</p>
+
+<p>Veja a tabela abaixo com informações básicas sobre o IRQ:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> IRQ 0  - Timmer do sistema (relógio)
+ IRQ 1  - Teclado
+ IRQ 2  - Cascateador de IRQ
+ IRQ 3  - Portal Serial 2
+ IRQ 4  - Portal Serial 1
+ IRQ 5  - Livre
+ IRQ 6  - Drive de Disquetes
+ IRQ 7  - Porta Paralela
+ IRQ 8  - Relogio da CMOS
+ IRQ 9  - Placa de Video
+ IRQ 10 - Livre
+ IRQ 11 - Controlador USB
+ IRQ 12 - Porta PS/2
+ IRQ 13 - Coprocessador Aritmético
+ IRQ 14 - IDE Primária
+ IRQ 15 - IDE Secundária
+</code></pre>
+</div>
+
+<p>Executando o comando <code class="highlighter-rouge">cat /proc/interrups</code> temos o output abaixo:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>         CPU0       CPU1       CPU2       CPU3       
+  0:         16          0          0          0  IR-IO-APIC   2-edge      timer
+  1:          2       1543      15908       1133  IR-IO-APIC   1-edge      i8042
+  7:          0          0          0          0  IR-IO-APIC   7-fasteoi   INT3432:00, INT3433:00
+  8:          1          0          0          0  IR-IO-APIC   8-edge      rtc0
+  9:        104        115       1280         83  IR-IO-APIC   9-fasteoi   acpi
+ 12:         18       8604     177407      10087  IR-IO-APIC  12-edge      i8042
+ 40:          0          0          0          0  DMAR-MSI   0-edge      dmar0
+ 41:          0          0          0          0  DMAR-MSI   1-edge      dmar1
+ 42:        147        280      23940        358  IR-PCI-MSI 327680-edge      xhci_hcd
+ 43:       8302       2062      59673       2578  IR-PCI-MSI 512000-edge      ahci[0000:00:1f.2]
+ 44:          0          0          0          0  IR-PCI-MSI 1048576-edge      enp2s0
+ 45:        542         79     128084     144606  IR-PCI-MSI 32768-edge      i915
+ 46:          9          5          0          0  IR-PCI-MSI 360448-edge      mei_me
+ 47:        195      62775        136         33  IR-PCI-MSI 524288-edge      ath10k_pci
+ 48:        333        241         10         67  IR-PCI-MSI 442368-edge      snd_hda_intel:card1
+ 49:         60         66         55          2  IR-PCI-MSI 49152-edge      snd_hda_intel:card0
+NMI:         79         93         91         88   Non-maskable interrupts
+LOC:     220605     232216     218771     215687   Local timer interrupts
+SPU:          0          0          0          0   Spurious interrupts
+PMI:         79         93         91         88   Performance monitoring interrupts
+IWI:          0          1          1          0   IRQ work interrupts
+RTR:          1          0          0          0   APIC ICR read retries
+</code></pre>
+</div>
+
+<p>Os números nas colunas <code class="highlighter-rouge">CPUn</code> exibe o numero de vezes que uma requisição é enviada para aquele canal. Pode fazer um teste e apos realizar a digitação de algum texto no teclado e verificar que o número de requisições aumnetou no canal <code class="highlighter-rouge">1</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ cat /proc/interrupts | egrep "^  1:"
+</code></pre>
+</div>
+
+<p>1:        135       2448      27391       2109  IR-IO-APIC   1-edge      i8042</p>
+
+<h4 id="procdma">/proc/dma</h4>
+
+<p>DMA significa Direct Memory Access, ou seja acesso direto a memória, esse arquivo contem endereços de memoria utilizado pelo hardware na qual não precisam do intermedio da CPU para acessa-los. Isso permite uma comunicação mais dinamica uma vez que um interédiario foi removido.</p>
+
+<h3 id="procmeninfo">/proc/meninfo</h3>
+
+<p>Exibe informações de memória</p>
+
+<h3 id="procprocinfo">/proc/procinfo</h3>
+
+<p>Exibe informações de processador</p>
+
+<h4 id="dev">/dev/</h4>
+
+<p>Esse diretorio faz referencias a dispositivos do sistema inclusive de armazenamento. É o processo de nome <code class="highlighter-rouge">udev</code> que monta esses dispositivos que ficam exibidos nesse diretorio</p>
+
+<h3 id="dbus">dbus</h3>
+
+<p>Tem duas funções:</p>
+
+<ul>
+  <li>Realiza a comunicação entre processos</li>
+  <li>Informa aos processos a situação de dispositivos de hardware</li>
+</ul>
+
+<h4 id="modprobe">modprobe</h4>
+
+<h4 id="lsmod">lsmod</h4>
+
+<p>Lista os modulos que estão sendo utilizados pelo sistema. Existe uma coluna que informa se o modulo é utilizado por outros modulos o numero de utilizações..</p>
+
+<h4 id="lspci">lspci</h4>
+
+<p>Lista os dispositivos de hardware que estão no barramento PCI do computador.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ lspci
+
+00:00.0 Host bridge: Intel Corporation Broadwell-U Host Bridge -OPI (rev 09)
+00:02.0 VGA compatible controller: Intel Corporation Broadwell-U Integrated Graphics (rev 09)
+00:03.0 Audio device: Intel Corporation Broadwell-U Audio Controller (rev 09)
+00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
+00:14.0 USB controller: Intel Corporation Wildcat Point-LP USB xHCI Controller (rev 03)
+00:16.0 Communication controller: Intel Corporation Wildcat Point-LP MEI Controller #1 (rev 03)
+00:1b.0 Audio device: Intel Corporation Wildcat Point-LP High Definition Audio Controller (rev 03)
+00:1c.0 PCI bridge: Intel Corporation Wildcat Point-LP PCI Express Root Port #3 (rev e3)
+00:1c.3 PCI bridge: Intel Corporation Wildcat Point-LP PCI Express Root Port #4 (rev e3)
+00:1f.0 ISA bridge: Intel Corporation Wildcat Point-LP LPC Controller (rev 03)
+00:1f.2 SATA controller: Intel Corporation Wildcat Point-LP SATA Controller [AHCI Mode] (rev 03)
+00:1f.3 SMBus: Intel Corporation Wildcat Point-LP SMBus Controller (rev 03)
+01:00.0 Network controller: Qualcomm Atheros QCA6174 802.11ac Wireless Network Adapter (rev 20)
+02:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0c)
+</code></pre>
+</div>
+
+<p>No lado esquerdo do outoput vemos os IDS dos dispositivos e do lado direito uma breve descrição sobre os mesmo. Para ver mais detalhes sobre todos os dispositivos utilizamos a opção <code class="highlighter-rouge">-v</code> ou <code class="highlighter-rouge">-vv</code> para ser mais verboso ainda.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ lspci -v
+
+
+00:00.0 Host bridge: Intel Corporation Broadwell-U Host Bridge -OPI (rev 09)
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Host Bridge -OPI
+        Flags: bus master, fast devsel, latency 0
+        Capabilities: &lt;access denied&gt;
+        Kernel driver in use: bdw_uncore
+
+00:02.0 VGA compatible controller: Intel Corporation Broadwell-U Integrated Graphics (rev 09) (prog-if 00 [VGA controller])
+        DeviceName:  Onboard IGD
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Integrated Graphics
+        Flags: bus master, fast devsel, latency 0, IRQ 45
+        Memory at f6000000 (64-bit, non-prefetchable) [size=16M]
+        Memory at e0000000 (64-bit, prefetchable) [size=256M]
+        I/O ports at f000 [size=64]
+        [virtual] Expansion ROM at 000c0000 [disabled] [size=128K]
+        Capabilities: &lt;access denied&gt;
+        Kernel driver in use: i915
+        Kernel modules: i915
+
+00:03.0 Audio device: Intel Corporation Broadwell-U Audio Controller (rev 09)
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Audio Controller
+        Flags: bus master, fast devsel, latency 0, IRQ 46
+        Memory at f731c000 (64-bit, non-prefetchable) [size=16K]
+        Capabilities: &lt;access denied&gt;
+        Kernel driver in use: snd_hda_intel
+        Kernel modules: snd_hda_intel
+
+00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Processor Thermal Subsystem
+        Flags: fast devsel, IRQ 16
+        Memory at f7310000 (64-bit, non-prefetchable) [size=32K]
+        Capabilities: &lt;access denied&gt;
+        Kernel driver in use: proc_thermal
+        Kernel modules: processor_thermal_device
+</code></pre>
+</div>
+
+<p>Para ver mais informações apenas de um dispositivo especifico utilizamos a opção <code class="highlighter-rouge">-s</code> seguido do ID do dispositivo(o <code class="highlighter-rouge">s</code> seria de seleção)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:~$ lspci -s00:04.0 -v 
+
+
+    00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
+            Subsystem: Samsung Electronics Co Ltd Broadwell-U Processor Thermal Subsystem
+            Flags: fast devsel, IRQ 16
+            Memory at f7310000 (64-bit, non-prefetchable) [size=32K]
+            Capabilities: &lt;access denied&gt;
+            Kernel driver in use: proc_thermal
+            Kernel modules: processor_thermal_device
+</code></pre>
+</div>
+
+<h4 id="lsusb">lsusb</h4>
+
+<p>Lista os dispositivos de hardware que estão no barramento USB do computador. Semelhando ao comando <code class="highlighter-rouge">lspci</code> esse comando com a opção <code class="highlighter-rouge">-v</code> exibe uma saida mais verbosa e tambem com a opção <code class="highlighter-rouge">-s</code> exibe as informações apenas de um dispositivo ** passando o número de BUS e DEVICE**</p>
+
+<p>Listando todos os dispositivos no barramento USB:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~$ lsusb 
+
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 005: ID 0bda:0129 Realtek Semiconductor Corp. RTS5129 Card Reader Controller
+Bus 001 Device 004: ID 2232:1063 Silicon Motion 
+Bus 001 Device 003: ID 0cf3:e300 Atheros Communications, Inc. 
+Bus 001 Device 002: ID 1ea7:0064  
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre>
+</div>
+
+<p>Listando um dispositivo espefico, utilizando <code class="highlighter-rouge">-s bus:device</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~$ lsusb -s001:002
+
+Bus 001 Device 002: ID 1ea7:0064
+</code></pre>
+</div>
+
+<p>Listagem verbosa dos dispositivos:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~$ lsusb -v
+
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Device Descriptor:
+  bLength                18
+  bDescriptorType         1
+  bcdUSB               3.00
+  bDeviceClass            9 Hub
+  bDeviceSubClass         0 Unused
+  bDeviceProtocol         3 
+  bMaxPacketSize0         9
+  idVendor           0x1d6b Linux Foundation
+  idProduct          0x0003 3.0 root hub
+  bcdDevice            4.13
+  iManufacturer           3 
+  iProduct                2 
+  iSerial                 1 
+  bNumConfigurations      1
+  Configuration Descriptor:
+    bLength                 9
+    bDescriptorType         2
+    wTotalLength           31
+    bNumInterfaces          1
+    bConfigurationValue     1
+    iConfiguration          0 
+    bmAttributes         0xe0
+      Self Powered
+      Remote Wakeup
+    MaxPower                0mA
+    Interface Descriptor:
+Couldn't open device, some information will be missing
+      bLength                 9
+      bDescriptorType         4
+      bInterfaceNumber        0
+      bAlternateSetting       0
+      bNumEndpoints           1
+      bInterfaceClass         9 Hub
+Couldn't open device, some information will be missing
+</code></pre>
+</div>
+
+<h2 id="inicializar-o-sistema-peso-3">101.2 Inicializar o Sistema (Peso 3)</h2>
+
+<p>Ter a capacidade de guiar o sistema durante o processo de boot.</p>
+
+<p>Prover comandos comuns para o <code class="highlighter-rouge">boot loader</code> e opções para o Kernel no momento do <code class="highlighter-rouge">boot</code>
+Demonstrar conhecimento da sequencia de <code class="highlighter-rouge">boot</code> da BIOS ate a finalização do boot
+Conhecimento de <code class="highlighter-rouge">SysVinit</code> e <code class="highlighter-rouge">systemd</code>
+Menssagens de <code class="highlighter-rouge">Awareness</code> da inicialização do sistema
+Verificar eventos de <code class="highlighter-rouge">boot</code> nos arquivos de log</p>
+
+<p>Termos e Utilitários:</p>
+
+<h3 id="dmesg1012-inicializar-o-sistemadmesg"><a href="/101.2-Inicializar-o-sistema#dmesg">dmesg</a></h3>
+
+<p>Esse comando exibe informações sobre o boot do sistema com se fosse um log</p>
+
+<h3 id="bios1012-inicializar-o-sistemabios"><a href="/101.2-Inicializar-o-sistema#bios">BIOS</a></h3>
+
+<p>A palavra <code class="highlighter-rouge">BIOS</code> significa Basic Input Output System. E nada mais é que um firmware que guarda as configurações básicas da maquina como data e hora, ordem de dispositivos para o boot, configuraçõs basicas de teclado etc..</p>
+
+<h3 id="bootloader1012-inicializar-o-sistemabootloader"><a href="/101.2-Inicializar-o-sistema#bootloader">bootloader</a></h3>
+
+<h3 id="kernel1012-inicializar-o-sistemakernel"><a href="/101.2-Inicializar-o-sistema#kernel">kernel</a></h3>
+
+<h3 id="initramfs1012-inicializar-o-sistemainitframs"><a href="/101.2-Inicializar-o-sistema#initframs">initramfs</a></h3>
+
+<h3 id="init1012-inicializar-o-sistemainit"><a href="/101.2-Inicializar-o-sistema#init">init</a></h3>
+
+<p>É o sistema que configura o os serviços que rodam no Linux. Ele funciona utilizando o conceito de <code class="highlighter-rouge">runlevels</code>.</p>
+
+<h3 id="sysvinit1012-inicializar-o-sistemasysvinit"><a href="/101.2-Inicializar-o-sistema#SysVinit">SysVinit</a></h3>
+
+<h3 id="systemd1012-inicializar-o-sistemasystemd"><a href="/101.2-Inicializar-o-sistema#systemd">systemd</a></h3>
+
+<h2 id="mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema-peso-3">101.3 Mudar runlevels boot targets e desligar ou reiniciar o sistema (Peso 3)</h2>
+
+<p>Ter a capacidade de gerenciar <code class="highlighter-rouge">SysVinit</code> runlevel or systemd boot target of the system. This objective includes changing to single user mode, shutdown or rebooting the system. Candidatos devem ter a capacidade de  to alert users before switching runlevels / boot targets and properly terminate processes. This objective also includes setting the default SysVinit runlevel or systemd boot target. It also includes awareness of Upstart as an alternative to SysVinit or systemd.</p>
+
+<p>Definir o <code class="highlighter-rouge">runlevel</code> padrão ou o <code class="highlighter-rouge">target</code> do <code class="highlighter-rouge">boot</code></p>
+
+<p>Mudar entre <code class="highlighter-rouge">runlevels</code> e <code class="highlighter-rouge">boot targets</code> incluindo o <code class="highlighter-rouge">single user mode</code></p>
+
+<p>Desligar e reiniciar a maquina pela linha de comando</p>
+
+<p>Alertar usuários antes de mudar de <code class="highlighter-rouge">runlevels</code> ou <code class="highlighter-rouge">boot target</code> ou ate mesmo em outros eventos considerados importantes.</p>
+
+<p>Finalizar processos de modo correto</p>
+
+<p>Termos e Utilitários:</p>
+
+<h3 id="etcinittab1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">/etc/inittab</a></h3>
+
+<p>Esse arquivo contem informações sobre o runlevel padrão do sistema</p>
+
+<h3 id="shutdown1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">shutdown</a></h3>
+
+<p>Esse comando realiza o desligamento da maquina:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$~ shutdown now
+</code></pre>
+</div>
+
+<p>O comando acima  desliga a maquina imediatamente</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$~ shutdown now -r
+</code></pre>
+</div>
+
+<p>O parametro <code class="highlighter-rouge">-r</code> reinicia a maquina</p>
+
+<p>COLOCAR AQUI OUTRAS FORMAS DE DESLIGAR COM TEMPO ETC….</p>
+
+<h3 id="init1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">init</a></h3>
+
+<p>Esse comando realiza a alteração de run level</p>
+
+<h3 id="etcinitd1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">/etc/init.d/</a></h3>
+
+<h3 id="telinit1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">telinit</a></h3>
+
+<p>Esse comando realiza a alteração de run level</p>
+
+<h3 id="systemd1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">systemd</a></h3>
+
+<h3 id="systemctl1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">systemctl</a></h3>
+
+<h3 id="etcsystemd1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">/etc/systemd/</a></h3>
+
+<h3 id="usrlibsystemd1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">/usr/lib/systemd/</a></h3>
+
+<h3 id="wall1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">wall</a></h3>
+
+<p>Esse comando realiza o envio de mensagem para todos os usuários logados no sistema</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Livro LPIC 101 - O Curso</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Livro LPIC 101 - O Curso</li>
+          <li><a href="mailto:alfredorodruguesbraga@gmail.com">alfredorodruguesbraga@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/alphabraga"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">alphabraga</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/alphabraga"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">alphabraga</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
