@@ -11,6 +11,7 @@
 ">
 
   <link rel="stylesheet" href="/lpic1/css/main.css">
+  <link rel="stylesheet" href="/lpic1/css/prism.css">
   <link rel="canonical" href="/lpic1/103/103.5-criar-monitorar-e-matar-processos">
   <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/lpic1/feed.xml">
 </head>
@@ -34,6 +35,10 @@
       </a>
 
       <div class="trigger">
+        
+          
+        
+          
         
           
         
@@ -88,7 +93,127 @@
   </header>
 
   <div class="post-content">
-    
+    <h2 id="bash">bash</h2>
+
+<p>O bash é o nome do tipo de shell que estamos utilizando. O <code class="highlighter-rouge">bash</code>, tambem conhecido como Bourne Again Shell é o que é cobrado na LPI. Existem outros tipos de shell como <code class="highlighter-rouge">csh</code>, <code class="highlighter-rouge">sh</code>, <code class="highlighter-rouge">ksh</code>.</p>
+
+<h2 id="executando-comandos-em-sequencia">Executando comandos em sequencia</h2>
+
+<p>O shell tambem tem a opção de executar os comandos em sequencia. E para isso nós utilizamos os operadores:</p>
+
+<h4 id="esse-operador-permite-a-execuo-em-sequencia-dos-comandos-os-comandos-so-simplesmnete-executados-no-importando-se-eles-eso-corretos-ou-ate-mesmo-sua-execuo-foi-realizada-com-sucesso-como-no-exemplo-abaixo"><code class="highlighter-rouge">;</code> : esse operador permite a execução em sequencia dos comandos, os comandos são simplesmnete executados não importando se eles esão corretos ou ate mesmo sua execução foi realizada com sucesso. Como no exemplo abaixo:</h4>
+
+<p>Comandos executados em sequencia</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ comando1; comando2; comando3
+</code></pre>
+</div>
+
+<h3 id="s-executa-o-proximo-comando-caso-o-anterior-tenha-sido-executado-com-sucesso"><code class="highlighter-rouge">&amp;&amp;</code> : Só executa o proximo comando caso o anterior tenha sido executado com sucesso</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina: dsdddddddddddddddddddddd
+</code></pre>
+</div>
+
+<h2 id="echo">echo</h2>
+
+<p>Imprime uma string na tela</p>
+
+<h2 id="env">env</h2>
+
+<p>Lista todas as variáveis de ambiente (environment) setadas:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:~ env #lista todos as variaveis de ambiente
+</code></pre>
+</div>
+
+<p>Você pode tambem usar o comando <code class="highlighter-rouge">printenv</code> para exibir a mesma informação.</p>
+
+<p>Para remover uma variável utilizamos o comando:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ unset NOMEVAR
+</code></pre>
+</div>
+
+<h2 id="export">export</h2>
+
+<p>Coloca uma variável no ambiente, para colocar ela definitivamente no enviroment você deve colocar esse export dentro de .bash_profile ou em /etc/environment .</p>
+
+<h2 id="pwd">pwd</h2>
+
+<p>pwd significa <code class="highlighter-rouge">print working directory</code>, ou seja, exibir o diretorio corrente</p>
+
+<h2 id="set">set</h2>
+
+<p>O comando <code class="highlighter-rouge">set</code> quando executado sem parametros imprime variáveis de ambiente e variáveis locais além de funcões. O output dele é bem maior comparado ao <code class="highlighter-rouge">env</code>.</p>
+
+<p>Acho que isso tá errado!!
+<strong>Comando relacionado com a capacidade de evitar sobrescrita de arquivos.</strong></p>
+
+<h2 id="man">man</h2>
+
+<p>Exibe os manuais dos comandos exemplo:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>man cp
+</code></pre>
+</div>
+
+<p>Os dados refentes aos manuais ficam no diretorio /usr/share/man</p>
+
+<h2 id="uname">uname</h2>
+
+<p>Exibe dados do so. Como versão do kernel distribuicao etc.</p>
+
+<p>Com o parametro <code class="highlighter-rouge">-a</code> todas as informações, o <code class="highlighter-rouge">a</code> é de <code class="highlighter-rouge">all</code> .</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ uname -a
+
+Linux sharp 4.13.0-37-generic #42~16.04.1-Ubuntu SMP Wed Mar 7 16:03:28 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+</div>
+
+<p>Só a informação a respeito do release informe o <code class="highlighter-rouge">-r</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ uname -r
+
+4.13.0-37-generic
+</code></pre>
+</div>
+
+<h2 id="history">history</h2>
+
+<p>O comando history é um comando interno do bash. Ele lista o conteudo do ~/.bash_history númerando as linhas. do output.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$
+
+1115  ldd jekyll 
+1116  whereis jekyll 
+1117  ldd /usr/bin/jekyll
+1118  whereis java
+1119  ldd /usr/bin/java
+1120  whatis ldd
+1121  exit
+1122  cd Projects/my-awesome-site/
+1123  jekyll serve
+1124  whereis ln
+1125  ldd /bin/ln
+1126  locate sln
+1127  sln
+1128  cd /lib64/
+1129  ls -la
+1130  cat ld-linux-x86-64.so.2 
+1131  q!
+1132  sudo aptitude update
+</code></pre>
+</div>
+
+<h2 id="bashhistory">.bash_history</h2>
+
+<p>É o arquivo que contem o historico dos comandos. É esse aquivo que exibido pelo comando <code class="highlighter-rouge">history</code> .</p>
+
+<h3 id="diferena-entre-bashrc-e-bashprofile">Diferença entre .bashrc e .bash_profile</h3>
+
+<p>O .bash_profile é executado quando é realizado o login no bash, já o .bashrc é executado sempre se abre o bash dentro do gnome. é comum ver distribuições que colocam no final do arquivo .bash_profile o comando “source ~/.bashrc” dessa forma variáveis e configrações definidas em ambos os arquivos ficam disponiveis.</p>
 
   </div>
 
@@ -142,6 +267,7 @@
 </footer>
 
 
+  <script type="text/javascript" src="/lpic1/js/prism.js" ></script>  
   </body>
 
 </html>

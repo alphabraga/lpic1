@@ -6,11 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>102.3 Gerenciar Bibliotecas Compartilhadas</title>
+  <title>102.3 Gerenciar Bibliotecas Compartilhadas (Peso 1)</title>
   <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
   <link rel="stylesheet" href="/lpic1/css/main.css">
+  <link rel="stylesheet" href="/lpic1/css/prism.css">
   <link rel="canonical" href="/lpic1/102/102.3-nstalacao-do-linux-e-gerenciamento-de-pacotes">
   <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/lpic1/feed.xml">
 </head>
@@ -34,6 +35,10 @@
       </a>
 
       <div class="trigger">
+        
+          
+        
+          
         
           
         
@@ -84,17 +89,18 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">102.3 Gerenciar Bibliotecas Compartilhadas</h1>
+    <h1 class="post-title">102.3 Gerenciar Bibliotecas Compartilhadas (Peso 1)</h1>
   </header>
 
   <div class="post-content">
-    <p>Ter a capacidade de determinar que bibliotecas comparilhadas programas dependem e instalar uma se necessário.</p>
+    <p>Esse tópico vai abordar a capacidade de determinar que bibliotecas comparilhadas programas dependem e instalar uma se necessário.</p>
 
-<h3 id="identificar-bibliotecas-compartilhadas">Identificar bibliotecas compartilhadas</h3>
+<h2 id="identificar-bibliotecas-compartilhadas">Identificar bibliotecas compartilhadas</h2>
 
 <p>Para ideitificar que bibliotecas comparilhadas um determinado executável utiliza basta digitar o comando <code class="highlighter-rouge">ldd</code>, como no exemplo abaixo:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:~$ ldd /usr/bin/java
+
 	linux-vdso.so.1 =&gt;  (0x00007fff45dcf000)
 	libjli.so =&gt; not found
 	libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007fea0f3ae000)
@@ -102,9 +108,9 @@
 </code></pre>
 </div>
 
-<h3 id="identificar-locais-tpicos-de-bibliotecas-compartilhadas">Identificar locais típicos de bibliotecas compartilhadas</h3>
+<h2 id="locais-tpicos-de-bibliotecas-compartilhadas">Locais típicos de bibliotecas compartilhadas</h2>
 
-<h3 id="carregar-bibliotecas-compartilhadas">Carregar bibliotecas compartilhadas</h3>
+<h2 id="carregar-bibliotecas-compartilhadas">Carregar bibliotecas Compartilhadas</h2>
 
 <p>Termos e Utilitários:</p>
 
@@ -167,6 +173,7 @@
 </footer>
 
 
+  <script type="text/javascript" src="/lpic1/js/prism.js" ></script>  
   </body>
 
 </html>

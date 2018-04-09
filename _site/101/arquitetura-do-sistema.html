@@ -11,6 +11,7 @@
 ">
 
   <link rel="stylesheet" href="/lpic1/css/main.css">
+  <link rel="stylesheet" href="/lpic1/css/prism.css">
   <link rel="canonical" href="/lpic1/101/arquitetura-do-sistema">
   <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/lpic1/feed.xml">
 </head>
@@ -34,6 +35,10 @@
       </a>
 
       <div class="trigger">
+        
+          
+        
+          
         
           
         
@@ -88,33 +93,33 @@
   </header>
 
   <div class="post-content">
-    <h3 id="visualize-e-configure-definies-de-hardware-peso-2">101.1 Visualize e configure definições de hardware (Peso 2)</h3>
+    <h2 id="visualize-e-configure-definies-de-hardware-peso-2">101.1 Visualize e configure definições de hardware (Peso 2)</h2>
 
 <p>Ter habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:</p>
 
 <ul>
-  <li>Com commandos espeficicos</li>
+  <li>Com comandos espeficicos</li>
   <li>Vendo arquivos no sistema de arquivos especial</li>
 </ul>
 
-<p>Feramentas e utilitarios para listar diversas de informações de hardware (lsusb, lspci, etc.)
-Feramentas e utilitarios para Manipular dispositivos USB
+<p>Feramentas e utilitários para listar diversas de informações de hardware (lsusb, lspci, etc.)
+Feramentas e utilitários para Manipular dispositivos USB
 Entendimento conceitual de <a href="#">sysfs</a>, <a href="#">udev</a>, <a href="#">dbus</a></p>
 
 <p>A seguir uma lista de arquivos, utilitários e termos:</p>
 
-<h4 id="sys">/sys/</h4>
+<h3 id="sys">/sys/</h3>
 
 <p>Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinamicas.Esse é um diretorio que é mais focado em <strong>guardar informações de dispositivos de hardware</strong>.</p>
 
 <p>o <code class="highlighter-rouge">/sys/</code> é montado utilizando um tipo de file system chamado de<code class="highlighter-rouge">sysfs</code>. Veja a baixo alguns arquivos desse diretorio:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~$ df -t sysfs -a
-
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>df -t sysfs -a
 Sist.fichs     1K-blocos  Ocup Livres Uso% Montado em
 sysfs                  0     0      0    - /sys
-</code></pre>
-</div>
+</code>
+</pre>
 
 <p>Veja abaixo o conteudo do diretorio:</p>
 
@@ -264,13 +269,13 @@ RTR:          1          0          0          0   APIC ICR read retries
 
 <p>Os números nas colunas <code class="highlighter-rouge">CPUn</code> exibe o numero de vezes que uma requisição é enviada para aquele canal. Pode fazer um teste e apos realizar a digitação de algum texto no teclado e verificar que o número de requisições aumnetou no canal <code class="highlighter-rouge">1</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ cat /proc/interrupts | egrep "^  1:"
-</code></pre>
-</div>
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>cat /proc/interrupts | egrep "^  1:"
+  1:        135       2448      27391       2109  IR-IO-APIC   1-edge      i8042
+</code>
+</pre>
 
-<p>1:        135       2448      27391       2109  IR-IO-APIC   1-edge      i8042</p>
-
-<h4 id="procdma">/proc/dma</h4>
+<h3 id="procdma">/proc/dma</h3>
 
 <p>DMA significa Direct Memory Access, ou seja acesso direto a memória, esse arquivo contem endereços de memoria utilizado pelo hardware na qual não precisam do intermedio da CPU para acessa-los. Isso permite uma comunicação mais dinamica uma vez que um interédiario foi removido.</p>
 
@@ -594,6 +599,7 @@ Verificar eventos de <code class="highlighter-rouge">boot</code> nos arquivos de
 </footer>
 
 
+  <script type="text/javascript" src="/lpic1/js/prism.js" ></script>  
   </body>
 
 </html>

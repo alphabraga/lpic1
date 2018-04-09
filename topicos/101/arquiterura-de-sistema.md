@@ -4,29 +4,33 @@ title: 101 Arquiterura do Sistema
 permalink: /101/arquitetura-do-sistema
 ---
 
-### 101.1 Visualize e configure definições de hardware (Peso 2)
+## 101.1 Visualize e configure definições de hardware (Peso 2)
 
 Ter habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:
 
-* Com commandos espeficicos
+* Com comandos espeficicos
 * Vendo arquivos no sistema de arquivos especial
 
-Feramentas e utilitarios para listar diversas de informações de hardware (lsusb, lspci, etc.)
-Feramentas e utilitarios para Manipular dispositivos USB
+Feramentas e utilitários para listar diversas de informações de hardware (lsusb, lspci, etc.)
+Feramentas e utilitários para Manipular dispositivos USB
 Entendimento conceitual de [sysfs](#), [udev](#), [dbus](#)
 
 A seguir uma lista de arquivos, utilitários e termos:
 
-#### /sys/
+### /sys/
 
 Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinamicas.Esse é um diretorio que é mais focado em **guardar informações de dispositivos de hardware**.
 
 o `/sys/` é montado utilizando um tipo de file system chamado de`sysfs`. Veja a baixo alguns arquivos desse diretorio:
 
-    alphabraga@sharp:~$ df -t sysfs -a
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>df -t sysfs -a
+Sist.fichs     1K-blocos  Ocup Livres Uso% Montado em
+sysfs                  0     0      0    - /sys
+</code>
+</pre>
 
-    Sist.fichs     1K-blocos  Ocup Livres Uso% Montado em
-    sysfs                  0     0      0    - /sys
+
 
 Veja abaixo o conteudo do diretorio:
 
@@ -174,12 +178,15 @@ Executando o comando `cat /proc/interrups` temos o output abaixo:
 
 Os números nas colunas `CPUn` exibe o numero de vezes que uma requisição é enviada para aquele canal. Pode fazer um teste e apos realizar a digitação de algum texto no teclado e verificar que o número de requisições aumnetou no canal `1`
 
-    usuario@maquina:$ cat /proc/interrupts | egrep "^  1:"
 
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>cat /proc/interrupts | egrep "^  1:"
   1:        135       2448      27391       2109  IR-IO-APIC   1-edge      i8042
+</code>
+</pre>
 
 
-#### /proc/dma
+### /proc/dma
 
 DMA significa Direct Memory Access, ou seja acesso direto a memória, esse arquivo contem endereços de memoria utilizado pelo hardware na qual não precisam do intermedio da CPU para acessa-los. Isso permite uma comunicação mais dinamica uma vez que um interédiario foi removido.
 

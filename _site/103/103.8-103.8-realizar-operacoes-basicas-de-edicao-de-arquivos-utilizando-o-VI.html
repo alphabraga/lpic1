@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>104 Dispositivos LInux Sistema de Arquivo FHS</title>
+  <title>Realizar operações básicas de edição de arquivos utilizando o VI (Peso 3)</title>
   <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
   <link rel="stylesheet" href="/lpic1/css/main.css">
   <link rel="stylesheet" href="/lpic1/css/prism.css">
-  <link rel="canonical" href="/lpic1/104/dispositivos-linux-sistema-de-arquivo-fhs">
+  <link rel="canonical" href="/lpic1/103/103.8-103.8-realizar-operacoes-basicas-de-edicao-de-arquivos-utilizando-o-VI">
   <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/lpic1/feed.xml">
 </head>
 
@@ -89,65 +89,68 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">104 Dispositivos LInux Sistema de Arquivo FHS</h1>
+    <h1 class="post-title">Realizar operações básicas de edição de arquivos utilizando o VI (Peso 3)</h1>
   </header>
 
   <div class="post-content">
-    <h2 id="bash">bash</h2>
+    <p>Ter a capacidade de editar arquivos de texto utilizado o VI. Esse tópico tambem inclui a navegação utilizando o VI, modos do VI, inserindo, editando, excluindo, copiando e encontrando.</p>
 
-<h2 id="echo">echo</h2>
+<h2 id="vi"><a href="#">vi</a></h2>
 
-<p>Imprime uma string na tela</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis molestie sit amet erat vel aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla facilisi. Aliquam malesuada non erat ut imperdiet. Aliquam et fringilla dolor. Morbi turpis quam, mattis in cursus non, posuere feugiat nibh. Donec ac est nisi. Proin pellentesque faucibus tristique.</p>
 
-<h2 id="env">env</h2>
+<p>Integer ut urna imperdiet, tempus lacus a, congue dui. Vivamus lacinia ac diam vitae ornare. Aenean vitae massa tellus. Vestibulum placerat, erat at dictum bibendum, est elit sagittis erat, sed maximus lacus justo porta sapien. Praesent dignissim nibh odio. Curabitur a ipsum sed justo fermentum rhoncus. Fusce eget justo vitae quam facilisis egestas ut at tellus. Integer pretium magna non est sagittis, quis tincidunt eros tincidunt. In in justo aliquet, tincidunt metus eget, pulvinar nibh. Quisque risus elit, viverra non venenatis in, convallis vel erat.</p>
 
-<p>Lista todas as variáveis de ambiente (environment) setadas:</p>
+<h2 id="section"><a href="#">/, ?</a></h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$alphabraga@vortex:~ env #lista todos as variaveis de ambiente
-</code></pre>
-</div>
+<p>O VI em modo de visualização tem acapacidade derealiozar busca por caracteres basta digitar <code class="highlighter-rouge">Esc</code> e digitar <code class="highlighter-rouge">/</code> e fazer a sua busca ao final digite <code class="highlighter-rouge">Enter</code>. O cursor ficara em cima da primeira ocorrência para ir para a proxima ocorrencia digite <code class="highlighter-rouge">n</code> e para a anterior digite <code class="highlighter-rouge">N</code>. O <code class="highlighter-rouge">?</code> faz exatamente a mesma coisa só que ordem inversa. A busca começa no fim do documento e termina no topo, e com o <code class="highlighter-rouge">n</code> você sobre o arquivo e com <code class="highlighter-rouge">N</code> voce desce.</p>
 
-<p>Você pode tambem usar o comando printenv para exibir a mesma informação</p>
+<h2 id="hjkl"><a href="#">h,j,k,l</a></h2>
 
-<p>Altera o valor de uma variável de ambiente,</p>
+<p>Esses caracteres funcionam no modo de visualização da mesma forma que as setas do teclado.</p>
 
-<p>Para remover uma variável utilizamos o comando:</p>
+<table class="table"> 
+<thead>
+<th>H</th>
+<th>J</th>
+<th>K</th>
+<th>L</th> 
+</thead>
+<tbody>
+<tr>
+<td>ESQUERDA</td>
+<td>BAIXO</td>
+<td>CIMA</td>
+<td>DIREITA</td>
+</tr>
+</tbody>
+</table>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>unset NOMEVAR
-</code></pre>
-</div>
+<h2 id="i-o-a"><a href="#">i, o, a</a></h2>
 
-<h2 id="export">export</h2>
+<p>Os carcteres <code class="highlighter-rouge">i</code>, <code class="highlighter-rouge">o</code> e <code class="highlighter-rouge">a</code> saem do modo de visualização e entram em modo de inserção de texto.</p>
 
-<p>Coloca uma variavel no ambiente, para colocar ela definitivamente no enviroment voce deve coloca esse export dentro de .bash_profile ou em /etc/environment</p>
+<p>Com o <code class="highlighter-rouge">i</code> o cursor fica onde esta.</p>
 
-<h2 id="pwd">pwd</h2>
+<p>Com o <code class="highlighter-rouge">o</code> o cursor quebra uma linha e então podemos digitar nessa nova linha.</p>
 
-<p>pwd significa print working directory, ou seja, exibir o diretorio corrente</p>
+<p>Com o <code class="highlighter-rouge">a</code> o cursor avança 1 caracter e então podemos digitar.</p>
 
-<h2 id="set">set</h2>
+<h2 id="c-d-p-y-dd-yy"><a href="#">c, d, p, y, dd, yy</a></h2>
 
-<p>Comando relacionado com a capacidade de evitar sobrescrita de arquivos.</p>
+<p>Sed efficitur faucibus velit vitae venenatis. Proin efficitur felis at accumsan hendrerit. Pellentesque sed fermentum tortor, eu imperdiet ligula. Ut pharetra odio quis cursus fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut nunc ligula, blandit commodo porta convallis, sodales convallis risus. Sed commodo, arcu sed venenatis dapibus, leo neque pellentesque erat, eu ultrices elit nulla et velit.</p>
 
-<h2 id="man">man</h2>
+<p>Sed efficitur faucibus velit vitae venenatis. Proin efficitur felis at accumsan hendrerit. Pellentesque sed fermentum tortor, eu imperdiet ligula. Ut pharetra odio quis cursus fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut nunc ligula, blandit commodo porta convallis, sodales convallis risus. Sed commodo, arcu sed venenatis dapibus, leo neque pellentesque erat, eu ultrices elit nulla et velit.</p>
 
-<p>Exibe os manuais dos comandos exemplo:</p>
+<h2 id="zz-w-q-e"><a href="#">ZZ, :w!, :q!, :e!</a></h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>man cp
-</code></pre>
-</div>
+<p>O <code class="highlighter-rouge">:ZZ</code> salva e fecha o arquivo, da mesma forma que o <code class="highlighter-rouge">:x</code> porem o <code class="highlighter-rouge">:x</code> aceita um nome de arquivo para sobreescrever sem que o vi faça nenhuma pergunta.</p>
 
-<h2 id="uname">uname</h2>
+<p>O <code class="highlighter-rouge">:w!</code> escreve no arquivo sem preguntar nada. Esse comando também recebe o parametro com o nome do arquivo.</p>
 
-<p>Exibe dados do so. Como versão do kernel distribuicao etc.</p>
+<p>O <code class="highlighter-rouge">:q!</code> sai do editor sem salvar nada e sem perguntar nada</p>
 
-<h2 id="history">history</h2>
-
-<h2 id="bashhistory">.bash_history</h2>
-
-<h3 id="diferena-entre-bashrc-e-bashprofile">Diferença entre .bashrc e .bash_profile</h3>
-
-<p>O .bash_profile é executado quando é realizado o login no bash, já o bashrc é executado sempre se abre o bash dentro do gnome. é comum ver distrbuiçõies que colocam no final do arquivo .bash_profile o comando “source ~/.bashrc” dessa forma variaveis configrações definidas em ambos os arquivos ficam disponiveis</p>
+<p>o <code class="highlighter-rouge">:e! &lt;nomedo-arquvo&gt;</code> da mesma forma que o <code class="highlighter-rouge">:e &lt;nomedo-arquvo&gt;</code> edita um arquivo sem sair do VI mas com o <code class="highlighter-rouge">!</code> o buffer é desconsiderado.</p>
 
   </div>
 

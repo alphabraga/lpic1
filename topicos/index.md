@@ -24,9 +24,9 @@ order: 2
   * [103.3 Realizar gerenciamento básico de arquivos (Peso 4)](/lpic1/103/103.3-realizar-gerenciamento-basico-de-arquivos)
   * [103.4 Utilizar fluxos, pipes e redirecionamentos (Peso 4)](/lpic1/103/103.4-utilizar-fluxos-pipes-e-redirecionamentos)
   * [103.5 Criar, monitorar e matar processos (Peso 4)](/lpic1/103/103.5-criar-monitorar-e-matar-processos)
-  * [103.6 Alterar a prioridade de execução de processos (Peso 2)](#)
+  * [103.6 Alterar a prioridade de execução de processos (Peso 2)](/lpic1/103/103.6-alterar-a-prioridade-de-execucao-de-processos)
   * [103.7 Buscar texto em arquivos usando expressões regulares (Peso 2)](/lpic1/103/103.7-buscando-texto-em-arquivos-usando-expressoes-regulares)
-  * [103.8 Realizar operações básicas de edição de arquivos utilizando o vi (Peso 3)](#)
+  * [103.8 Realizar operações básicas de edição de arquivos utilizando o VI (Peso 3)](/lpic1/103/103.8-103.8-realizar-operacoes-basicas-de-edicao-de-arquivos-utilizando-o-VI)
 
 * [104: Dispositivos, Linux Sistema de Arquivos, `Filesystem Hierarchy Standard` (Peso 15)](/lpic1/104/dispositivos-linux-sistema-de-arquivo-fhs)
   * [104.1 Criar partições e sistema de arquivos (Peso 2)](#)
@@ -35,7 +35,7 @@ order: 2
   * [104.4 Gerenciar cotas de disco (Peso 1)](#)
   * [104.5 Gerenciar permissões e `ownership` de arquivos (Peso 3)](#)
   * [104.6 Criar e mudar links `hard` e `symbolic` (Peso 2)](#)
-  * [104.7 Encontrar arquivos de sistema e coocar arquivos na localização correta (Peso 2)](#)
+  * [104.7 Encontrar arquivos de sistema e colocar arquivos na localização correta (Peso 2)](#)
 
 
   
