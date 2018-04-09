@@ -14,7 +14,7 @@ order: 2
 * [102: Instalação do Linux e Gerenciamento de Pacotes (Peso 10)](/lpic1/102/instalacao-do-linux-e-gerenciamento-de-pacotes)
   * [102.1 Design hard disk layout (Peso 2)](#)
   * [102.2 Instalar um gerenciador de boot (Peso 2)](#)
-  * [102.3 Gerenciar bibliotecas compartilhadas (Peso 1)](/lpic1/102/102.3-nstalacao-do-linux-e-gerenciamento-de-pacotes)
+  * [102.3 Gerenciar bibliotecas compartilhadas (Peso 1)](/lpic1/102/102.3-instalacao-do-linux-e-gerenciamento-de-pacotes)
   * [102.4 Utilização do gerenciador de pacotes do Debian (Peso 3)](#)
   * [102.5 Utilizar o RPM e o gerenciador de pacotes YUM (Peso 3)](#)
 
