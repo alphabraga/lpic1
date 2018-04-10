@@ -93,33 +93,150 @@
   </header>
 
   <div class="post-content">
-    <p>Descrição: Candidatos devem ter a capacidade de  to perform basic process management.</p>
+    <p>Ter a capacidade de realizar gerenciamento de báciso de processos.</p>
 
-<p>Areas Chave de Conhecimento:</p>
+<p>Executar processos em <code class="highlighter-rouge">foreground</code> e <code class="highlighter-rouge">background</code>.
+Fazer com que um progtrama continue sua execução mesmo apos o logoff do usuário que executou o mesmo
+Monitorar processos ativos
+Selecionae e ordenar procesos para a visualização
+Enviar sinais para processos</p>
 
-<p>Run jobs in the foreground and background
-Signal a program to continue running after logout
-Monitor active processes
-Select and sort processes for display
-Send signals to processes
-Termos e Utilitários:</p>
+<h2 id="section">&amp;</h2>
 
-<ul>
-  <li><a href="#">&amp;</a></li>
-  <li><a href="#">bg</a></li>
-  <li><a href="#">fg</a></li>
-  <li><a href="#">jobs</a></li>
-  <li><a href="#">kill</a></li>
-  <li><a href="#">nohup</a></li>
-  <li><a href="#">ps</a></li>
-  <li><a href="#">top</a></li>
-  <li><a href="#">free</a></li>
-  <li><a href="#">uptime</a></li>
-  <li><a href="#">pgrep</a></li>
-  <li><a href="#">pkill</a></li>
-  <li><a href="#">killall</a></li>
-  <li><a href="#">screen</a></li>
-</ul>
+<p>Ao executar um comando podemos colocar um <code class="highlighter-rouge">&amp;</code> no final do comando para colocar o mesmo em execução em <code class="highlighter-rouge">background</code>. Abaixo podemos observar que o comando <code class="highlighter-rouge">ping</code> esta sendo executado em <code class="highlighter-rouge">background</code>, porem o output do comando continua saindo para p terminal. O que de certa forma pode prejudicar a execução de outros comandos, já que a intenção é mandar um determinado comando para ser execudo em background e ficar com o <code class="highlighter-rouge">bash</code> para a execução de outros comandos.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>ping 127.0.0.1  &amp; </code>
+[1] 4364
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.041 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.053 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.054 ms
+64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.067 ms
+</pre>
+
+<p>Para contornar essa situação podemos colocar todos as saídas para o <code class="highlighter-rouge">/dev/null</code> e assim o terminal fica livre.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>ping 127.0.0.1 &amp;&gt; /dev/null &amp;</code>
+[1] 4364
+</pre>
+
+<h2 id="jobs">jobs</h2>
+
+<p>Comando <code class="highlighter-rouge">jobs</code> exibe todos os comando em execução em background</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>jobs</code>
+[1]-  Executando              ping 8.8.8.8 &amp;&gt; /dev/null &amp;
+[2]+  Executando              ping 127.0.0.1 &amp;&gt; /dev/null &amp;
+</pre>
+
+<p>Com a opção <code class="highlighter-rouge">-l</code> são exibidos os PIDS dos processos.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>jobs -l</code>
+[1]-  6005 Executando              ping 127.0.0.1 &amp;&gt; /dev/null &amp;
+[2]+  6007 Executando              ping 8.8.8.8 &amp;&gt; /dev/null &amp;
+</pre>
+
+<h2 id="bg">bg</h2>
+
+<p>O comando bg joga um comando para background. Ao executar o comando <code class="highlighter-rouge">gnome-calculator</code> o mesmo fica ocupando a sessão do terminal impedindo a execução de outros comandos. Mas podemos fazer a uma pausa em sua execução utilizando as teclas <code class="highlighter-rouge">CTRL+Z</code>, dessa forma o comando sera <code class="highlighter-rouge">STOPED</code> como podemos ver abaixo:</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>gnome-calulator</code>
+^Z
+[3]+  Parado                  gnome-calculator
+</pre>
+
+<p>Podemos observar que o mesmo esta parado</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>jobs -l</code>
+[1]   6005 Executando              ping 127.0.0.1 &amp;&gt; /dev/null &amp;
+[2]-  6007 Executando              ping 8.8.8.8 &amp;&gt; /dev/null &amp;
+[3]+  6855 Parado                  gnome-calculator
+</pre>
+
+<p>Executando o comando <code class="highlighter-rouge">bg</code> o mesmo é jogado em background e sua execução é continuada.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>bg</code>
+</pre>
+
+<p>Nesse caso podemos utilizar o <code class="highlighter-rouge">bg +</code> ou ate mesmo o <code class="highlighter-rouge">bg 3</code>, como no fg.</p>
+
+<h2 id="fg">fg</h2>
+
+<p>O comando <code class="highlighter-rouge">fg</code> pega um comando que esta em background e joga o mesmo para o foreground.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>jobs</code>
+[1]-  Executando              ping 8.8.8.8 &amp;&gt; /dev/null &amp;
+[2]+  Executando              ping 127.0.0.1 &amp;&gt; /dev/null &amp;
+<code>fg %1</code>
+ping 8.8.8.8 &amp;&gt; /dev/null
+</pre>
+
+<p>O sinal de <code class="highlighter-rouge">%</code> pode ser omitido docomando bg.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>jobs</code>
+[1]-  Executando              ping 8.8.8.8 &amp;&gt; /dev/null &amp;
+[2]+  Executando              ping 127.0.0.1 &amp;&gt; /dev/null &amp;
+<code>fg 1</code>
+ping 8.8.8.8 &amp;&gt; /dev/null
+</pre>
+
+<p>Podemos também chamar um determinado comando usando o sinal de <code class="highlighter-rouge">+</code> ou <code class="highlighter-rouge">-</code>. Dessa forma com o <code class="highlighter-rouge">+</code>:</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>fg +</code>
+ping 127.0.0.1 &amp;&gt; /dev/null
+</pre>
+
+<p>Com o <code class="highlighter-rouge">-</code>:</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>fg -</code>
+ping 8.8.8.8 &amp;&gt; /dev/null
+</pre>
+
+<h2 id="kill">kill</h2>
+
+<h2 id="nohup">nohup</h2>
+
+<p>O comando <code class="highlighter-rouge">nohup</code> ignora o sinal de <code class="highlighter-rouge">HUP</code> (hang up), fazendo com que seja possivel executar comandos em background ate mesmo se o terminal acabar, no caso um logoff.</p>
+
+<p>O comando abaixo vai continuar em execução mesmo que o terminal seja fechado ou o usuário faça logoff.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>nohup ping 127.0.0.1 &amp;&gt; /dev/null &amp;</code>
+[1] 4364
+</pre>
+
+<h2 id="ps">ps</h2>
+
+<p>Exibe informações sobre processos em execução.</p>
+
+<h2 id="top">top</h2>
+
+<p>Exibe informações sobre processos em execução.</p>
+
+<h2 id="free">free</h2>
+
+<p>Exibe informações sobre a memória volátil do sistema.</p>
+
+<h2 id="uptime">uptime</h2>
+
+<h2 id="pgrep">pgrep</h2>
+
+<h2 id="pkill">pkill</h2>
+
+<h2 id="killall">killall</h2>
+
+<h2 id="screen">screen</h2>
 
   </div>
 
