@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Realizar operações básicas de edição de arquivos utilizando o VI (Peso 3)
-permalink: /103/103.8-103.8-realizar-operacoes-basicas-de-edicao-de-arquivos-utilizando-o-VI
+permalink: /103/103-realizar-operacoes-basicas-de-edicao-de-arquivos-utilizando-o-VI
 ---
 
 Ter a capacidade de editar arquivos de texto utilizado o VI. Esse tópico tambem inclui a navegação utilizando o VI, modos do VI, inserindo, editando, excluindo, copiando e encontrando.

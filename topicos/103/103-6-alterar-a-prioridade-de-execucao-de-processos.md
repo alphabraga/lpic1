@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 103.6 Alterar a Prioridade de Execução de Processos (Peso 2)
-permalink: /103/103.6-alterar-a-prioridade-de-execucao-de-processos
+permalink: /103/103-6-alterar-a-prioridade-de-execucao-de-processos
 ---
 
 Candidatos devem ter a capacidade de gerenciar a prioridade de processos.

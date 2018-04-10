@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 103.6 Alterar a Prioridade de Execução de Processos (Peso 2)
-permalink: 103/103.6-realizar-gerenciamento-basico-de-arquivos
+permalink: 103/103-3-realizar-gerenciamento-basico-de-arquivos
 ---
 
 * Ter a capacidade de user comandos básicos do Linux para gerenciar arquivos e diretorios.

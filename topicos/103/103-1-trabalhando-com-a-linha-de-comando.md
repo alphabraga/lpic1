@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 103.1 Trabalhando com a Linha de Comando
-permalink: 103/103.1-trabalhando-com-a-linha-de-comando
+permalink: 103/103-1-trabalhando-com-a-linha-de-comando
 ---
 
 ## bash

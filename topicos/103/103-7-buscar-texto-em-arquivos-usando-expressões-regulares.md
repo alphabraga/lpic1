@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 103.7 Buscar texto em arquivos usando expressões regulares (Peso 2)
-permalink: /103/103.7-buscando-texto-em-arquivos-usando-expressoes-regulares
+permalink: /103/103-7-buscando-texto-em-arquivos-usando-expressoes-regulares
 ---
 
 
