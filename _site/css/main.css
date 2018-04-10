@@ -462,5 +462,10 @@ span.red {
 span.red {
   color: red; }
 
+div.label-error {
+  display: bock;
+  background-color: red;
+  color: #fff; }
+
 table.table, table.table th, table.table td {
   border: 1px solid; }

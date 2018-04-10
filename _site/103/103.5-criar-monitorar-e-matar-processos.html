@@ -230,13 +230,60 @@ ping 8.8.8.8 &amp;&gt; /dev/null
 
 <h2 id="uptime">uptime</h2>
 
+<p>O comando <code class="highlighter-rouge">uptime</code> informa quanto tempo a máquina esta ligada.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>uptime --help</code>
+Usage:
+ uptime [options]
+
+Options:
+ -p, --pretty   show uptime in pretty format
+ -h, --help     display this help and exit
+ -s, --since    system up since
+ -V, --version  output version information and exit
+
+For more details see uptime(1).
+</pre>
+
+<p>Sem argumentos:</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>uptime</code>
+11:06:53 up 1 day,  2:41,  1 user,  load average: 0,07, 0,11, 0,09
+</pre>
+
+<p>COm o output mais bonito.</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>uptime -p</code>
+up 1 day, 2 hours, 42 minutes
+</pre>
+
+<p>Ligado desde:</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>uptime -s</code>
+2018-04-09 08:25:03
+</pre>
+
+<p>Para ver a versão do comando:</p>
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>uptime -V</code>
+uptime from procps-ng 3.3.10
+</pre>
+
 <h2 id="pgrep">pgrep</h2>
+
+<div class="label-error">Falta conteudo aqui</div>
 
 <h2 id="pkill">pkill</h2>
 
 <h2 id="killall">killall</h2>
 
 <h2 id="screen">screen</h2>
+
 
   </div>
 
