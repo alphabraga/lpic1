@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 102.3 Gerenciar Bibliotecas Compartilhadas (Peso 1)
-permalink: /102/102.3-nstalacao-do-linux-e-gerenciamento-de-pacotes
+permalink: /102/102-3-gerenciar-bibliotecas-compartilhadas
 ---
 
 Esse tópico vai abordar a capacidade de determinar que bibliotecas comparilhadas programas dependem e instalar uma se necessário.
