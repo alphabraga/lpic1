@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 103.5 Criar Monitorar e Matar Processos
-permalink: 103/103.5-criar-monitorar-e-matar-processos
+permalink: 103/103-5-criar-monitorar-e-matar-processos
 ---
 
 
