@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>101 Arquiterura do Sistema</title>
+  <title>101.1 Visualize e configure definições de hardware (Peso 2)</title>
   <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
@@ -89,13 +89,11 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">101 Arquiterura do Sistema</h1>
+    <h1 class="post-title">101.1 Visualize e configure definições de hardware (Peso 2)</h1>
   </header>
 
   <div class="post-content">
-    <h2 id="visualize-e-configure-definies-de-hardware-peso-2">101.1 Visualize e configure definições de hardware (Peso 2)</h2>
-
-<p>Ter habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:</p>
+    <p>Habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:</p>
 
 <ul>
   <li>Com comandos espeficicos</li>
@@ -108,7 +106,7 @@ Entendimento conceitual de <a href="#">sysfs</a>, <a href="#">udev</a>, <a href=
 
 <p>A seguir uma lista de arquivos, utilitários e termos:</p>
 
-<h3 id="sys">/sys/</h3>
+<h2 id="sys">/sys/</h2>
 
 <p>Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinamicas.Esse é um diretorio que é mais focado em <strong>guardar informações de dispositivos de hardware</strong>.</p>
 
@@ -146,7 +144,7 @@ sysfs                  0     0      0    - /sys
 </code></pre>
 </div>
 
-<h4 id="proc">/proc/</h4>
+<h3 id="proc">/proc/</h3>
 
 <p>Guarda informações sobre <strong>processos ativos no sistema e recursos de hardware</strong>. Nesse diretorio ficam arquivos que são cobrados na LPI como o <a href="#">/proc/interrups</a>, <a href="#">/proc/dma</a> e o <a href="#">/proc/ioports</a>.</p>
 
@@ -181,7 +179,7 @@ sysfs                  0     0      0    - /sys
 
 <p>É importante destacar os arquivos <code class="highlighter-rouge">/proc/ioports</code> e o <code class="highlighter-rouge">/proc/interrupts</code></p>
 
-<h4 id="procioports">/proc/ioports</h4>
+<h3 id="procioports">/proc/ioports</h3>
 
 <p>Esse arquivo contem informações sobre endereços de memória utilizados pela CPU para se comunicar com dispositivos de hardware.</p>
 
@@ -214,7 +212,7 @@ sysfs                  0     0      0    - /sys
 </code></pre>
 </div>
 
-<h4 id="procinterrupts">/proc/interrupts</h4>
+<h3 id="procinterrupts">/proc/interrupts</h3>
 
 <p>IRQ, ou Interrups Requests, são canais de comunicação que são utilizados pelos dispositivos para enviar comandos para a CPU. Esses comandos ou sinais são enviados a CPU e ela tem que parar de fazer o que estiver fazendo a atender a essas requisições. Os canais de número menor tem maior prioridade que os demais.</p>
 
@@ -287,7 +285,7 @@ RTR:          1          0          0          0   APIC ICR read retries
 
 <p>Exibe informações de processador</p>
 
-<h4 id="dev">/dev/</h4>
+<h3 id="dev">/dev/</h3>
 
 <p>Esse diretorio faz referencias a dispositivos do sistema inclusive de armazenamento. É o processo de nome <code class="highlighter-rouge">udev</code> que monta esses dispositivos que ficam exibidos nesse diretorio</p>
 
@@ -453,99 +451,6 @@ Couldn't open device, some information will be missing
 </code></pre>
 </div>
 
-<h2 id="inicializar-o-sistema-peso-3">101.2 Inicializar o Sistema (Peso 3)</h2>
-
-<p>Ter a capacidade de guiar o sistema durante o processo de boot.</p>
-
-<p>Prover comandos comuns para o <code class="highlighter-rouge">boot loader</code> e opções para o Kernel no momento do <code class="highlighter-rouge">boot</code>
-Demonstrar conhecimento da sequencia de <code class="highlighter-rouge">boot</code> da BIOS ate a finalização do boot
-Conhecimento de <code class="highlighter-rouge">SysVinit</code> e <code class="highlighter-rouge">systemd</code>
-Menssagens de <code class="highlighter-rouge">Awareness</code> da inicialização do sistema
-Verificar eventos de <code class="highlighter-rouge">boot</code> nos arquivos de log</p>
-
-<p>Termos e Utilitários:</p>
-
-<h3 id="dmesg1012-inicializar-o-sistemadmesg"><a href="/101.2-Inicializar-o-sistema#dmesg">dmesg</a></h3>
-
-<p>Esse comando exibe informações sobre o boot do sistema com se fosse um log</p>
-
-<h3 id="bios1012-inicializar-o-sistemabios"><a href="/101.2-Inicializar-o-sistema#bios">BIOS</a></h3>
-
-<p>A palavra <code class="highlighter-rouge">BIOS</code> significa Basic Input Output System. E nada mais é que um firmware que guarda as configurações básicas da maquina como data e hora, ordem de dispositivos para o boot, configuraçõs basicas de teclado etc..</p>
-
-<h3 id="bootloader1012-inicializar-o-sistemabootloader"><a href="/101.2-Inicializar-o-sistema#bootloader">bootloader</a></h3>
-
-<h3 id="kernel1012-inicializar-o-sistemakernel"><a href="/101.2-Inicializar-o-sistema#kernel">kernel</a></h3>
-
-<h3 id="initramfs1012-inicializar-o-sistemainitframs"><a href="/101.2-Inicializar-o-sistema#initframs">initramfs</a></h3>
-
-<h3 id="init1012-inicializar-o-sistemainit"><a href="/101.2-Inicializar-o-sistema#init">init</a></h3>
-
-<p>É o sistema que configura o os serviços que rodam no Linux. Ele funciona utilizando o conceito de <code class="highlighter-rouge">runlevels</code>.</p>
-
-<h3 id="sysvinit1012-inicializar-o-sistemasysvinit"><a href="/101.2-Inicializar-o-sistema#SysVinit">SysVinit</a></h3>
-
-<h3 id="systemd1012-inicializar-o-sistemasystemd"><a href="/101.2-Inicializar-o-sistema#systemd">systemd</a></h3>
-
-<h2 id="mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema-peso-3">101.3 Mudar runlevels boot targets e desligar ou reiniciar o sistema (Peso 3)</h2>
-
-<p>Ter a capacidade de gerenciar <code class="highlighter-rouge">SysVinit</code> runlevel or systemd boot target of the system. This objective includes changing to single user mode, shutdown or rebooting the system. Candidatos devem ter a capacidade de  to alert users before switching runlevels / boot targets and properly terminate processes. This objective also includes setting the default SysVinit runlevel or systemd boot target. It also includes awareness of Upstart as an alternative to SysVinit or systemd.</p>
-
-<p>Definir o <code class="highlighter-rouge">runlevel</code> padrão ou o <code class="highlighter-rouge">target</code> do <code class="highlighter-rouge">boot</code></p>
-
-<p>Mudar entre <code class="highlighter-rouge">runlevels</code> e <code class="highlighter-rouge">boot targets</code> incluindo o <code class="highlighter-rouge">single user mode</code></p>
-
-<p>Desligar e reiniciar a maquina pela linha de comando</p>
-
-<p>Alertar usuários antes de mudar de <code class="highlighter-rouge">runlevels</code> ou <code class="highlighter-rouge">boot target</code> ou ate mesmo em outros eventos considerados importantes.</p>
-
-<p>Finalizar processos de modo correto</p>
-
-<p>Termos e Utilitários:</p>
-
-<h3 id="etcinittab1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">/etc/inittab</a></h3>
-
-<p>Esse arquivo contem informações sobre o runlevel padrão do sistema</p>
-
-<h3 id="shutdown1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">shutdown</a></h3>
-
-<p>Esse comando realiza o desligamento da maquina:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$~ shutdown now
-</code></pre>
-</div>
-
-<p>O comando acima  desliga a maquina imediatamente</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$~ shutdown now -r
-</code></pre>
-</div>
-
-<p>O parametro <code class="highlighter-rouge">-r</code> reinicia a maquina</p>
-
-<p>COLOCAR AQUI OUTRAS FORMAS DE DESLIGAR COM TEMPO ETC….</p>
-
-<h3 id="init1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">init</a></h3>
-
-<p>Esse comando realiza a alteração de run level</p>
-
-<h3 id="etcinitd1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">/etc/init.d/</a></h3>
-
-<h3 id="telinit1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">telinit</a></h3>
-
-<p>Esse comando realiza a alteração de run level</p>
-
-<h3 id="systemd1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">systemd</a></h3>
-
-<h3 id="systemctl1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">systemctl</a></h3>
-
-<h3 id="etcsystemd1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">/etc/systemd/</a></h3>
-
-<h3 id="usrlibsystemd1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">/usr/lib/systemd/</a></h3>
-
-<h3 id="wall1013-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema"><a href="/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema">wall</a></h3>
-
-<p>Esse comando realiza o envio de mensagem para todos os usuários logados no sistema</p>
 
   </div>
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Topicos Extendido
+title: 101.1 Visualize e configure definições de hardware
 permalink: /topicos-extendido/
 order: 2
 ---

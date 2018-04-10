@@ -1,12 +1,10 @@
 ---
 layout: page
-title: 101 Arquiterura do Sistema
+title: 101.1 Visualize e configure definições de hardware (Peso 2)
 permalink: /101/arquitetura-do-sistema
 ---
 
-## 101.1 Visualize e configure definições de hardware (Peso 2)
-
-Ter habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:
+Habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:
 
 * Com comandos espeficicos
 * Vendo arquivos no sistema de arquivos especial
@@ -17,7 +15,7 @@ Entendimento conceitual de [sysfs](#), [udev](#), [dbus](#)
 
 A seguir uma lista de arquivos, utilitários e termos:
 
-### /sys/
+## /sys/
 
 Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinamicas.Esse é um diretorio que é mais focado em **guardar informações de dispositivos de hardware**.
 
@@ -57,7 +55,7 @@ Veja abaixo o conteudo do diretorio:
 
 
 
-#### /proc/
+### /proc/
 
 Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretorio ficam arquivos que são cobrados na LPI como o [/proc/interrups](#), [/proc/dma](#) e o [/proc/ioports](#). 
 
@@ -92,7 +90,7 @@ Guarda informações sobre **processos ativos no sistema e recursos de hardware*
 
 É importante destacar os arquivos `/proc/ioports` e o `/proc/interrupts`
 
-#### /proc/ioports
+### /proc/ioports
 
 Esse arquivo contem informações sobre endereços de memória utilizados pela CPU para se comunicar com dispositivos de hardware.
 
@@ -126,7 +124,7 @@ Esse arquivo contem informações sobre endereços de memória utilizados pela C
 
 
 
-#### /proc/interrupts
+### /proc/interrupts
 
 IRQ, ou Interrups Requests, são canais de comunicação que são utilizados pelos dispositivos para enviar comandos para a CPU. Esses comandos ou sinais são enviados a CPU e ela tem que parar de fazer o que estiver fazendo a atender a essas requisições. Os canais de número menor tem maior prioridade que os demais.
 
@@ -198,7 +196,7 @@ Exibe informações de memória
 
 Exibe informações de processador
 
-#### /dev/
+### /dev/
 
 Esse diretorio faz referencias a dispositivos do sistema inclusive de armazenamento. É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretorio
 
@@ -358,101 +356,3 @@ Listagem verbosa dos dispositivos:
 
 
 
-## 101.2 Inicializar o Sistema (Peso 3)
-
-Ter a capacidade de guiar o sistema durante o processo de boot.
-
-Prover comandos comuns para o `boot loader` e opções para o Kernel no momento do `boot`
-Demonstrar conhecimento da sequencia de `boot` da BIOS ate a finalização do boot
-Conhecimento de `SysVinit` e `systemd`
-Menssagens de `Awareness` da inicialização do sistema
-Verificar eventos de `boot` nos arquivos de log 
-
-Termos e Utilitários:
-
-### [dmesg](/101.2-Inicializar-o-sistema#dmesg)
-
-Esse comando exibe informações sobre o boot do sistema com se fosse um log
-
-### [BIOS](/101.2-Inicializar-o-sistema#bios)
-
-A palavra `BIOS` significa Basic Input Output System. E nada mais é que um firmware que guarda as configurações básicas da maquina como data e hora, ordem de dispositivos para o boot, configuraçõs basicas de teclado etc..
-
-### [bootloader](/101.2-Inicializar-o-sistema#bootloader)
-
-### [kernel](/101.2-Inicializar-o-sistema#kernel)
-
-### [initramfs](/101.2-Inicializar-o-sistema#initframs)
-
-### [init](/101.2-Inicializar-o-sistema#init)
-
-É o sistema que configura o os serviços que rodam no Linux. Ele funciona utilizando o conceito de `runlevels`.
-
-### [SysVinit](/101.2-Inicializar-o-sistema#SysVinit)
-
-
-### [systemd](/101.2-Inicializar-o-sistema#systemd)
-
-
-## 101.3 Mudar runlevels boot targets e desligar ou reiniciar o sistema (Peso 3)
-
-Ter a capacidade de gerenciar `SysVinit` runlevel or systemd boot target of the system. This objective includes changing to single user mode, shutdown or rebooting the system. Candidatos devem ter a capacidade de  to alert users before switching runlevels / boot targets and properly terminate processes. This objective also includes setting the default SysVinit runlevel or systemd boot target. It also includes awareness of Upstart as an alternative to SysVinit or systemd.
-
-Definir o `runlevel` padrão ou o `target` do `boot`
-
-Mudar entre `runlevels` e `boot targets` incluindo o `single user mode`
-
-Desligar e reiniciar a maquina pela linha de comando
-
-Alertar usuários antes de mudar de `runlevels` ou `boot target` ou ate mesmo em outros eventos considerados importantes.
-
-Finalizar processos de modo correto
-
-
-Termos e Utilitários:
-
-### [/etc/inittab](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-Esse arquivo contem informações sobre o runlevel padrão do sistema
-
-### [shutdown](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-Esse comando realiza o desligamento da maquina:
-
-    usuario@maquina:$~ shutdown now
-
-O comando acima  desliga a maquina imediatamente
-
-    usuario@maquina:$~ shutdown now -r
-
-O parametro `-r` reinicia a maquina 
-
-COLOCAR AQUI OUTRAS FORMAS DE DESLIGAR COM TEMPO ETC....
-
-### [init](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-Esse comando realiza a alteração de run level
-
-### [/etc/init.d/](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-
-### [telinit](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-Esse comando realiza a alteração de run level
-
-### [systemd](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-
-### [systemctl](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-
-### [/etc/systemd/](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-
-### [/usr/lib/systemd/](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-
-
-### [wall](/101.3-mudar-runlevels-boot-targets-e-desligar-ou-reiniciar-o-sistema)
-
-Esse comando realiza o envio de mensagem para todos os usuários logados no sistema
