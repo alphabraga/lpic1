@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>103.1 Trabalhando com a Linha de Comando</title>
+  <title>103.1 Trabalhando com a Linha de Comando (Peso 4)</title>
   <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
@@ -93,7 +93,7 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">103.1 Trabalhando com a Linha de Comando</h1>
+    <h1 class="post-title">103.1 Trabalhando com a Linha de Comando (Peso 4)</h1>
   </header>
 
   <div class="post-content">
@@ -105,47 +105,96 @@
 
 <p>O shell tambem tem a opção de executar os comandos em sequencia. E para isso nós utilizamos os operadores:</p>
 
-<h4 id="esse-operador-permite-a-execuo-em-sequencia-dos-comandos-os-comandos-so-simplesmnete-executados-no-importando-se-eles-eso-corretos-ou-ate-mesmo-sua-execuo-foi-realizada-com-sucesso-como-no-exemplo-abaixo"><code class="highlighter-rouge">;</code> : esse operador permite a execução em sequencia dos comandos, os comandos são simplesmnete executados não importando se eles esão corretos ou ate mesmo sua execução foi realizada com sucesso. Como no exemplo abaixo:</h4>
+<h1 id="section">;</h1>
+
+<p>Esse operador permite a execução em sequencia dos comandos, os comandos são simplesmnete executados não importando se eles esão corretos ou ate mesmo sua execução foi realizada com sucesso. Como no exemplo abaixo:</p>
 
 <p>Comandos executados em sequencia</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ comando1; comando2; comando3
-</code></pre>
-</div>
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>comando1; comando2; comando3</code>
+</pre>
 
-<h3 id="s-executa-o-proximo-comando-caso-o-anterior-tenha-sido-executado-com-sucesso"><code class="highlighter-rouge">&amp;&amp;</code> : Só executa o proximo comando caso o anterior tenha sido executado com sucesso</h3>
+<h2 id="section-1">&amp;&amp;</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina: dsdddddddddddddddddddddd
-</code></pre>
-</div>
+<p>Só executa o proximo comando caso o anterior tenha sido executado com sucesso</p>
+
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>comando1 &amp;&amp; comando2 &amp;&amp; comando3</code>
+</pre>
 
 <h2 id="echo">echo</h2>
 
 <p>Imprime uma string na tela</p>
 
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>echo "Linux"</code>
+</pre>
+
 <h2 id="env">env</h2>
 
 <p>Lista todas as variáveis de ambiente (environment) setadas:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:~ env #lista todos as variaveis de ambiente
-</code></pre>
-</div>
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>env</code>
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+XDG_CONFIG_DIRS=/etc/xdg/xdg-mate:/etc/xdg
+LC_TELEPHONE=pt_BR.UTF-8
+LANG=en_US.UTF-8
+DISPLAY=:0
+SHLVL=1
+LOGNAME=alphabraga
+LANGUAGE=en_US
+MANDATORY_PATH=/usr/share/gconf/mate.mandatory.path
+COMPIZ_CONFIG_PROFILE=mate
+XDG_VTNR=7
+LC_NAME=pt_BR.UTF-8
+SESSION_MANAGER=local/helix:@/tmp/.ICE-unix/2152,unix/helix:/tmp/.ICE-unix/2152
+XAUTHORITY=/home/alphabraga/.Xauthority
+QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
+XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/alphabraga
+COLORTERM=mate-terminal
+XDG_SESSION_ID=c2
+PWD=/home/alphabraga
+DESKTOP_SESSION=mate
+LC_ADDRESS=pt_BR.UTF-8
+DEFAULTS_PATH=/usr/share/gconf/mate.default.path
+XDG_SESSION_DESKTOP=mate
+GDMSESSION=mate
+LC_IDENTIFICATION=pt_BR.UTF-8
+</pre>
 
 <p>Você pode tambem usar o comando <code class="highlighter-rouge">printenv</code> para exibir a mesma informação.</p>
 
 <p>Para remover uma variável utilizamos o comando:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ unset NOMEVAR
-</code></pre>
-</div>
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>unset NOMEVAR</code>
+</pre>
 
 <h2 id="export">export</h2>
 
 <p>Coloca uma variável no ambiente, para colocar ela definitivamente no enviroment você deve colocar esse export dentro de .bash_profile ou em /etc/environment .</p>
 
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>MEUNOME="ALFREDO"</code>
+<code>echo $MEUNOME</code>
+ALFREDO
+<code>export MEUNOME</code>
+<code>env | grep MEUNOME</code>
+MEUNOME=ALFREDO
+</pre>
+
+<p>No exemplo acima foi criada a variável <code class="highlighter-rouge">MEUNOME</code> com o valor <code class="highlighter-rouge">ALFREDO</code>. Em seguida ela foi exportada utilziando o comando <code class="highlighter-rouge">export</code>, e por fim com o comando <code class="highlighter-rouge">env</code> verificamos se essa variável foi mesmo exportada.</p>
+
 <h2 id="pwd">pwd</h2>
 
 <p>pwd significa <code class="highlighter-rouge">print working directory</code>, ou seja, exibir o diretorio corrente</p>
+
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>pwd</code>
+/home/alphabraga
+</pre>
 
 <h2 id="set">set</h2>
 
@@ -158,9 +207,30 @@
 
 <p>Exibe os manuais dos comandos exemplo:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>man cp
-</code></pre>
-</div>
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>man cp</code>
+CP(1)                                                                  User Commands
+
+NAME
+       cp - copy files and directories
+
+SYNOPSIS
+       cp [OPTION]... [-T] SOURCE DEST
+       cp [OPTION]... SOURCE... DIRECTORY
+       cp [OPTION]... -t DIRECTORY SOURCE...
+
+DESCRIPTION
+       Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+
+       Mandatory arguments to long options are mandatory for short options too.
+
+       -a, --archive
+              same as -dR --preserve=all
+
+       --attributes-only
+              don't copy the file data, just the attributes
+
+</pre>
 
 <p>Os dados refentes aos manuais ficam no diretorio /usr/share/man</p>
 
@@ -170,26 +240,24 @@
 
 <p>Com o parametro <code class="highlighter-rouge">-a</code> todas as informações, o <code class="highlighter-rouge">a</code> é de <code class="highlighter-rouge">all</code> .</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ uname -a
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>uname -a</code>
+Linux helix 4.10.0-38-generic #42~16.04.1-Ubuntu SMP Tue Oct 10 16:32:20 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+</pre>
 
-Linux sharp 4.13.0-37-generic #42~16.04.1-Ubuntu SMP Wed Mar 7 16:03:28 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
-</code></pre>
-</div>
+<p>Só a informação a respeito do release do kernel informe o <code class="highlighter-rouge">-r</code></p>
 
-<p>Só a informação a respeito do release informe o <code class="highlighter-rouge">-r</code></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$ uname -r
-
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>uname -r</code>
 4.13.0-37-generic
-</code></pre>
-</div>
+</pre>
 
 <h2 id="history">history</h2>
 
 <p>O comando history é um comando interno do bash. Ele lista o conteudo do ~/.bash_history númerando as linhas. do output.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:$
-
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
+<code>history</code>
 1115  ldd jekyll 
 1116  whereis jekyll 
 1117  ldd /usr/bin/jekyll
@@ -208,10 +276,9 @@ Linux sharp 4.13.0-37-generic #42~16.04.1-Ubuntu SMP Wed Mar 7 16:03:28 UTC 2018
 1130  cat ld-linux-x86-64.so.2 
 1131  q!
 1132  sudo aptitude update
-</code></pre>
-</div>
+</pre>
 
-<h2 id="bashhistory">.bash_history</h2>
+<h2 id="bashhistory">~/.bash_history</h2>
 
 <p>É o arquivo que contem o historico dos comandos. É esse aquivo que exibido pelo comando <code class="highlighter-rouge">history</code> .</p>
 
