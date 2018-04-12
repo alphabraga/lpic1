@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 103.6 Alterar a Prioridade de Execução de Processos (Peso 2)
+title: 103.3 Realizar gerenciamento básico de arquivos (Peso 4)
 permalink: 103/103-3-realizar-gerenciamento-basico-de-arquivos
 ---
 
