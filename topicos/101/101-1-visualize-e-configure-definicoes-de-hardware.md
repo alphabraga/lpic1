@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 101.1 Visualize e configure definições de hardware (Peso 2)
-permalink: /101/arquitetura-do-sistema
+permalink: /101/101-1-visualize-e-configure-definicoes-de-hardware
 ---
 
 Habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:
@@ -13,13 +13,11 @@ Feramentas e utilitários para listar diversas de informações de hardware (lsu
 Feramentas e utilitários para Manipular dispositivos USB
 Entendimento conceitual de [sysfs](#), [udev](#), [dbus](#)
 
-A seguir uma lista de arquivos, utilitários e termos:
-
 ## /sys/
 
 Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinamicas.Esse é um diretorio que é mais focado em **guardar informações de dispositivos de hardware**.
 
-o `/sys/` é montado utilizando um tipo de file system chamado de`sysfs`. Veja a baixo alguns arquivos desse diretorio:
+o `/sys/` é montado utilizando um tipo de file system chamado de`sysfs`. O comando `df` exibe o sistema de arqivos `sysfs`:
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>df -t sysfs -a
@@ -55,7 +53,7 @@ Veja abaixo o conteudo do diretorio:
 
 
 
-### /proc/
+## /proc/
 
 Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretorio ficam arquivos que são cobrados na LPI como o [/proc/interrups](#), [/proc/dma](#) e o [/proc/ioports](#). 
 
@@ -90,7 +88,7 @@ Guarda informações sobre **processos ativos no sistema e recursos de hardware*
 
 É importante destacar os arquivos `/proc/ioports` e o `/proc/interrupts`
 
-### /proc/ioports
+## /proc/ioports
 
 Esse arquivo contem informações sobre endereços de memória utilizados pela CPU para se comunicar com dispositivos de hardware.
 
@@ -124,7 +122,7 @@ Esse arquivo contem informações sobre endereços de memória utilizados pela C
 
 
 
-### /proc/interrupts
+## /proc/interrupts
 
 IRQ, ou Interrups Requests, são canais de comunicação que são utilizados pelos dispositivos para enviar comandos para a CPU. Esses comandos ou sinais são enviados a CPU e ela tem que parar de fazer o que estiver fazendo a atender a essas requisições. Os canais de número menor tem maior prioridade que os demais.
 
@@ -184,23 +182,23 @@ Os números nas colunas `CPUn` exibe o numero de vezes que uma requisição é e
 </pre>
 
 
-### /proc/dma
+## /proc/dma
 
 DMA significa Direct Memory Access, ou seja acesso direto a memória, esse arquivo contem endereços de memoria utilizado pelo hardware na qual não precisam do intermedio da CPU para acessa-los. Isso permite uma comunicação mais dinamica uma vez que um interédiario foi removido.
 
-### /proc/meninfo
+## /proc/meninfo
 
 Exibe informações de memória
 
-### /proc/procinfo
+## /proc/procinfo
 
 Exibe informações de processador
 
-### /dev/
+## /dev/
 
 Esse diretorio faz referencias a dispositivos do sistema inclusive de armazenamento. É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretorio
 
-### dbus
+## dbus
 
 Tem duas funções:
 
@@ -209,115 +207,121 @@ Tem duas funções:
 
 
 
-#### modprobe
+## modprobe
 
 
-#### lsmod
+## lsmod
 
 Lista os modulos que estão sendo utilizados pelo sistema. Existe uma coluna que informa se o modulo é utilizado por outros modulos o numero de utilizações..
 
-#### lspci
+## lspci
 
 Lista os dispositivos de hardware que estão no barramento PCI do computador.
 
-    usuario@maquina:$ lspci
+<pre class="language-bash command-line">
+  <code>lspci</code>
+00:00.0 Host bridge: Intel Corporation Broadwell-U Host Bridge -OPI (rev 09)
+00:02.0 VGA compatible controller: Intel Corporation Broadwell-U Integrated Graphics (rev 09)
+00:03.0 Audio device: Intel Corporation Broadwell-U Audio Controller (rev 09)
+00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
+00:14.0 USB controller: Intel Corporation Wildcat Point-LP USB xHCI Controller (rev 03)
+00:16.0 Communication controller: Intel Corporation Wildcat Point-LP MEI Controller #1 (rev 03)
+00:1b.0 Audio device: Intel Corporation Wildcat Point-LP High Definition Audio Controller (rev 03)
+00:1c.0 PCI bridge: Intel Corporation Wildcat Point-LP PCI Express Root Port #3 (rev e3)
+00:1c.3 PCI bridge: Intel Corporation Wildcat Point-LP PCI Express Root Port #4 (rev e3)
+00:1f.0 ISA bridge: Intel Corporation Wildcat Point-LP LPC Controller (rev 03)
+00:1f.2 SATA controller: Intel Corporation Wildcat Point-LP SATA Controller [AHCI Mode] (rev 03)
+00:1f.3 SMBus: Intel Corporation Wildcat Point-LP SMBus Controller (rev 03)
+01:00.0 Network controller: Qualcomm Atheros QCA6174 802.11ac Wireless Network Adapter (rev 20)
+02:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0c)
+</pre>
 
-    00:00.0 Host bridge: Intel Corporation Broadwell-U Host Bridge -OPI (rev 09)
-    00:02.0 VGA compatible controller: Intel Corporation Broadwell-U Integrated Graphics (rev 09)
-    00:03.0 Audio device: Intel Corporation Broadwell-U Audio Controller (rev 09)
-    00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
-    00:14.0 USB controller: Intel Corporation Wildcat Point-LP USB xHCI Controller (rev 03)
-    00:16.0 Communication controller: Intel Corporation Wildcat Point-LP MEI Controller #1 (rev 03)
-    00:1b.0 Audio device: Intel Corporation Wildcat Point-LP High Definition Audio Controller (rev 03)
-    00:1c.0 PCI bridge: Intel Corporation Wildcat Point-LP PCI Express Root Port #3 (rev e3)
-    00:1c.3 PCI bridge: Intel Corporation Wildcat Point-LP PCI Express Root Port #4 (rev e3)
-    00:1f.0 ISA bridge: Intel Corporation Wildcat Point-LP LPC Controller (rev 03)
-    00:1f.2 SATA controller: Intel Corporation Wildcat Point-LP SATA Controller [AHCI Mode] (rev 03)
-    00:1f.3 SMBus: Intel Corporation Wildcat Point-LP SMBus Controller (rev 03)
-    01:00.0 Network controller: Qualcomm Atheros QCA6174 802.11ac Wireless Network Adapter (rev 20)
-    02:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0c)
+
+
 
 No lado esquerdo do outoput vemos os IDS dos dispositivos e do lado direito uma breve descrição sobre os mesmo. Para ver mais detalhes sobre todos os dispositivos utilizamos a opção `-v` ou `-vv` para ser mais verboso ainda.
 
 
-    usuario@maquina:$ lspci -v
+<pre class="language-bash command-line">
+  <code>lspci -v</code>
+00:00.0 Host bridge: Intel Corporation Broadwell-U Host Bridge -OPI (rev 09)
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Host Bridge -OPI
+        Flags: bus master, fast devsel, latency 0
+        Capabilities:
+        Kernel driver in use: bdw_uncore
 
+00:02.0 VGA compatible controller: Intel Corporation Broadwell-U Integrated Graphics (rev 09) (prog-if 00 [VGA controller])
+        DeviceName:  Onboard IGD
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Integrated Graphics
+        Flags: bus master, fast devsel, latency 0, IRQ 45
+        Memory at f6000000 (64-bit, non-prefetchable) [size=16M]
+        Memory at e0000000 (64-bit, prefetchable) [size=256M]
+        I/O ports at f000 [size=64]
+        [virtual] Expansion ROM at 000c0000 [disabled] [size=128K]
+        Capabilities: 
+        Kernel driver in use: i915
+        Kernel modules: i915
 
-    00:00.0 Host bridge: Intel Corporation Broadwell-U Host Bridge -OPI (rev 09)
-            Subsystem: Samsung Electronics Co Ltd Broadwell-U Host Bridge -OPI
-            Flags: bus master, fast devsel, latency 0
-            Capabilities: <access denied>
-            Kernel driver in use: bdw_uncore
+00:03.0 Audio device: Intel Corporation Broadwell-U Audio Controller (rev 09)
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Audio Controller
+        Flags: bus master, fast devsel, latency 0, IRQ 46
+        Memory at f731c000 (64-bit, non-prefetchable) [size=16K]
+        Capabilities: 
+        Kernel driver in use: snd_hda_intel
+        Kernel modules: snd_hda_intel
 
-    00:02.0 VGA compatible controller: Intel Corporation Broadwell-U Integrated Graphics (rev 09) (prog-if 00 [VGA controller])
-            DeviceName:  Onboard IGD
-            Subsystem: Samsung Electronics Co Ltd Broadwell-U Integrated Graphics
-            Flags: bus master, fast devsel, latency 0, IRQ 45
-            Memory at f6000000 (64-bit, non-prefetchable) [size=16M]
-            Memory at e0000000 (64-bit, prefetchable) [size=256M]
-            I/O ports at f000 [size=64]
-            [virtual] Expansion ROM at 000c0000 [disabled] [size=128K]
-            Capabilities: <access denied>
-            Kernel driver in use: i915
-            Kernel modules: i915
-
-    00:03.0 Audio device: Intel Corporation Broadwell-U Audio Controller (rev 09)
-            Subsystem: Samsung Electronics Co Ltd Broadwell-U Audio Controller
-            Flags: bus master, fast devsel, latency 0, IRQ 46
-            Memory at f731c000 (64-bit, non-prefetchable) [size=16K]
-            Capabilities: <access denied>
-            Kernel driver in use: snd_hda_intel
-            Kernel modules: snd_hda_intel
-
-    00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
-            Subsystem: Samsung Electronics Co Ltd Broadwell-U Processor Thermal Subsystem
-            Flags: fast devsel, IRQ 16
-            Memory at f7310000 (64-bit, non-prefetchable) [size=32K]
-            Capabilities: <access denied>
-            Kernel driver in use: proc_thermal
-            Kernel modules: processor_thermal_device
-
+00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Processor Thermal Subsystem
+        Flags: fast devsel, IRQ 16
+        Memory at f7310000 (64-bit, non-prefetchable) [size=32K]
+        Capabilities:
+        Kernel driver in use: proc_thermal
+        Kernel modules: processor_thermal_device
+</pre>
 
 Para ver mais informações apenas de um dispositivo especifico utilizamos a opção `-s` seguido do ID do dispositivo(o `s` seria de seleção)
 
-    usuario@maquina:~$ lspci -s00:04.0 -v 
+<pre class="language-bash command-line">
+  <code>lspci -s00:04.0 -v </code>
+00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
+        Subsystem: Samsung Electronics Co Ltd Broadwell-U Processor Thermal Subsystem
+        Flags: fast devsel, IRQ 16
+        Memory at f7310000 (64-bit, non-prefetchable) [size=32K]
+        Capabilities: 
+        Kernel driver in use: proc_thermal
+        Kernel modules: processor_thermal_device
+</pre>
 
-
-        00:04.0 Signal processing controller: Intel Corporation Broadwell-U Camarillo Device (rev 09)
-                Subsystem: Samsung Electronics Co Ltd Broadwell-U Processor Thermal Subsystem
-                Flags: fast devsel, IRQ 16
-                Memory at f7310000 (64-bit, non-prefetchable) [size=32K]
-                Capabilities: <access denied>
-                Kernel driver in use: proc_thermal
-                Kernel modules: processor_thermal_device
-
-
-#### lsusb
+## lsusb
 
 Lista os dispositivos de hardware que estão no barramento USB do computador. Semelhando ao comando `lspci` esse comando com a opção `-v` exibe uma saida mais verbosa e tambem com a opção `-s` exibe as informações apenas de um dispositivo ** passando o número de BUS e DEVICE**
 
 Listando todos os dispositivos no barramento USB:
 
-    alphabraga@sharp:~$ lsusb 
 
-    Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-    Bus 001 Device 005: ID 0bda:0129 Realtek Semiconductor Corp. RTS5129 Card Reader Controller
-    Bus 001 Device 004: ID 2232:1063 Silicon Motion 
-    Bus 001 Device 003: ID 0cf3:e300 Atheros Communications, Inc. 
-    Bus 001 Device 002: ID 1ea7:0064  
-    Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+<pre class="language-bash command-line">
+  <code>lsusb</code>
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 005: ID 0bda:0129 Realtek Semiconductor Corp. RTS5129 Card Reader Controller
+Bus 001 Device 004: ID 2232:1063 Silicon Motion 
+Bus 001 Device 003: ID 0cf3:e300 Atheros Communications, Inc. 
+Bus 001 Device 002: ID 1ea7:0064  
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</pre>
+ 
 
 Listando um dispositivo espefico, utilizando `-s bus:device`
 
-    alphabraga@sharp:~$ lsusb -s001:002
-
-    Bus 001 Device 002: ID 1ea7:0064
+<pre class="language-bash command-line">
+<code>lsusb -s001:002</code>
+Bus 001 Device 002: ID 1ea7:0064
+</pre>
 
 Listagem verbosa dos dispositivos:
 
-    alphabraga@sharp:~$ lsusb -v
-
-    Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+<pre class="language-bash command-line">
+<code>lsusb -v</code>
+ Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
     Device Descriptor:
       bLength                18
       bDescriptorType         1
@@ -353,6 +357,4 @@ Listagem verbosa dos dispositivos:
           bNumEndpoints           1
           bInterfaceClass         9 Hub
     Couldn't open device, some information will be missing
-
-
-
+</pre>
