@@ -100,12 +100,10 @@
     <p>Candidatos devem ter a capacidade de gerenciar a prioridade de processos.</p>
 
 <ul>
-  <li>Saber a prioridade padrão de um <code class="highlighter-rouge">job</code> que foi criado</li>
-  <li>Executar um programa com maioor ou menor prioridade que a padrão</li>
-  <li>Mudar a prioridade de um processo em execução</li>
+  <li>Saber a prioridade padrão de um <code class="highlighter-rouge">job</code> que foi criado;</li>
+  <li>Executar um programa com maioor ou menor prioridade que a padrão;</li>
+  <li>Mudar a prioridade de um processo em execução;</li>
 </ul>
-
-<p>Termos e Utilitários:</p>
 
 <h2 id="ps">ps</h2>
 
@@ -118,7 +116,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 4 R  1000  9860  9850  0  80   0 -  7240 -      pts/18   00:00:00 ps
 </pre>
 
-<p>A prioridade é exibida na coluna NI, o processo bash e ps possuem a mesma prioridade <code class="highlighter-rouge">0</code>.</p>
+<p>A prioridade é exibida na coluna NI, o processo <code class="highlighter-rouge">bash</code> e <code class="highlighter-rouge">ps</code> possuem a mesma prioridade <code class="highlighter-rouge">0</code>.</p>
 
 <h2 id="top">top</h2>
 
@@ -157,12 +155,12 @@ KiB Swap:  4086780 total,  4086780 free,        0 used.  1548744 avail Mem
 </div>
 
 <ul>
-  <li>Quanto menor o número acima, maior a prioridade.</li>
-  <li>Ao executar normalmente um processo (sem chamar o nice) por padrão o processo tem prioridade <code class="highlighter-rouge">0</code>.</li>
-  <li>Ao executar um processo chamando o nice (Ex: <code class="highlighter-rouge">nice firefox</code>) ele vai começar com prioridade <code class="highlighter-rouge">10</code>.</li>
-  <li>Um usuário comum pode apenas diminuir a prioridade de seus processos.</li>
-  <li>O root pode aumentar e diminuir a prioridade de um processo.</li>
-  <li>Apenas o root pode atribuir valores negativos de <code class="highlighter-rouge">nice</code> a processos.</li>
+  <li>Quanto menor o número acima, maior a prioridade;</li>
+  <li>Ao executar normalmente um processo (sem chamar o nice) o processo tem prioridade <code class="highlighter-rouge">0</code>;</li>
+  <li>Ao executar um processo chamando o nice (Ex: <code class="highlighter-rouge">nice firefox</code>) ele vai começar com prioridade <code class="highlighter-rouge">10</code>;</li>
+  <li>Um usuário comum pode apenas diminuir a prioridade de seus processos;</li>
+  <li>O root pode aumentar e diminuir a prioridade de processos de qualquer usuário;</li>
+  <li>Apenas o root pode atribuir valores negativos de <code class="highlighter-rouge">nice</code> a processos;</li>
 </ul>
 
 <h2 id="nice">nice</h2>

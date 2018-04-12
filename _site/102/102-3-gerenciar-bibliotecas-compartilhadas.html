@@ -97,22 +97,44 @@
   </header>
 
   <div class="post-content">
-    <p>Esse tópico vai abordar a capacidade de determinar que bibliotecas comparilhadas programas dependem e instalar uma se necessário.</p>
+    <h2 id="introduo">Introdução</h2>
+
+<p>Esse tópico vai abordar a capacidade de determinar que bibliotecas comparilhadas programas dependem e instalar uma se necessário.</p>
+
+<p>Uma biblioteca pode ser compreendida como um grupo de funcionalidades que programas utilzam para realizar determinadas tarefas. Quando estamos criando um programa podemos definir essas bibliotecas de forma estatica ou dinamica ao executavel.</p>
+
+<blockquote>
+  <p>Static link significa que o programa final irá conter a biblioteca no proprio executável (lib.a). Dynamic link significa que as bibliotecas necessarias são carregadas na memoria RAM quando o programa é executado (lib.so).</p>
+</blockquote>
+
+<p>Quando desenvolvedores escrevem uma aplicação, eles fazem o uso de bibliotecas existentes para prover a funcionalidade necessaria a sua aplicação. Quando a aplicação é compilada existem duas opções disponiveis:</p>
+
+<p>Construir a aplicação com todas as bibliotecas compiladas dentro da aplicação. Isso é conhecido como <code class="highlighter-rouge">statically linking</code>. Como vantagem a aplicação não possui dependencias, mas o programa fica maior e uma mesma biblioteca pode ficar carregada na memoria.</p>
+
+<p>Utilizar o <code class="highlighter-rouge">Dynamically link</code> que chama as depencias no momento da execução. Executáveis que utilizam <code class="highlighter-rouge">Dynamically links</code>  são menores em comparação as mesmas aplicações desenvolvidas utilziando o metodo anterior, já que eles não contem biblioteca.  Atulização permite que programas em execução que utilizam a mesma biblioetca , compartilhme muma unica cópia dessa mesma biblioetca, o que ajuda na utilização de memoria. Por essa razão a maioria dos programas utilizam <code class="highlighter-rouge">Dynamically links</code>.</p>
 
 <h2 id="identificar-bibliotecas-compartilhadas">Identificar bibliotecas compartilhadas</h2>
 
-<p>Para ideitificar que bibliotecas comparilhadas um determinado executável utiliza basta digitar o comando <code class="highlighter-rouge">ldd</code>, como no exemplo abaixo:</p>
+<p>Para ideitificar que bibliotecas comparilhadas um determinado executável utiliza basta digitar o comando <code class="highlighter-rouge">ldd</code> seguido do executável, como no exemplo abaixo:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>usuario@maquina:~$ ldd /usr/bin/java
-
-	linux-vdso.so.1 =&gt;  (0x00007fff45dcf000)
-	libjli.so =&gt; not found
-	libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007fea0f3ae000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007fea0f778000)
-</code></pre>
-</div>
+<pre class="language-bash command-line">
+<code>ldd /usr/bin/java</code>
+linux-vdso.so.1 =&gt;  (0x00007fff45dcf000)
+libjli.so =&gt; not found
+libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007fea0f3ae000)
+/lib64/ld-linux-x86-64.so.2 (0x00007fea0f778000)
+</pre>
 
 <h2 id="locais-tpicos-de-bibliotecas-compartilhadas">Locais típicos de bibliotecas compartilhadas</h2>
+
+<p>Para que o Linux encontre as bibliotecas requeridas pela aplicação em tempo de execução, o Linux precisa saber onde encontra-las. Por padrão ele busca nesses locais:</p>
+
+<ul>
+  <li>/lib: - Amplamente utilizada por programas localizadas em /bin</li>
+  <li>/usr/lib - Utilizada principalmente por programas em /usr/bin</li>
+</ul>
+
+<p>Additional locations for library files can specified in the /etc/ld.so.conf file. The ld.so.conf file may include all files under the /etc/ld.so.conf.d directory, depending on your distribution. Listing 5 shows the contents of /etc/ld.so.conf on a 64-bit Fedora 12 system.</p>
 
 <h2 id="carregar-bibliotecas-compartilhadas">Carregar bibliotecas Compartilhadas</h2>
 

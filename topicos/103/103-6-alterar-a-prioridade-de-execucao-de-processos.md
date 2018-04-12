@@ -7,11 +7,9 @@ permalink: /103/103-6-alterar-a-prioridade-de-execucao-de-processos
 Candidatos devem ter a capacidade de gerenciar a prioridade de processos.
 
 
-* Saber a prioridade padrão de um `job` que foi criado
-* Executar um programa com maioor ou menor prioridade que a padrão
-* Mudar a prioridade de um processo em execução
-
-Termos e Utilitários:
+* Saber a prioridade padrão de um `job` que foi criado;
+* Executar um programa com maioor ou menor prioridade que a padrão;
+* Mudar a prioridade de um processo em execução;
 
 ## ps
 
@@ -24,7 +22,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 4 R  1000  9860  9850  0  80   0 -  7240 -      pts/18   00:00:00 ps
 </pre>
 
-A prioridade é exibida na coluna NI, o processo bash e ps possuem a mesma prioridade `0`.
+A prioridade é exibida na coluna NI, o processo `bash` e `ps` possuem a mesma prioridade `0`.
 
 
 ## top
@@ -67,12 +65,12 @@ Esses são os niveis de prioridade de processos:
 	[-20 .. 0 .. +19]
 
 
-* Quanto menor o número acima, maior a prioridade.
-* Ao executar normalmente um processo (sem chamar o nice) por padrão o processo tem prioridade `0`.
-* Ao executar um processo chamando o nice (Ex: `nice firefox`) ele vai começar com prioridade `10`.
-* Um usuário comum pode apenas diminuir a prioridade de seus processos.
-* O root pode aumentar e diminuir a prioridade de um processo.
-* Apenas o root pode atribuir valores negativos de `nice` a processos.
+* Quanto menor o número acima, maior a prioridade;
+* Ao executar normalmente um processo (sem chamar o nice) o processo tem prioridade `0`;
+* Ao executar um processo chamando o nice (Ex: `nice firefox`) ele vai começar com prioridade `10`;
+* Um usuário comum pode apenas diminuir a prioridade de seus processos;
+* O root pode aumentar e diminuir a prioridade de processos de qualquer usuário;
+* Apenas o root pode atribuir valores negativos de `nice` a processos;
 
 
 ## nice
