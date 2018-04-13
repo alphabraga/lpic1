@@ -38,9 +38,60 @@ Para que o Linux encontre as bibliotecas requeridas pela aplicação em tempo de
 * /lib: - Amplamente utilizada por programas localizadas em /bin
 * /usr/lib - Utilizada principalmente por programas em /usr/bin
 
-Additional locations for library files can specified in the /etc/ld.so.conf file. The ld.so.conf file may include all files under the /etc/ld.so.conf.d directory, depending on your distribution. Listing 5 shows the contents of /etc/ld.so.conf on a 64-bit Fedora 12 system.
+## /etc/ld.so.conf
+
+Locais adicionais para que o sistema busque por bibliotecas podem ser definidos em `/etc/ld.so.conf`. Em distribuições baseadas em debian esse arquivo aponta para o diretorio `/etc/ld.so.conf.conf.d` .
+
+<pre class="language-bash command-line">
+<code>cat /etc/ld.so.conf</code>
+include /etc/ld.so.conf.d/*.conf
+</pre>
+
+Ou seja manda incluir todos os arquivos com a extensão `.conf` que estão dentro da pasta `/etc/ld.conf.d`
+
+
+<pre class="language-bash command-line">
+<code>ls -l /etc/ld.so.conf.d/</code>
+total 12
+-rw-rw-r-- 1 root root 38 Nov 24  2014 fakeroot-x86_64-linux-gnu.conf
+-rw-r--r-- 1 root root 44 Jan 27  2016 libc.conf
+-rw-r--r-- 1 root root 68 Abr 14  2016 x86_64-linux-gnu.conf
+lrwxrwxrwx 1 root root 43 Jan 25 14:22 x86_64-linux-gnu_EGL.conf -> /etc/alternatives/x86_64-linux-gnu_egl_conf
+lrwxrwxrwx 1 root root 42 Jan 25 14:22 x86_64-linux-gnu_GL.conf -> /etc/alternatives/x86_64-linux-gnu_gl_conf
+</pre>
 
 ## Carregar bibliotecas Compartilhadas
+
+Vamos realizar a inclusão de bibliotecas `fake` em nosso sistema e em seguida vamos verificar se ele realmente as carregou. 
+
+
+Primeiramente vamos criar a lib fake
+
+<pre class="language-bash command-line" data-user="root" data-host="localhost">
+<code>mkdir /tmp/my-libs</code>
+<code>cp /usr/lib/x86_64-linux-gnu/libuniquewm-1.2.so.9 /tmp/my-libs/libuniq-1.2.so.9</code>
+</pre>
+
+Em seguida vamos editar o arquivo `/etc/ld.so.conf` e incluir nosso diretorio com a nova lib. E recarregar as libs com o comando `ldconfig`
+
+<pre class="language-bash command-line" data-user="root" data-host="localhost">
+<code>echo "/tmp/my-libs/" >> /etc/ld.so.conf</code>
+<code>ldconfig</code>
+</pre>
+
+
+Para ver as libs carregas basta digitar o mesmo comando com o parametro `-p`. Mas como queremos apenas ver se a nossa lib foi carregada usaremos o comando `grep`
+
+<pre class="language-bash command-line" data-user="root" data-host="localhost">
+<code>ldconfig -p | grep /tmp/my-libs/</code>
+libuniquewm-1.2.so.9 (libc6,x86-64) => /tmp/my-libs/libuniquewm-1.2.so.9
+</pre>
+
+
+Existe ainda a váriavel de ambiente `LD_LIBRARY_PATH` que tambem pode ser utilizada para informar o local de bibliotecas no sistema.
+
+Vale ainda resaltar que o comando ldconfig na verdade atualiza o arquivo `/etc/ld.so.cache` . É esse arquivo que é utilziado como banco de dados pelo Linux.
+
 
 Termos e Utilitários:
 
