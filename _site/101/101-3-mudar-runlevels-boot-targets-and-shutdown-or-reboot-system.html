@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Inicio</title>
+  <title>Mudar runlevels boot targets e desligar ou reiniciar o sistema (Peso 3)</title>
   <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
   <link rel="stylesheet" href="/lpic1/css/main.css">
   <link rel="stylesheet" href="/lpic1/css/prism.css">
-  <link rel="canonical" href="/lpic1/inicio/">
+  <link rel="canonical" href="/lpic1/101/101-3-mudar-runlevels-boot-targets-and-shutdown-or-reboot-system">
   <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/lpic1/feed.xml">
 </head>
 
@@ -97,23 +97,105 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Inicio</h1>
+    <h1 class="post-title">Mudar runlevels boot targets e desligar ou reiniciar o sistema (Peso 3)</h1>
   </header>
 
   <div class="post-content">
-    <p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
+    <ul>
+  <li>Definir o <code class="highlighter-rouge">runlevel</code> padrão ou o <code class="highlighter-rouge">target</code> do <code class="highlighter-rouge">boot</code></li>
+  <li>Mudar entre <code class="highlighter-rouge">runlevels</code> e <code class="highlighter-rouge">boot targets</code> incluindo o <code class="highlighter-rouge">single user mode</code></li>
+  <li>Desligar e reiniciar a maquina pela linha de comando</li>
+  <li>Alertar usuários antes de mudar de <code class="highlighter-rouge">runlevels</code> ou <code class="highlighter-rouge">boot target</code> ou ate mesmo em outros eventos considerados importantes.</li>
+  <li>Finalizar processos de modo correto</li>
+</ul>
 
-<p>You can find the source code for the Jekyll new theme at:
-<a href="https://github.com/jglovier"><span class="icon icon--github"><svg viewbox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg>
-</span><span class="username">jglovier</span></a>
- /
-<a href="https://github.com/jglovier/jekyll-new">jekyll-new</a></p>
+<h2 id="wall">wall</h2>
 
-<p>You can find the source code for Jekyll at
-<a href="https://github.com/jekyll"><span class="icon icon--github"><svg viewbox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"></path></svg>
-</span><span class="username">jekyll</span></a>
- /
-<a href="https://github.com/jekyll/jekyll">jekyll</a></p>
+<p>Esse comando realiza o envio de mensagem para todos os usuários logados no sistema. Segundo o man:</p>
+
+<blockquote>
+  <p>wall - escreve mensagens para todos os usuários</p>
+</blockquote>
+
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+<code>wall</code>	
+Oi, eu sou o Goku
+\&lt; CTRL+D\&gt;
+</pre>
+
+<p>Essa mensagem é enviada para todos os usuarios logados na máquina</p>
+
+<h2 id="shutdown">shutdown</h2>
+
+<p>Esse comando realiza o desligamento e ate mesmo a reiniclização da máquina.</p>
+
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+<code>shutdown now</code>	
+</pre>
+
+<p>O comando acima desliga a máquina imediatamente</p>
+
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+<code>shutdown now -r</code>	
+</pre>
+
+<h2 id="h---halt">-H, –halt</h2>
+<p>Da um Halt na maquina.</p>
+
+<h2 id="p---poweroff">-P, –poweroff</h2>
+<p>Power-off the machine (the default).</p>
+
+<h2 id="r---reboot">-r, –reboot</h2>
+<p>Reboot the machine.</p>
+
+<h2 id="h">-h</h2>
+<p>Equivalent to –poweroff, unless –halt is specified.</p>
+
+<h2 id="k">-k</h2>
+<p>Do not halt, power-off, reboot, just write wall message.</p>
+
+<h2 id="no-wall">–no-wall</h2>
+<p>Do not send wall message before halt, power-off, reboot.</p>
+
+<h2 id="c">-c</h2>
+<p>Cancela um shutdown pendente. Esse comando evita que que um comando de desligamento seja executado caso claro ele não seja invocado com os agrumantos “now” ou “+0”</p>
+
+<pre class="language-bash command-line">
+<code>shutdown +2</code>
+Shutdown scheduled for Mon 2018-04-16 16:13:27 -03, use 'shutdown -c' to cancel.
+<code>shutdown -c</code>
+</pre>
+
+<h2 id="etcinittab">/etc/inittab</h2>
+
+<p>Esse arquivo contem informações sobre o runlevel padrão do sistema</p>
+
+<h2 id="runlevel">runlevel</h2>
+
+<p>Para ver seu runlevel atual basta digitar</p>
+
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+<code>runlevel</code>
+N 5
+</pre>
+
+<h2 id="init">init</h2>
+
+<p>Esse comando realiza a alteração de run level</p>
+
+<h2 id="telinit">telinit</h2>
+
+<p>Esse comando realiza a alteração de run level</p>
+
+<h2 id="etcinitd">/etc/init.d/</h2>
+
+<h2 id="systemd">systemd</h2>
+
+<h2 id="systemctl">systemctl</h2>
+
+<h2 id="etcsystemd">/etc/systemd</h2>
+
+<h2 id="usrlibsystemd">/usr/lib/systemd</h2>
 
   </div>
 

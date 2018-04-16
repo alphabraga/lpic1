@@ -65,6 +65,8 @@
           
         
           
+        
+          
           <a class="page-link" href="/lpic1/indice/">Indice</a>
           
         
@@ -99,17 +101,18 @@
   </header>
 
   <div class="post-content">
-    <p>Ter a capacidade de realizar gerenciamento de báciso de processos.</p>
-
-<p>Executar processos em <code class="highlighter-rouge">foreground</code> e <code class="highlighter-rouge">background</code>.
-Fazer com que um progtrama continue sua execução mesmo apos o logoff do usuário que executou o mesmo
-Monitorar processos ativos
-Selecionae e ordenar procesos para a visualização
-Enviar sinais para processos</p>
+    <ul>
+  <li>Ter a capacidade de realizar gerenciamento de báciso de processoss;</li>
+  <li>Executar processos em <code class="highlighter-rouge">foreground</code> e <code class="highlighter-rouge">background</code>;</li>
+  <li>Fazer com que um programa continue sua execução mesmo após o logoff do usuário que executou o mesmo;</li>
+  <li>Monitorar processos ativos;</li>
+  <li>Selecionae e ordenar procesos para a visualização;</li>
+  <li>Enviar sinais para processos;</li>
+</ul>
 
 <h2 id="section">&amp;</h2>
 
-<p>Ao executar um comando podemos colocar um <code class="highlighter-rouge">&amp;</code> no final do comando para colocar o mesmo em execução em <code class="highlighter-rouge">background</code>. Abaixo podemos observar que o comando <code class="highlighter-rouge">ping</code> esta sendo executado em <code class="highlighter-rouge">background</code>, porem o output do comando continua saindo para p terminal. O que de certa forma pode prejudicar a execução de outros comandos, já que a intenção é mandar um determinado comando para ser execudo em background e ficar com o <code class="highlighter-rouge">bash</code> para a execução de outros comandos.</p>
+<p>Ao executar um comando podemos colocar um <code class="highlighter-rouge">&amp;</code> no final do comando para colocar o mesmo em <code class="highlighter-rouge">background</code>. Abaixo podemos observar que o comando <code class="highlighter-rouge">ping</code> esta sendo executado em <code class="highlighter-rouge">background</code>, porém o output do comando continua saindo para para o terminal. O que de certa forma pode prejudicar a execução de outros comandos, já que a intenção é mandar um determinado comando para ser execudo em background e ficar com o <code class="highlighter-rouge">bash</code> livre para a execução de outros comandos.</p>
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>ping 127.0.0.1  &amp; </code>
@@ -121,7 +124,7 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.067 ms
 </pre>
 
-<p>Para contornar essa situação podemos colocar todos as saídas para o <code class="highlighter-rouge">/dev/null</code> e assim o terminal fica livre.</p>
+<p>Para contornar essa situação podemos colocar todas as saídas para o <code class="highlighter-rouge">/dev/null</code> e assim o terminal fica livre.</p>
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>ping 127.0.0.1 &amp;&gt; /dev/null &amp;</code>
@@ -130,7 +133,7 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 
 <h2 id="jobs">jobs</h2>
 
-<p>Comando <code class="highlighter-rouge">jobs</code> exibe todos os comando em execução em background</p>
+<p>Comando <code class="highlighter-rouge">jobs</code> exibe todos os comando em execução em background:</p>
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>jobs</code>
@@ -148,7 +151,7 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 
 <h2 id="bg">bg</h2>
 
-<p>O comando bg joga um comando para background. Ao executar o comando <code class="highlighter-rouge">gnome-calculator</code> o mesmo fica ocupando a sessão do terminal impedindo a execução de outros comandos. Mas podemos fazer a uma pausa em sua execução utilizando as teclas <code class="highlighter-rouge">CTRL+Z</code>, dessa forma o comando sera <code class="highlighter-rouge">STOPED</code> como podemos ver abaixo:</p>
+<p>O comando bg joga um comando para background. Ao executar o comando <code class="highlighter-rouge">gnome-calculator</code> o mesmo fica ocupando a sessão do terminal impedindo a execução de outros comandos. Mas podemos fazer a uma pausa em sua execução utilizando as teclas <code class="highlighter-rouge">CTRL+Z</code>, dessa forma o comando será <code class="highlighter-rouge">STOPED</code> como podemos ver abaixo:</p>
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>gnome-calulator</code>

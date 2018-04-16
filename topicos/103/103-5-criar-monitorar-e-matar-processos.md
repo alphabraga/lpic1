@@ -4,18 +4,16 @@ title: 103.5 Criar Monitorar e Matar Processos
 permalink: 103/103-5-criar-monitorar-e-matar-processos
 ---
 
-
-Ter a capacidade de realizar gerenciamento de báciso de processos.
-
-Executar processos em `foreground` e `background`.
-Fazer com que um progtrama continue sua execução mesmo apos o logoff do usuário que executou o mesmo
-Monitorar processos ativos
-Selecionae e ordenar procesos para a visualização
-Enviar sinais para processos
+* Ter a capacidade de realizar gerenciamento de báciso de processoss;
+* Executar processos em `foreground` e `background`;
+* Fazer com que um programa continue sua execução mesmo após o logoff do usuário que executou o mesmo;
+* Monitorar processos ativos;
+* Selecionae e ordenar procesos para a visualização;
+* Enviar sinais para processos;
 
 ## &
 
-Ao executar um comando podemos colocar um `&` no final do comando para colocar o mesmo em execução em `background`. Abaixo podemos observar que o comando `ping` esta sendo executado em `background`, porem o output do comando continua saindo para p terminal. O que de certa forma pode prejudicar a execução de outros comandos, já que a intenção é mandar um determinado comando para ser execudo em background e ficar com o `bash` para a execução de outros comandos. 
+Ao executar um comando podemos colocar um `&` no final do comando para colocar o mesmo em `background`. Abaixo podemos observar que o comando `ping` esta sendo executado em `background`, porém o output do comando continua saindo para para o terminal. O que de certa forma pode prejudicar a execução de outros comandos, já que a intenção é mandar um determinado comando para ser execudo em background e ficar com o `bash` livre para a execução de outros comandos. 
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>ping 127.0.0.1  & </code>
@@ -27,7 +25,7 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.067 ms
 </pre>
 
-Para contornar essa situação podemos colocar todos as saídas para o `/dev/null` e assim o terminal fica livre.
+Para contornar essa situação podemos colocar todas as saídas para o `/dev/null` e assim o terminal fica livre.
 
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
@@ -37,7 +35,7 @@ Para contornar essa situação podemos colocar todos as saídas para o `/dev/nul
 
 ## jobs
 
-Comando `jobs` exibe todos os comando em execução em background 
+Comando `jobs` exibe todos os comando em execução em background: 
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>jobs</code>
@@ -53,12 +51,9 @@ Com a opção `-l` são exibidos os PIDS dos processos.
 [2]+  6007 Executando              ping 8.8.8.8 &> /dev/null &
 </pre>
 
-
-
-
 ## bg
 
-O comando bg joga um comando para background. Ao executar o comando `gnome-calculator` o mesmo fica ocupando a sessão do terminal impedindo a execução de outros comandos. Mas podemos fazer a uma pausa em sua execução utilizando as teclas `CTRL+Z`, dessa forma o comando sera `STOPED` como podemos ver abaixo:
+O comando bg joga um comando para background. Ao executar o comando `gnome-calculator` o mesmo fica ocupando a sessão do terminal impedindo a execução de outros comandos. Mas podemos fazer a uma pausa em sua execução utilizando as teclas `CTRL+Z`, dessa forma o comando será `STOPED` como podemos ver abaixo:
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>gnome-calulator</code>
