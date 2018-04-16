@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 101.1 Visualize e configure definições de hardware (Peso 2)
-permalink: /101/101-1-visualize-e-configure-definicoes-de-hardware
+permalink: /lpic1/101/101-1-visualize-e-configure-definicoes-de-hardware
 ---
 
 Habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:

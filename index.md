@@ -26,7 +26,7 @@ title: Indice
 
 * [101: Arquitetura do Sistema (Peso 8)](/lpic1/101/arquitetura-do-sistema)
   * [101.1 Visualize e configure as definições de hardware (Peso 2)](/lpic1/101/101-1-visualize-e-configure-definicoes-de-hardware "correção ortografica")
-  * [101.2 Inicializar o Sistema (Peso 3)](# "Nada feito")
+  * [101.2 Inicializar o Sistema (Peso 3)](/lpic1/101/101-2-inicializar-o-sistema "Ainda falta conteudo")
   * [101.3 Mudar runlevels / boot targets and shutdown or reboot system (Peso 3)](# "Nada feito")
 
 * [102: Instalação do Linux e Gerenciamento de Pacotes (Peso 10)](/lpic1/102/instalacao-do-linux-e-gerenciamento-de-pacotes)
