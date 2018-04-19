@@ -49,6 +49,36 @@ Desired=Unknown/Install/Remove/Purge/Hold
 ii  perl                         5.22.1-9ubuntu0.2   amd64               Larry Wall's Practical Extraction and Report Language
 </pre>
 
+## -L
+
+Listar todos os arquivos que pertencem a um pacote
+
+
+
+<pre class="language-bash command-line">
+<code>dpkg -L apache2</code>
+/.
+/etc
+/etc/apache2
+/etc/apache2/mods-enabled
+/etc/apache2/conf-enabled
+/etc/apache2/apache2.conf
+/etc/apache2/mods-available
+/etc/apache2/mods-available/setenvif.conf
+/etc/apache2/mods-available/proxy_express.load
+/etc/apache2/mods-available/auth_basic.load
+/etc/apache2/mods-available/session_dbd.load
+/etc/apache2/mods-available/deflate.load
+/etc/apache2/mods-available/authz_core.load
+/etc/apache2/mods-available/authn_core.load
+/etc/apache2/mods-available/cgid.load
+/etc/apache2/mods-available/cache_disk.conf
+/etc/apache2/mods-available/auth_form.load
+/etc/apache2/mods-available/log_debug.load
+/etc/apache2/mods-available/cache_socache.load
+/etc/apache2/mods-available/mpm_worker.conf
+</pre>
+
 ## --get-selections
 
 Assim como os parametro `-l` o `--get-selections` relaciona os pacotes instalados
@@ -143,7 +173,10 @@ Para realizar a instalação do pacote
 
 Para remover um pacote
 
-	dpkg -r nome.deb
+<pre class="language-bash command-line">
+<code>dpkg -r nome.deb</code>
+</pre>
+
 
 O pacote não esta mais disponivel para uso. Mas ele ainda aparece se executarmos um dpkg -l ou um --get-selections. No --get-selections ele aparece como deinstall (isso mesmo deinstall) ou desistalado.
 
