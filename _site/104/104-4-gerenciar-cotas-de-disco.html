@@ -6,12 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Welcome to Jekyll!</title>
-  <meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...">
+  <title>104.4 Gerenciar Cotas de Disco (Peso 1)</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
 
   <link rel="stylesheet" href="/lpic1/css/main.css">
   <link rel="stylesheet" href="/lpic1/css/prism.css">
-  <link rel="canonical" href="/lpic1/jekyll/update/2018/03/15/welcome-to-jekyll.html">
+  <link rel="canonical" href="/lpic1/104/104-4-gerenciar-cotas-de-disco">
   <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/lpic1/feed.xml">
 </head>
 
@@ -97,28 +98,60 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Welcome to Jekyll!</h1>
-    <p class="post-meta"><time datetime="2018-03-15T18:56:52-03:00" itemprop="datePublished">Mar 15, 2018</time></p>
+    <h1 class="post-title">104.4 Gerenciar Cotas de Disco (Peso 1)</h1>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+  <div class="post-content">
+    <p>Ter a capacidade de gerenciar cotas de disco de usuários.</p>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>Configurar cotas de disco para um sistema de arquivos 
+Editar, verificar e gerar relatórios de cotas</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p>Para se beneficiar do uso de cotas devemos habilitar o mesmo no /etc/fstab e colocar o parametro de <code class="highlighter-rouge">quota</code> para usuários e grupos. Adicionando o <strong>usrquota</strong>, <strong>grpquota</strong></p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<pre class="language-bash command-line">
+<code>vim /fstab</code>
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# / was on /dev/sda2 during installation
+UUID=a08fb228-a38a-48d5-845f-075be67cd17d /               ext4    errors=remount-ro,usrquota,grpquota 0       1
+# /boot/efi was on /dev/sda1 during installation
+UUID=22B0-1D2D  /boot/efi       vfat    umask=0077      0       1
+# swap was on /dev/sda3 during installation
+UUID=a5955c2a-0ae2-49d2-b3a8-57c2028d4ed3 none            swap    sw              0       0
+</pre>
 
-<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+<p>Apos aplicar esses dois parametros na partição “/” ao reiniciarmos o sistema, executarmos o comando <code class="highlighter-rouge">quotacheck -cugm</code> dois arquivos serão criados no “/” (se tivessemos editado outra partição esses arquivos seriam criados na raiz da partição) dois arquivos são criados:</p>
 
+<p>Como já foi dito ou você reinicia a máquina ou executa o comando:</p>
+
+<pre class="laguage-bash command-line">
+<code>quotacheck -cugmf /</code>
+</pre>
+
+<p>O <code class="highlighter-rouge">c</code> é para criar, <code class="highlighter-rouge">u</code> usuários, <code class="highlighter-rouge">g</code> grupos, <code class="highlighter-rouge">m</code> e o <code class="highlighter-rouge">f</code> forcar e a partiçao.</p>
+
+<ul>
+  <li>aquota.user</li>
+  <li>aquota.group</li>
+</ul>
+
+<h2 id="termos-e-utilitrios">Termos e Utilitários</h2>
+
+<h2 id="quota">quota</h2>
+
+<h2 id="edquota">edquota</h2>
+
+<h2 id="repquota">repquota</h2>
+
+<h2 id="quotaon">quotaon</h2>
 
   </div>
 

@@ -6,12 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Welcome to Jekyll!</title>
-  <meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...">
+  <title>102.1 Desenhar o Layout do Disco Rigido (Peso 2)</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
 
   <link rel="stylesheet" href="/lpic1/css/main.css">
   <link rel="stylesheet" href="/lpic1/css/prism.css">
-  <link rel="canonical" href="/lpic1/jekyll/update/2018/03/15/welcome-to-jekyll.html">
+  <link rel="canonical" href="/lpic1/102/102-1-desenhando-o-layout-do-disco-rigido">
   <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/lpic1/feed.xml">
 </head>
 
@@ -97,28 +98,48 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Welcome to Jekyll!</h1>
-    <p class="post-meta"><time datetime="2018-03-15T18:56:52-03:00" itemprop="datePublished">Mar 15, 2018</time></p>
+    <h1 class="post-title">102.1 Desenhar o Layout do Disco Rigido (Peso 2)</h1>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+  <div class="post-content">
+    <h2 id="definio-de-partio">Definição de Partição</h2>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>Partição é uma parte de um disco. O particionamento nada mais é do que dividir um disco rigido em partes. Os nomes dessas partições no Linux são definidas na seguinte forma. Nome do disco mais número da partição. Por exemplo:</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<ul>
+  <li><strong>sda1</strong></li>
+  <li><strong>sda2</strong></li>
+  <li><strong>sda3</strong></li>
+  <li><strong>sda4</strong></li>
+</ul>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<h2 id="definio-de-ponto-de-montagem">Definição de ponto de montagem</h2>
 
-<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+<p>As partições precisão ser adicionandas a arvore de diretorios do Linux. E ai entram os pontos de montagem que nada mais são que do diretrorios que estão associados e esssas partições. Sendo assim dizemos que a partição</p>
 
+<p>Ter a capacidade de desenhar o esquema de particionamento  de discos para sistemas Linux.</p>
+
+<ul>
+  <li>Alocar <code class="highlighter-rouge">filesystem</code> e espaço de <code class="highlighter-rouge">swap</code> para alocar partições e discos</li>
+  <li>Customize o design de acordo com as caracteriscicas e uso do sistema</li>
+  <li>Asegure que a partição de boot esta de acordo com os requerimentos de boot da arquitetura de hardware</li>
+  <li>Conhecimentos básicos das funcionalidades do LVM</li>
+</ul>
+
+<h3 id="termos-e-utilitrios">Termos e Utilitários:</h3>
+
+<ul>
+  <li>/ (root) filesystem</li>
+  <li>/var filesystem</li>
+  <li>/home filesystem</li>
+  <li>/boot filesystem</li>
+  <li>swap space</li>
+  <li>mount points</li>
+  <li>partitions</li>
+</ul>
 
   </div>
 

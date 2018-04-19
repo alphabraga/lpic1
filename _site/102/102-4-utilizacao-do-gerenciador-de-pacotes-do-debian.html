@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>102.4 Utilização do gerenciador de pacotes do Debian (Peso 3)</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <link rel="stylesheet" href="/lpic1/css/main.css">
+  <link rel="stylesheet" href="/lpic1/css/prism.css">
+  <link rel="canonical" href="/lpic1/102/102-4-utilizacao-do-gerenciador-de-pacotes-do-debian">
+  <link rel="alternate" type="application/rss+xml" title="Livro LPIC 101 - O Curso" href="/lpic1/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/lpic1/">Livro LPIC 101 - O Curso</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/lpic1/indice/">Indice</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/lpic1/inicio/">Inicio</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">102.4 Utilização do gerenciador de pacotes do Debian (Peso 3)</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Ter a capacidade de realizar o gerenciamento de pacotes usando as ferramentas para gerenciamento de pacotes do Debian.</p>
+
+<p>Instalar, atualizar  e desistalar pacotes binários do Debian.
+Procurar pacotes contendo arquivos espeficos ou bibliotecas que podemo ou não ser instaladas
+Obter informações sobre pacotes, como versão, conteudo, depencias, integridade e status da instalação (em outras palavras verificar se o pacotes esta ou não instalado)</p>
+
+<h2 id="dpkg">dpkg</h2>
+
+<p>Utilitário Debian para realizar a instalação de pacotes .deb. Possue os argumentos</p>
+
+<h2 id="l">-l</h2>
+
+<p>Para listar todos os pacotes instalados</p>
+
+<pre class="language-bash command-line">
+<code>dpkg -l</code>
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Nome                                        Versão                                       Arquitectura Descrição
++++-===========================================-============================================-============-================================================================================
+ii  a11y-profile-manager-indicator              0.1.10-0ubuntu3                              amd64        Accessibility Profile Manager - Unity desktop indicator
+ii  account-plugin-facebook                     0.12+16.04.20160126-0ubuntu1                 all          GNOME Control Center account plugin for single signon - facebook
+ii  account-plugin-flickr                       0.12+16.04.20160126-0ubuntu1                 all          GNOME Control Center account plugin for single signon - flickr
+ii  account-plugin-google                       0.12+16.04.20160126-0ubuntu1                 all          GNOME Control Center account plugin for single signon
+ii  accountsservice                             0.6.40-2ubuntu11.3                           amd64        query and manipulate user account information
+ii  acl                                         2.2.52-3                                     amd64        Access control list utilities
+
+</pre>
+
+<p>Ou verificar um pacote especifico</p>
+
+<pre class="language-bash command-line">
+<code>dpkg -l perl</code>
+
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Nome                         Versão              Arquitectura        Descrição
++++-============================-===================-===================-=============================================================
+ii  perl                         5.22.1-9ubuntu0.2   amd64               Larry Wall's Practical Extraction and Report Language
+</pre>
+
+<h2 id="get-selections">–get-selections</h2>
+
+<p>Assim como os parametro <code class="highlighter-rouge">-l</code> o <code class="highlighter-rouge">--get-selections</code> relaciona os pacotes instalados</p>
+
+<pre class="language-bash command-line">
+<code>dpkg --get-selections</code>
+a11y-profile-manager-indicator                  install
+account-plugin-facebook                         install
+account-plugin-flickr                           install
+account-plugin-google                           install
+accountsservice                                 install
+acl                                             install
+acpi-support                                    install
+acpid                                           install
+activity-log-manager                            install
+adduser                                         install
+adium-theme-ubuntu                              install
+</pre>
+
+<h2 id="i">-I</h2>
+
+<p>O parametro <code class="highlighter-rouge">-I</code> serve para verificar as informações sobre um pacote debian. Por exemplo, vamos inspecionar o pacote do virtualbox.</p>
+
+<pre class="language-bash command-line">
+<code>dpkg -i virtualbox-5.2_5.2.6-120293_Ubuntu_xenial_amd64.deb</code>
+ 73557468 bytes de tamanho: arquivo de controle=21540 bytes.
+    1615 bytes,    20 linhas      control              
+   65873 bytes,   718 linhas      md5sums              
+    3434 bytes,   103 linhas   *  postinst             #!/bin/sh
+    1853 bytes,    53 linhas   *  postrm               #!/bin/sh
+    2435 bytes,    71 linhas   *  preinst              #!/bin/bash
+    1681 bytes,    59 linhas   *  prerm                #!/bin/sh
+     275 bytes,     8 linhas      shlibs               
+    2531 bytes,    55 linhas      templates            
+      60 bytes,     2 linhas      triggers             
+ Package: virtualbox-5.2
+ Version: 5.2.6-120293~Ubuntu~xenial
+ Architecture: amd64
+ Maintainer: Oracle Corporation info@virtualbox.org
+ Installed-Size: 182291
+ Pre-Depends: debconf (&gt;= 1.1) | debconf-2.0
+ Depends: libc6 (&gt;= 2.15), libcurl3 (&gt;= 7.16.2), libdevmapper1.02.1 (&gt;= 2:1.02.97), libfontconfig1 (&gt;= 2.11.94), libfreetype6 (&gt;= 2.2.1), libgcc1 (&gt;= 1:3.4), libgl1-mesa-glx | libgl1, libglib2.0-0 (&gt;= 2.12.0), libice6 (&gt;= 1:1.0.0), libpng12-0 (&gt;= 1.2.13-4), libsdl1.2debian (&gt;= 1.2.11), libsm6, libssl1.0.0 (&gt;= 1.0.0), libstdc++6 (&gt;= 5.2), libvpx3 (&gt;= 1.5.0), libx11-6, libx11-xcb1, libxcb1 (&gt;= 1.8), libxcursor1 (&gt;&gt; 1.1.2), libxext6, libxinerama1, libxml2 (&gt;= 2.7.4), libxmu6, libxrender1, libxt6, zlib1g (&gt;= 1:1.1.4), psmisc, adduser
+ Recommends: libasound2, libpulse0, libsdl-ttf2.0-0, kmod | kldutils | module-init-tools, linux
+</pre>
+
+<h2 id="contents">- - contents</h2>
+
+<p>Lista todos os arquivo que estão dentro do .deb</p>
+
+<pre class="language-bash command-line">
+<code>dpkg --contents virtualbox-5.2_5.2.6-120293_Ubuntu_xenial_amd64.deb</code>
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./etc/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./etc/init.d/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./etc/vbox/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/scalable/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/scalable/apps/
+-rw-r--r-- root/root     65439 2017-12-19 04:15 ./usr/share/icons/hicolor/scalable/apps/virtualbox.svg
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/scalable/mimetypes/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/40x40/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/40x40/apps/
+-rw-r--r-- root/root      6227 2017-12-19 04:16 ./usr/share/icons/hicolor/40x40/apps/virtualbox.png
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/40x40/mimetypes/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/64x64/
+drwxr-xr-x root/root         0 2018-01-15 13:40 ./usr/share/icons/hicolor/64x64/apps/
+-rw-r--r-- root/root      7884 2017-12-19 04:15 ./usr/share/icons/hicolor/64x64/apps/virtualbox.png
+</pre>
+
+<h2 id="s">-s</h2>
+
+<p>Para descobrir o status de um pacote e saber se ele esta instalado</p>
+
+<h2 id="s-1">-S</h2>
+
+<p>Podemos tambem descobrir qual pacote arquivo criou determinado arquivo passando apenas o caminho absoluto do arquivo para o dpkg, basta usar o parametro <code class="highlighter-rouge">-S</code> (seria de source)</p>
+
+<pre class="language-bash command-line">
+<code>dpkg -S /usr/share/doc/bash/INTRO.gz</code>
+bash: /usr/share/doc/bash/INTRO.gz
+</pre>
+
+<h2 id="i-1">-i</h2>
+
+<p>Para realizar a instalação do pacote</p>
+
+<h2 id="r">-r</h2>
+
+<p>Para remover um pacote</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>dpkg -r nome.deb
+</code></pre>
+</div>
+
+<p>O pacote não esta mais disponivel para uso. Mas ele ainda aparece se executarmos um dpkg -l ou um –get-selections. No –get-selections ele aparece como deinstall (isso mesmo deinstall) ou desistalado.</p>
+
+<p>Para remover um pacote totalmente do sistema devemos usar o <code class="highlighter-rouge">-P</code> ou o <code class="highlighter-rouge">--purge</code>. E ai sim ele apaga todos os arquivos de config todos os vestigios desse pacote no sistema.</p>
+
+<h3 id="termos-e-utilitrios">Termos e Utilitários:</h3>
+
+<ul>
+  <li>/etc/apt/sources.list</li>
+  <li>dpkg</li>
+  <li>dpkg-reconfigure</li>
+  <li>apt-get</li>
+  <li>apt-cache</li>
+  <li>aptitude</li>
+</ul>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Livro LPIC 101 - O Curso</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Livro LPIC 101 - O Curso</li>
+          <li><a href="mailto:alfredorodruguesbraga@gmail.com">alfredorodruguesbraga@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/alphabraga"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">alphabraga</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/alphabraga"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">alphabraga</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script type="text/javascript" src="/lpic1/js/prism.js" ></script>  
+  </body>
+
+</html>
