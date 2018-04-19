@@ -124,9 +124,9 @@
 <code>cp arquivo.txt novo-arquivo.txt</code>
 </pre>
 
-<p>No comando acima o comando <code class="highlighter-rouge">cp</code> realiza uma copia do <code class="highlighter-rouge">arquivo.txt</code> o diretorio corrente com o nome de <code class="highlighter-rouge">novo-arquivo.txt</code>.</p>
+<p>No comando acima o comando <code class="highlighter-rouge">cp</code> realiza uma copia do <code class="highlighter-rouge">arquivo.txt</code> o diretório corrente com o nome de <code class="highlighter-rouge">novo-arquivo.txt</code>.</p>
 
-<p>Tambem podemos realizar a copia desse arquivo para outro diretório. Basta colocar o <code class="highlighter-rouge">path</code> relativo ou absoluti para o novo arquivo.</p>
+<p>Também podemos realizar a copia desse arquivo para outro diretório. Basta colocar o <code class="highlighter-rouge">path</code> relativo ou absoluto para o novo arquivo.</p>
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>cp arquivo.txt ~/Desktop/nova-copia.txt</code>
@@ -142,55 +142,58 @@
 
 <h3 id="r-recursive"><code class="highlighter-rouge">-r</code> <strong>r</strong>ecursive</h3>
 
-<p>É utiliado para realizar a copia de arquivos de forma recursiva. NO exemplo abaixo foi realizada a cópia de todos os arquivos que começam com <code class="highlighter-rouge">arquivo-9</code> e terminam com qualquer caracter para o diretório files. Veja abaixo:</p>
+<p>É utilizado para realizar a copia de arquivos de forma recursiva. No exemplo abaixo foi realizada a cópia de todos os arquivos que começam com <code class="highlighter-rouge">arquivo-9</code> e terminam com qualquer caracter para o diretório files. Veja abaixo:</p>
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
-<code>usuario@maquina:~/copias$ cp -r arquivo-9* files/
-	usuario@maquina:~/copias$ cd files/
-	usuario@maquina:~/copias/files$ ls -l
-	total 0
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-90.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-91.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-92.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-93.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-94.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-95.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-96.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-97.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-98.txt
-	-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-99.txt
+<code>cp -r arquivo-9* files/
+<code>cd files/</code>
+<code>ls -l</code>
+total 0
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-90.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-91.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-92.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-93.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-94.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-95.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-96.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-97.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-98.txt
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 15:31 arquivo-99.txt
 </code>
 </pre>
 
 <h3 id="p-preserve"><code class="highlighter-rouge">-p</code> <strong>p</strong>reserve</h3>
 
-<p>A opção <code class="highlighter-rouge">-p</code> preserva as permissões, <code class="highlighter-rouge">ownership</code>, e <code class="highlighter-rouge">timestamp</code> . No exemplo abaixo foi criado um arquivo com o usuario <code class="highlighter-rouge">alphabraga</code> em seguida com o usuario root foi criada uma cópia desse arquivo e por fim foi criada uma cópia do primeiro arquivo mas com a opção <code class="highlighter-rouge">-p</code>.</p>
+<p>A opção <code class="highlighter-rouge">-p</code> preserva as permissões, <code class="highlighter-rouge">ownership</code>, e <code class="highlighter-rouge">timestamp</code> . No exemplo abaixo foi criado um arquivo com o usuario <code class="highlighter-rouge">alphabraga</code> em seguida com o usuário <code class="highlighter-rouge">root</code> foi criada uma cópia desse arquivo e por fim foi criada uma cópia do primeiro arquivo mas com a opção <code class="highlighter-rouge">-p</code>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~/manter$ touch file-alplhabraga
-alphabraga@sharp:~/manter$ ls -l
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+<code>touch file-alplhabraga</code>
+<code>ls -l</code>
 total 0
 -rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 16:46 file-alplhabraga
-alphabraga@sharp:~/manter$ su - root
-Senha: 
-root@sharp:~# cd /home/alphabraga/manter/
-root@sharp:/home/alphabraga/manter# cp file-alplhabraga file-root
-root@sharp:/home/alphabraga/manter# ls -la
+<code>su - root</code>
+Senha:
+</pre>
+<pre class="language-bash command-line" data-user="root" data-host="localhost">
+
+<code>cd /home/alphabraga/manter/</code>
+<code>cp file-alplhabraga file-root</code>
+<code>ls -la</code>
 total 8
 drwxrwxr-x  2 alphabraga alphabraga 4096 Mar 30 16:47 .
 drwxr-xr-x 36 alphabraga alphabraga 4096 Mar 30 15:41 ..
 -rw-rw-r--  1 alphabraga alphabraga    0 Mar 30 16:46 file-alplhabraga
 -rw-r--r--  1 root       root          0 Mar 30 16:47 file-root
-root@sharp:/home/alphabraga/manter# cp -p file-alplhabraga file-root-com-p
-root@sharp:/home/alphabraga/manter# ls -la
+<code>cp -p file-alplhabraga file-root-com-p</code> 
+<code>ls -la</code>
 total 8
 drwxrwxr-x  2 alphabraga alphabraga 4096 Mar 30 16:47 .
 drwxr-xr-x 36 alphabraga alphabraga 4096 Mar 30 15:41 ..
 -rw-rw-r--  1 alphabraga alphabraga    0 Mar 30 16:46 file-alplhabraga
 -rw-r--r--  1 root       root          0 Mar 30 16:47 file-root
 -rw-rw-r--  1 alphabraga alphabraga    0 Mar 30 16:46 file-root-com-p
-root@sharp:/home/alphabraga/manter# 
-</code></pre>
-</div>
+
+</pre>
 
 <p>Observe que as permissões foram mantidas no <code class="highlighter-rouge">file-root-com-p</code></p>
 
@@ -202,37 +205,28 @@ root@sharp:/home/alphabraga/manter#
 
 <p>Pergunta se uma ação de sobreescrita realmente deve ser realizada. Isso é muito util para não realizar a sobreescrita de uma rquivo importante, pois dá a chance do usuário confirmar a operacão. No exemplo abaixo vamos mover o arquivo <code class="highlighter-rouge">meu-arquivo.txt</code> para pasta <code class="highlighter-rouge">~/arquivos</code> mas já existe o arquivo <code class="highlighter-rouge">meu-arquivo.txt</code> nesse diretorio com a opção <code class="highlighter-rouge">-i</code> o sistema pergunta se o usuario realmente deseja sobreescrever o arquivo</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~$ cd arquivos/
-alphabraga@sharp:~/arquivos$ touch meu-arquivo.txt
-alphabraga@sharp:~/arquivos$ cd ..
-alphabraga@sharp:~$ touch meu-arquivo.txt
-alphabraga@sharp:~$ mv -i meu-arquivo.txt arquivos/meu-arquivo.txt 
-mv: sobrescrever 'arquivos/meu-arquivo.txt'? 
-</code></pre>
-</div>
+<pre class="language-bash command-line" data-user="alpahbraga" data-host="hostname">
+<code>cd arquivos/</code>
+<code>touch meu-arquivo.txt</code>
+<code>cd ..</code>
+<code>touch meu-arquivo.txt</code>
+<code>mv -i meu-arquivo.txt arquivos/meu-arquivo.txt</code> 
+mv: sobrescrever 'arquivos/meu-arquivo.txt'?
+</pre>
 
 <h3 id="v-verbose"><code class="highlighter-rouge">-v</code> <strong>v</strong>erbose</h3>
 
 <p>Essa opção é muito comum em diversos comandos do linux e ela gera uma saida mais verbosa observe:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~/arquivos$ ls -l
-total 4
-drwxrwxr-x 2 alphabraga alphabraga 4096 Mar 30 17:08 backup
--rw-rw-r-- 1 alphabraga alphabraga    0 Mar 30 17:08 file-01.txt
--rw-rw-r-- 1 alphabraga alphabraga    0 Mar 30 17:08 file-02.txt
--rw-rw-r-- 1 alphabraga alphabraga    0 Mar 30 17:08 file-03.txt
--rw-rw-r-- 1 alphabraga alphabraga    0 Mar 30 17:08 file-04.txt
--rw-rw-r-- 1 alphabraga alphabraga    0 Mar 30 17:08 file-05.txt
-alphabraga@sharp:~/arquivos$ cp -r file-0* backup/
-alphabraga@sharp:~/arquivos$ cp -rv file-0* backup/
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost	">
+<code>cp -r file-0* backup/</code>
+<code>cp -rv file-0* backup/</code>
 'file-01.txt' -&gt; 'backup/file-01.txt'
 'file-02.txt' -&gt; 'backup/file-02.txt'
 'file-03.txt' -&gt; 'backup/file-03.txt'
 'file-04.txt' -&gt; 'backup/file-04.txt'
 'file-05.txt' -&gt; 'backup/file-05.txt'
-alphabraga@sharp:~/arquivos$ 
-</code></pre>
-</div>
+</pre>
 
 <p>Sem a opção <code class="highlighter-rouge">-v</code> nada é impresso na tela. Já com a opção <code class="highlighter-rouge">-v</code> é colocado na saída padrão quais os arquivos foram copiados.</p>
 
@@ -242,35 +236,30 @@ alphabraga@sharp:~/arquivos$
 
 <h3 id="f---force">-f, –force</h3>
 
-<p>Ignora arquivos não existentes e arqgumentos, nunca pergunta</p>
+<p>Ignora arquivos não existentes, nunca pergunta</p>
 
 <h3 id="i">-i</h3>
 
 <p>Pergunta a cada vez que vai remover um arquivo</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~/testes$ rm -ir file-{5..9}.txt
-
+<pre class="language-bash command-line" data-user="alpjhabraga" data-host="localhost">
+<code>rm -ir file-{5..9}.txt</code>
 rm: remover ficheiro regular vazio 'file-5.txt'? y
 rm: remover ficheiro regular vazio 'file-6.txt'? y
 rm: remover ficheiro regular vazio 'file-7.txt'? y
 rm: remover ficheiro regular vazio 'file-8.txt'? y
-rm: remover ficheiro regular vazio 'file-9.txt'? y
-</code></pre>
-</div>
+rm: remover ficheiro regular vazio 'file-9.txt'? y	
+</pre>
 
 <h3 id="i-1">-I</h3>
 
 <p>Prompt once before removing more than three files, or when removing recursively; less intrusive than -i,  while  still giving protection against most mistakes</p>
 
-<p>–interactive[=WHEN]</p>
-
-<p>Prompt according to WHEN: never, once (-I), or always (-i); without WHEN, prompt always</p>
-
-<p>-r, -R, –recursive</p>
+<h3 id="r--r---recursive">-r, -R, –recursive</h3>
 
 <p>Remove diretorios e o seu conteúdo recursivamente</p>
 
-<p>-d, –dir</p>
+<h3 id="d---dir">-d, –dir</h3>
 
 <p>Remove diretorios vázios</p>
 
@@ -286,9 +275,8 @@ rm: remover ficheiro regular vazio 'file-9.txt'? y
 
 <p>Exemplo sem parametros:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~/testes$ find
-
-.
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+<code>find</code>
 ./arquivo-1.txt
 ./arquivo-4.txt
 ./arquivo-2.txt
@@ -299,19 +287,17 @@ rm: remover ficheiro regular vazio 'file-9.txt'? y
 ./file[0-9].txt
 ./rele[1-5].txt
 ./alfredo-dir
-</code></pre>
-</div>
+</pre>
 
 <p>Exemplo com parametro de local:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~/testes$ find /home/alphabraga/comandos/
-
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+	<code>find /home/alphabraga/comandos/</code>	
 /home/alphabraga/comandos/
 /home/alphabraga/comandos/comando3
 /home/alphabraga/comandos/comando2
 /home/alphabraga/comandos/comando1
-</code></pre>
-</div>
+</pre>
 
 <h3 id="maxdepth">-maxdepth</h3>
 
@@ -343,25 +329,59 @@ rm: remover ficheiro regular vazio 'file-9.txt'? y
 
 <p>O comando <code class="highlighter-rouge">touch</code> segundo o <code class="highlighter-rouge">man</code> tem a utilidade mudar o timestamp de um arquivo. Dessa forma:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alphabraga@sharp:~$ ls -l meu-novo-arquivo.txt 
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+<code>ls -l meu-novo-arquivo.txt </code>
 -rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 17:23 meu-novo-arquivo.txt
-alphabraga@sharp:~$ touch meu-novo-arquivo.txt 
-alphabraga@sharp:~$ ls -l meu-novo-arquivo.txt 
--rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 17:24 meu-novo-arquivo.txt
-</code></pre>
-</div>
+<code>touch meu-novo-arquivo.txt</code> 
+ls -l meu-novo-arquivo.txt 
+-rw-rw-r-- 1 alphabraga alphabraga 0 Mar 30 17:24 meu-novo-arquivo.txt	
+</pre>
 
 <p>Veja que o <code class="highlighter-rouge">timestamp</code> mudou apos a execução do <code class="highlighter-rouge">touch</code>.</p>
 
 <p>** Esse comando cria o arquivo caso ele não exista** . Existem parametros importantes:</p>
 
-<h3 id="m">m</h3>
+<h3 id="m">-m</h3>
 
 <p>Altera apenas a data de criação do arquivo</p>
 
-<h3 id="c">c</h3>
+<h3 id="c">-c</h3>
 
 <h2 id="tar">tar</h2>
+
+<p>É a versão GNU do utilitário para arquivamento <code class="highlighter-rouge">tar</code>. Salva e extrai arquivos de um disco.</p>
+
+<h3 id="c-1">c</h3>
+
+<p>Utilizado quando vamos criar o arquivo</p>
+
+<h3 id="t">t</h3>
+
+<p>Utilizado para listar os arquivos de um arquivo <code class="highlighter-rouge">tar</code>.</p>
+
+<h3 id="v">v</h3>
+
+<p>Para executar um comando de modo verboso</p>
+
+<h3 id="f">f</h3>
+
+<p>Para indicar o arquivo</p>
+
+<h3 id="z">z</h3>
+
+<p>Comprimir um arquivo tar utilizando o gzip</p>
+
+<h3 id="z-1">z</h3>
+
+<p>Comprimir um arquivo tar utilizando o gzip</p>
+
+<h3 id="x">x</h3>
+
+<p>Extrai o conteudo do arquivo</p>
+
+<h3 id="c-2">-C</h3>
+
+<p>Muda o diretorio. Muito utilizado em conjunto com o <code class="highlighter-rouge">-x</code> . Para que a extração seja realizada para um determinado diretorio.</p>
 
 <h2 id="cpio">cpio</h2>
 
