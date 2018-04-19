@@ -12,7 +12,7 @@ order: 2
   * [101.3 Mudar runlevels / boot targets and shutdown or reboot system (Peso 3)](/lpic1/101/arquitetura-do-sistema#101.1-Visualize-e-configure-as-definicoes-de-hardware)
 
 * [102: Instalação do Linux e Gerenciamento de Pacotes (Peso 10)](/lpic1/102/instalacao-do-linux-e-gerenciamento-de-pacotes)
-  * [102.1 Design hard disk layout (Peso 2)](/lpic1/102/102-1-desenhando-o-layout-do-disco-rigido)
+  * [102.1 Design hard disk layout (Peso 2)](/lpic1/102/102-1-desenhar-o-layout-do-disco-rigido)
   * [102.2 Instalar um gerenciador de boot (Peso 2)](/lpic1/102/102-2-instalar-um-gerenciador-de-boot)
   * [102.3 Gerenciar bibliotecas compartilhadas (Peso 1)](/lpic1/102/102-3-gerenciar-bibliotecas-compartilhadas)
   * [102.4 Utilização do gerenciador de pacotes do Debian (Peso 3)](/lpic1/102/102-4-utilizacao-do-gerenciador-de-pacotes-do-debian)
