@@ -4,20 +4,17 @@ title: 101.1 Visualize e configure definições de hardware (Peso 2)
 permalink: /101/101-1-visualize-e-configure-definicoes-de-hardware
 ---
 
-Habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas:
+Nesse topico será necessario a habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas **com comandos específicos** e **vendo arquivos no sistema de arquivos especial**.
 
-* Com comandos espeficicos
-* Vendo arquivos no sistema de arquivos especial
-
-Feramentas e utilitários para listar diversas de informações de hardware (lsusb, lspci, etc.)
-Feramentas e utilitários para Manipular dispositivos USB
-Entendimento conceitual de [sysfs](#), [udev](#), [dbus](#)
+* Feramentas e utilitários para listar diversas de informações de hardware (lsusb, lspci, etc.)
+* Feramentas e utilitários para Manipular dispositivos USB
+* Entendimento conceitual de [sysfs](#), [udev](#), [dbus](#)
 
 ## /sys/
 
-Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinamicas.Esse é um diretorio que é mais focado em **guardar informações de dispositivos de hardware**.
+Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinâmicas.Esse é um diretorio que é mais focado em **guardar informações de dispositivos de hardware**.
 
-o `/sys/` é montado utilizando um tipo de file system chamado de`sysfs`. O comando `df` exibe o sistema de arqivos `sysfs`:
+o `/sys/` é montado utilizando um tipo de filesystem chamado de `sysfs`. O comando `df` exibe o sistema de arquivos `sysfs`:
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>df -t sysfs -a
@@ -28,7 +25,7 @@ sysfs                  0     0      0    - /sys
 
 
 
-Veja abaixo o conteudo do diretorio:
+Veja abaixo o conteudo do diretório:
 
     ├── block
     │   ├── loop0 -> ../devices/virtual/block/loop0
@@ -55,7 +52,7 @@ Veja abaixo o conteudo do diretorio:
 
 ## /proc/
 
-Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretorio ficam arquivos que são cobrados na LPI como o [/proc/interrups](#), [/proc/dma](#) e o [/proc/ioports](#). 
+Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretório ficam arquivos que são cobrados na LPI como o [/proc/interrups](#), [/proc/dma](#) e o [/proc/ioports](#). 
 
 
     ├── acpi
@@ -85,8 +82,6 @@ Guarda informações sobre **processos ativos no sistema e recursos de hardware*
     ├── key-users
     ├── kmsg
 
-
-É importante destacar os arquivos `/proc/ioports` e o `/proc/interrupts`
 
 ## /proc/ioports
 
@@ -172,7 +167,7 @@ Executando o comando `cat /proc/interrups` temos o output abaixo:
     IWI:          0          1          1          0   IRQ work interrupts
     RTR:          1          0          0          0   APIC ICR read retries
 
-Os números nas colunas `CPUn` exibe o numero de vezes que uma requisição é enviada para aquele canal. Pode fazer um teste e apos realizar a digitação de algum texto no teclado e verificar que o número de requisições aumnetou no canal `1`
+Os números nas colunas `CPUn` exibe o número de vezes que uma requisição é enviada para aquele canal. Podemos fazer um teste e após realizar a digitação de algum texto no teclado e verificar que o número de requisições aumentou no canal `1`.
 
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
@@ -184,19 +179,20 @@ Os números nas colunas `CPUn` exibe o numero de vezes que uma requisição é e
 
 ## /proc/dma
 
-DMA significa Direct Memory Access, ou seja acesso direto a memória, esse arquivo contem endereços de memoria utilizado pelo hardware na qual não precisam do intermedio da CPU para acessa-los. Isso permite uma comunicação mais dinamica uma vez que um interédiario foi removido.
+DMA significa Direct Memory Access, ou seja acesso direto a memória, esse arquivo contém endereços de mémoria utilizado pelo hardware na qual não precisam do intermédio da CPU para acessa-los. Isso permite uma comunicação mais dinâmica uma vez que um interédiario foi removido.
 
 ## /proc/meninfo
 
-Exibe informações de memória
+Exibe informações de memória. É com as informações desse arquivo que o comando `free` trabalha.
 
-## /proc/procinfo
+
+## /proc/cpuinfo
 
 Exibe informações de processador
 
 ## /dev/
 
-Esse diretorio faz referencias a dispositivos do sistema inclusive de armazenamento. É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretorio
+Esse diretório faz referências a dispositivos do sistema inclusive de armazenamento. É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretorio
 
 ## dbus
 
@@ -205,14 +201,27 @@ Tem duas funções:
 * Realiza a comunicação entre processos
 * Informa aos processos a situação de dispositivos de hardware
 
-
-
-## modprobe
-
-
 ## lsmod
 
 Lista os modulos que estão sendo utilizados pelo sistema. Existe uma coluna que informa se o modulo é utilizado por outros modulos o numero de utilizações..
+
+##rmmod
+
+Comando utilizado para remover um modulo. Ignorando as dependencias..
+
+  sudo rmmod psmouse
+
+Se executarmos o `lsmod` veremos que o `psmouse` não pararece mais na listagem.
+
+##insmod
+
+Comando para instalar o modulo, ignorando as depndências.
+
+  sudo insmod /lib/modules/4.10.0-38-generic/kernel/drivers/input/mouse/psmouse.ko
+
+## modprobe
+
+Carrega um modulo no sistema. Com o parametro `-r` ele remove um modulo. O diferencial desse comando e que ele carrega ou descarrega automaticamente as dependecias do modolo definido no comando.
 
 ## lspci
 
@@ -236,10 +245,7 @@ Lista os dispositivos de hardware que estão no barramento PCI do computador.
 02:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0c)
 </pre>
 
-
-
-
-No lado esquerdo do outoput vemos os IDS dos dispositivos e do lado direito uma breve descrição sobre os mesmo. Para ver mais detalhes sobre todos os dispositivos utilizamos a opção `-v` ou `-vv` para ser mais verboso ainda.
+No lado esquerdo do output vemos os IDS dos dispositivos e do lado direito uma breve descrição sobre os mesmo. Para ver mais detalhes sobre todos os dispositivos utilizamos a opção `-v` ou `-vv` para ser mais verboso ainda.
 
 
 <pre class="language-bash command-line">
@@ -294,7 +300,7 @@ Para ver mais informações apenas de um dispositivo especifico utilizamos a op�
 
 ## lsusb
 
-Lista os dispositivos de hardware que estão no barramento USB do computador. Semelhando ao comando `lspci` esse comando com a opção `-v` exibe uma saida mais verbosa e tambem com a opção `-s` exibe as informações apenas de um dispositivo ** passando o número de BUS e DEVICE**
+Lista os dispositivos de hardware que estão no barramento USB do computador. Semelhante ao comando `lspci` esse comando com a opção `-v` exibe uma saída mais verbosa e também com a opção `-s` exibe as informações apenas de um dispositivo ** passando o número de BUS e DEVICE**
 
 Listando todos os dispositivos no barramento USB:
 
