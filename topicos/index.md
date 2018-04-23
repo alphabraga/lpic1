@@ -5,6 +5,7 @@ title: Indice
 permalink: /indice/
 order: 2
 ---
+<!--
 
 * [101: Arquitetura do Sistema (Peso 8)](/lpic1/101/arquitetura-do-sistema)
   * [101.1 Visualize e configure as definições de hardware (Peso 2)](/lpic1/101/arquitetura-do-sistema#101.1-Visualize-e-configure-as-definicoes-de-hardware)
@@ -36,3 +37,5 @@ order: 2
   * [104.5 Gerenciar permissões e `ownership` de arquivos (Peso 3)](/lpic1/104/104-5-gerenciar-permissoes-e-ownership-de-arquivos)
   * [104.6 Criar e mudar links físicos e simbolicos (Peso 2)](/lpic1/104/104-6-criar-e-mudar-links-fisicos-e-simbolicos)
   * [104.7 Encontrar arquivos de sistema e colocar arquivos na localização correta (Peso 2)](/lpic1/104/104-7-encontrar-arquivos-de-sistema-e-colocar-arquivos-na-localizacao-correta)
+
+  -->

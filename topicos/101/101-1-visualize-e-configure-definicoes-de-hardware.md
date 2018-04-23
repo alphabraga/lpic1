@@ -205,23 +205,62 @@ Tem duas funções:
 
 Lista os modulos que estão sendo utilizados pelo sistema. Existe uma coluna que informa se o modulo é utilizado por outros modulos o numero de utilizações..
 
+<pre class="language-bash command-line">
+  <code>lsmod</code>
+Module                  Size  Used by
+psmouse               139264  0
+uas                    24576  0
+usb_storage            69632  1 uas
+rfcomm                 77824  14
+ccm                    20480  2
+pci_stub               16384  1
+vboxpci                24576  0
+bnep                   20480  2
+vboxnetadp             28672  0
+vboxnetflt             28672  0
+vboxdrv               471040  3 vboxnetadp,vboxnetflt,vboxpci
+joydev                 20480  0
+btusb                  45056  0
+input_leds             16384  0
+btrtl                  16384  1 btusb
+dell_wmi               16384  0
+i2c_designware_platform    16384  0
+dell_wmi_aio           16384  0
+i2c_designware_core    20480  1 i2c_designware_platform
+sparse_keymap          16384  2 dell_wmi,dell_wmi_aio
+intel_rapl             20480  0
+x86_pkg_temp_thermal    16384  0
+</pre>
+
 ##rmmod
 
 Comando utilizado para remover um modulo. Ignorando as dependencias..
 
-  sudo rmmod psmouse
 
-Se executarmos o `lsmod` veremos que o `psmouse` não pararece mais na listagem.
+<pre class="language-bash command-line">
+  <code>sudo rmmod psmouse</code>
+</pre>
+
+
+Se executarmos o `lsmod` veremos que o `psmouse` não pararece mais na listagem:
+
+
+<pre class="language-bash command-line">
+  <code>lsmod | grep psmouse</code>
+</pre>
 
 ##insmod
 
-Comando para instalar o modulo, ignorando as depndências.
+Comando para instalar o modulo, ignorando as dependências.
 
-  sudo insmod /lib/modules/4.10.0-38-generic/kernel/drivers/input/mouse/psmouse.ko
+<pre class="language-bash command-line">
+  <code>sudo insmod /lib/modules/4.10.0-38-generic/kernel/drivers/input/mouse/psmouse.ko</code>
+</pre>
+
 
 ## modprobe
 
-Carrega um modulo no sistema. Com o parametro `-r` ele remove um modulo. O diferencial desse comando e que ele carrega ou descarrega automaticamente as dependecias do modolo definido no comando.
+Carrega um modulo no sistema. Com o parametro `-r` ele remove um modulo. **O diferencial desse comando e que ele carrega ou descarrega automaticamente as dependecias do modolo definido no comando**.
 
 ## lspci
 
