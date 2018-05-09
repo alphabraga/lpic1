@@ -158,9 +158,86 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate lec
 
 ## head
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate lectus eu nunc varius, a commodo ligula tempus. Aenean rhoncus consequat massa, in interdum tellus laoreet blandit. Ut a urna sollicitudin, ullamcorper turpis eu, suscipit nibh. Sed semper justo non dignissim lacinia. Suspendisse sit amet faucibus eros. Praesent vestibulum consectetur nulla in ultricies. Vestibulum auctor eget felis eu malesuada. Mauris sit amet tellus a nibh mattis pulvinar. Etiam tristique velit in est sollicitudin, eu feugiat felis tristique. Duis sed dui fermentum, sodales lorem vestibulum, tristique urna.
+De acordo com o man:
+
+> head - imprime as primeiras linhas de um arquivo
+
+Por padrão ele exibe as 10 primeiras linhas do arquivo.
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>head linux-loop.txt</code>
+Linux Corp.
 
 
+Linux Corp.          
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+</pre>
+
+## -v
+
+Podemos imprimir na primeira linha o nome do arquivo com o parametro `-v` verbose
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>head -v linux-loop.txt</code>
+==> linux-loop.txt <==
+Linux Corp.
+
+
+Linux Corp.          
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+</pre>
+
+## -c
+
+Com esse parametro podemos exibir apenas detrmiandos bytes do arquivo
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>head -c1 linux-loop.txt</code>
+L
+</pre>
+
+
+Ou ainda
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>head -c2 linux-loop.txt</code>
+Li
+</pre>
+
+## -n
+
+Com o parametro `-n` podemos definir a quantidade de linhas retornadas.
+
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>head -n5 linux-loop.txt</code>
+Linux Corp.
+
+
+Linux Corp.          
+Linux Corp.
+</pre>
+
+Podemos ainda omitir o `-n` e colocar apenas o `-`, dessa forma:
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>head -5 linux-loop.txt</code>
+Linux Corp.
+
+
+Linux Corp.          
+Linux Corp.
+</pre>
 
 ## join
 
