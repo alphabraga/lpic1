@@ -133,7 +133,13 @@ O comando abaixo vai continuar em execução mesmo que o terminal seja fechado o
 
 ## ps
 
-Exibe informações sobre processos em execução.
+Exibe informações sobre processos em execução. o **ps** pode trabalha com 3 tipos de parametros:
+
+* Unix98, precedidos de um `-` e uma letra;
+* BSD, composto apenas por letras;
+* GNU Long Options, precedido com `--` e palavras;
+
+
 
 ## top
 
