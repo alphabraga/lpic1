@@ -52,7 +52,7 @@ Veja abaixo o conteudo do diretório:
 
 ## /proc/
 
-Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretório ficam arquivos que são cobrados na LPI como o [/proc/interrups](#), [/proc/dma](#) e o [/proc/ioports](#). 
+Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretório ficam arquivos que são cobrados na LPI como o [/proc/interrups](#), [/proc/dma](#), [/proc/ioports](#) e o [/proc/modules](#). 
 
 
     ├── acpi
@@ -190,6 +190,32 @@ Exibe informações de memória. É com as informações desse arquivo que o com
 
 Exibe informações de processador
 
+## /proc/modules
+
+Esse arquivo contem informações sobre os modulos utilizados pelo linux. É esse arquivo que é lido pelo comando [lsmod](#).
+
+Abaixo iremos realizar um cat no arquivo /proc/modules 
+
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>cat /proc/modules"</code>
+quota_v2 16384 2 - Live 0x0000000000000000
+quota_tree 20480 1 quota_v2, Live 0x0000000000000000
+parport_pc 32768 0 - Live 0x0000000000000000
+ppdev 20480 0 - Live 0x0000000000000000
+lp 20480 0 - Live 0x0000000000000000
+parport 49152 3 parport_pc,ppdev,lp, Live 0x0000000000000000
+autofs4 40960 2 - Live 0x0000000000000000
+hid_generic 16384 0 - Live 0x0000000000000000
+usbhid 49152 0 - Live 0x0000000000000000
+hid 118784 2 hid_generic,usbhid, Live 0x0000000000000000
+i915 1830912 85 - Live 0x0000000000000000
+i2c_algo_bit 16384 1 i915, Live 0x0000000000000000
+drm_kms_helper 167936 1 i915, Live 0x0000000
+</pre>
+
+Podemos observar acima m=nomes de modulos carregados pelo sistema. Mas o comando lsmod disponibiliza essas mesmas informações de forma mais legivel.
+
 ## /dev/
 
 Esse diretório faz referências a dispositivos do sistema inclusive de armazenamento. É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretorio
@@ -232,6 +258,46 @@ intel_rapl             20480  0
 x86_pkg_temp_thermal    16384  0
 </pre>
 
+É importante frizar que os modulos estão localizados no diretório `/lib/modules/`.
+
+##modinfo
+
+Segundo `man` o comando `modinfo` tem a seguinte descrição:
+
+> Exibir informação sobre moddulos do Kernel do Linux
+
+Sendo assim o modinfo exibe informações detalhadas a respeito de um modulo
+
+Abaixo vamos utilizar o modinfo para exibir informações a respeito do modulo
+
+<pre class="language-bash command-line">
+  <code>modinfo joydev</code>
+filename:       /lib/modules/4.13.0-41-generic/kernel/drivers/input/joydev.ko
+license:        GPL
+description:    Joystick device interfaces
+author:         Vojtech Pavlik <vojtech@ucw.cz>
+srcversion:     E0E4A2F5EAE529EF007ECC6
+alias:          input:b*v*p*e*-e*1,*k*2C0,*r*a*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*1,*k*130,*r*a*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*1,*k*120,*r*a*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*3,*k*r*a*6,*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*3,*k*r*a*8,*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*3,*k*r*a*2,*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*3,*k*r*a*0,*m*l*s*f*w*
+depends:        
+intree:         Y
+name:           joydev
+vermagic:       4.13.0-41-generic SMP mod_unload 
+</pre>
+
+Podemos ainda pegar informação apenas de um campo especifico desse modulo utilizando o parametro -F
+
+<pre class="language-bash command-line">
+<code>modinfo -F license joydev</code>
+GPL
+</pre>
+
+
 ##rmmod
 
 Comando utilizado para remover um modulo. Ignorando as dependencias..
@@ -251,7 +317,7 @@ Se executarmos o `lsmod` veremos que o `psmouse` não pararece mais na listagem:
 
 ##insmod
 
-Comando para instalar o modulo, ignorando as dependências.
+Comando para instalar o modulo, ignorando as dependências. **Observe que para remover um modulo com rmmod passamos como parametro apenas o nome do modulo, ja com o insmod passamos o caminho para o arquivo**.
 
 <pre class="language-bash command-line">
   <code>sudo insmod /lib/modules/4.10.0-38-generic/kernel/drivers/input/mouse/psmouse.ko</code>
@@ -260,7 +326,7 @@ Comando para instalar o modulo, ignorando as dependências.
 
 ## modprobe
 
-Carrega um modulo no sistema. Com o parametro `-r` ele remove um modulo. **O diferencial desse comando e que ele carrega ou descarrega automaticamente as dependecias do modolo definido no comando**.
+Carrega um modulo no sistema. Com o parametro `-r` ele remove um modulo. **O diferencial desse comando e que ele carrega ou descarrega automaticamente as dependecias do modulo definido no comando**. E nele voce passa tanto para remover quanto para carregar apenas o nome do modulo não o arquivo.
 
 ## lspci
 
@@ -403,3 +469,21 @@ Listagem verbosa dos dispositivos:
           bInterfaceClass         9 Hub
     Couldn't open device, some information will be missing
 </pre>
+
+## Identificar e Configurar o Hardware
+
+### IDE
+
+falta
+
+### PATA
+
+falta
+
+### SATA
+
+falta
+
+### SCSI
+
+falta

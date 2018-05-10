@@ -12,6 +12,16 @@ Conhecimento de `SysVinit` e `systemd`
 Menssagens de `Awareness` da inicialização do sistema
 Verificar eventos de `boot` nos arquivos de log 
 
+## Processo de Boot
+
+	BIOS > MBR > BOOTLOADER > KERNEL > INIT
+
+* A BIOS localiza e executa a MBR
+* O MBR (Master Boot Record) executa o Bootloader
+* O Bootloader (GRUB/LILO) Seleciona e executa o Kernel e initird 
+* O Kernel executa o **/sbin/init**
+* O init executa os programas do runlevel/target definido 
+
 ## dmesg
 
 Esse comando exibe informações sobre o boot do sistema com se fosse um log.
@@ -45,19 +55,34 @@ Esse comando exibe informações sobre o boot do sistema com se fosse um log.
 
 A palavra `BIOS` significa Basic Input Output System. E nada mais é que um firmware que guarda as configurações básicas da maquina como data e hora, ordem de dispositivos para o boot, configuraçõs basicas de teclado etc..
 
-## bootloader
+## Bootloader
 
-## kernel
+O Bootloader é um software que reside na MBR que é responsavel por realizar o carregamento do Kernel do Linux. Existem dois tipos de bootloader's o LILO, mais antigo, e o GRUB que é que mais atual e que consequentemente é mais cobrado na LPI.
+
+## Kernel
+
+O Kernel interage a uym nivel mais baiuxo dentro do Linux. Ele coordena a utilização de memoria, dispositivos, priocessamento etc.
 
 ## initramfs
 
+> O initramfs é uma imagem de sistema de arquivos da raiz (root) utilizado para realizar o boot do Kernel que é disponibilizado como um arquivo cpio comprimido.
+
+Fonte: https://wiki.debian.org/initramfs
+
+Ele tambem é carregado pelo bootloader para dar suporte ao Kernel. Ele é temporario e carregado em mémoria RAM.
+
 ## init
+
+Tem a função de inciar os primeiros processos e serviços do Linux.
+
+**É o processo de ID 1**
 
 É o sistema que configura o os serviços que rodam no Linux. Ele funciona utilizando o conceito de `runlevels`.
 
-## SysVinit
+Principais inits utilizados
 
+### SysVinit
 
-## systemd
+### systemd
 
-Teste
+### upstart
