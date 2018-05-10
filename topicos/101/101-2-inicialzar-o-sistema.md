@@ -85,4 +85,6 @@ Principais inits utilizados
 
 ### systemd
 
+Systemd é um gerenciador de sistema e de serviços para o Linux, compativel com o SysV. Systemmd utiliza sockets e D-BUS para inicialização de serviços, oferece a iniciação por demanda de `daemons`, rastreia processos utilizando o controle de grupos do Linux, suporta `snaphotting` e o `restoring` de um determinado estado do sistema.
+
 ### upstart
