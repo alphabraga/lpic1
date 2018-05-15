@@ -4,17 +4,17 @@ title: 101.1 Visualize e configure definições de hardware (Peso 2)
 permalink: /101/101-1-visualize-e-configure-definicoes-de-hardware
 ---
 
-Nesse topico será necessario a habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas **com comandos específicos** e **vendo arquivos no sistema de arquivos especial**.
+Nesse tópico será necessário a habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas **com comandos específicos** e **vendo arquivos no sistema de arquivos especial**.
 
-* Feramentas e utilitários para listar diversas de informações de hardware (lsusb, lspci, etc.)
-* Feramentas e utilitários para Manipular dispositivos USB
+* Feramentas e utilitários para listar diversas de informações de hardware (lsusb, lspci.)
+* Feramentas e utilitários para manipular dispositivos USB
 * Entendimento conceitual de [sysfs](#), [udev](#), [dbus](#)
 
 ## /sys/
 
 Faz parte da partição virtual pois não guarda de fato arquivos e sim informações dinâmicas.Esse é um diretorio que é mais focado em **guardar informações de dispositivos de hardware**.
 
-o `/sys/` é montado utilizando um tipo de filesystem chamado de `sysfs`. O comando `df` exibe o sistema de arquivos `sysfs`:
+O `/sys/` é montado utilizando um tipo de filesystem chamado de `sysfs`. O comando `df` exibe o sistema de arquivos `sysfs`:
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>df -t sysfs -a
@@ -52,8 +52,9 @@ Veja abaixo o conteudo do diretório:
 
 ## /proc/
 
-Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretório ficam arquivos que são cobrados na LPI como o [/proc/interrups](#), [/proc/dma](#), [/proc/ioports](#) e o [/proc/modules](#). 
+Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretório ficam arquivos que são cobrados na LPI 101 como o [/proc/interrups](#), [/proc/dma](#), [/proc/ioports](#) e o [/proc/modules](#). 
 
+Abaixo conteúdo do diretório:
 
     ├── acpi
     ├── asound
@@ -85,35 +86,39 @@ Guarda informações sobre **processos ativos no sistema e recursos de hardware*
 
 ## /proc/ioports
 
-Esse arquivo contem informações sobre endereços de memória utilizados pela CPU para se comunicar com dispositivos de hardware.
+Esse arquivo contém informações sobre **endereços de memória utilizados pela CPU para se comunicar com dispositivos de hardware**. Abaixo o conteúdo do arquivo `/proc/ioports`
 
 
-    0000-0000 : PCI Bus 0000:00
-    0000-0000 : dma1
-    0000-0000 : pic1
-    0000-0000 : timer0
-    0000-0000 : timer1
-    0000-0000 : keyboard
-    0000-0000 : PNP0C09:00
-    0000-0000 : EC data
-    0000-0000 : keyboard
-    0000-0000 : PNP0C09:00
-    0000-0000 : EC cmd
-    0000-0000 : rtc0
-    0000-0000 : dma page reg
-    0000-0000 : pic2
-    0000-0000 : dma2
-    0000-0000 : fpu
-    0000-0000 : pnp 00:00
-    0000-0000 : pnp 00:07
-    0000-0000 : PCI conf1
-    0000-0000 : PCI Bus 0000:00
-    0000-0000 : pnp 00:00
-    0000-0000 : pnp 00:00
-    0000-0000 : ACPI PM1a_EVT_BLK
-    0000-0000 : ACPI PM1a_CNT_BLK
-    0000-0000 : ACPI PM_TMR
-    0000-0000 : iTCO_wdt.0.auto
+    0000-0cf7 : PCI Bus 0000:00
+    0000-001f : dma1
+    0020-0021 : pic1
+    0040-0043 : timer0
+    0050-0053 : timer1
+    0060-0060 : keyboard
+    0061-0061 : PNP0800:00
+    0064-0064 : keyboard
+    0070-0077 : rtc0
+    0080-008f : dma page reg
+    00a0-00a1 : pic2
+    00c0-00df : dma2
+    00f0-00ff : fpu
+    00f0-00f0 : PNP0C04:00
+    02f8-02ff : serial
+    03f8-03ff : serial
+    0400-043f : pnp 00:02
+    0440-045f : pnp 00:02
+    0460-047f : pnp 00:02
+    0580-05ff : pnp 00:02
+    0580-0583 : ACPI PM1a_EVT_BLK
+    0584-0587 : ACPI PM1a_CNT_BLK
+    0588-058b : ACPI PM_TMR
+    05a0-05af : ACPI GPE0_BLK
+    05b0-05b3 : iTCO_wdt.0.auto
+    05b0-05b3 : iTCO_wdt
+    05d0-05d0 : ACPI PM2_CNT_BLK
+    05e0-05ff : iTCO_wdt.0.auto
+    05e0-05ff : pnp 00:02
+    05e0-05ff : iTCO_wdt
 
 
 
@@ -179,7 +184,7 @@ Os números nas colunas `CPUn` exibe o número de vezes que uma requisição é 
 
 ## /proc/dma
 
-DMA significa Direct Memory Access, ou seja acesso direto a memória, esse arquivo contém endereços de mémoria utilizado pelo hardware na qual não precisam do intermédio da CPU para acessa-los. Isso permite uma comunicação mais dinâmica uma vez que um interédiario foi removido.
+DMA significa Direct Memory Access, ou seja, acesso direto a memória, esse arquivo contém endereços de mémoria utilizado pelo hardware na qual não precisam do intermédio da CPU para acessa-los. Isso permite uma comunicação mais dinâmica uma vez que um interédiario foi removido.
 
 ## /proc/meninfo
 
@@ -192,7 +197,7 @@ Exibe informações de processador
 
 ## /proc/modules
 
-Esse arquivo contem informações sobre os modulos utilizados pelo linux. É esse arquivo que é lido pelo comando [lsmod](#).
+Esse arquivo contem informações sobre os modulos utilizados pelo Linux. É esse arquivo que é lido pelo comando [lsmod](#).
 
 Abaixo iremos realizar um cat no arquivo /proc/modules 
 
@@ -214,11 +219,11 @@ i2c_algo_bit 16384 1 i915, Live 0x0000000000000000
 drm_kms_helper 167936 1 i915, Live 0x0000000
 </pre>
 
-Podemos observar acima m=nomes de modulos carregados pelo sistema. Mas o comando lsmod disponibiliza essas mesmas informações de forma mais legivel.
+Podemos observar acima nomes de modulos carregados pelo sistema. Mas o comando lsmod disponibiliza essas mesmas informações de forma mais legível.
 
 ## /dev/
 
-Esse diretório faz referências a dispositivos do sistema inclusive de armazenamento. É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretorio
+Esse diretório faz referências a dispositivos do sistema inclusive de armazenamento. É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretório.
 
 ## dbus
 
@@ -229,7 +234,7 @@ Tem duas funções:
 
 ## lsmod
 
-Lista os modulos que estão sendo utilizados pelo sistema. Existe uma coluna que informa se o modulo é utilizado por outros modulos o numero de utilizações..
+Lista os modulos que estão sendo utilizados pelo sistema. Existe uma coluna que informa se o módulo é utilizado por outros módulos e o número de utilizações.
 
 <pre class="language-bash command-line">
   <code>lsmod</code>
@@ -258,76 +263,6 @@ intel_rapl             20480  0
 x86_pkg_temp_thermal    16384  0
 </pre>
 
-É importante frizar que os modulos estão localizados no diretório `/lib/modules/`.
-
-##modinfo
-
-Segundo `man` o comando `modinfo` tem a seguinte descrição:
-
-> Exibir informação sobre moddulos do Kernel do Linux
-
-Sendo assim o modinfo exibe informações detalhadas a respeito de um modulo
-
-Abaixo vamos utilizar o modinfo para exibir informações a respeito do modulo
-
-<pre class="language-bash command-line">
-  <code>modinfo joydev</code>
-filename:       /lib/modules/4.13.0-41-generic/kernel/drivers/input/joydev.ko
-license:        GPL
-description:    Joystick device interfaces
-author:         Vojtech Pavlik <vojtech@ucw.cz>
-srcversion:     E0E4A2F5EAE529EF007ECC6
-alias:          input:b*v*p*e*-e*1,*k*2C0,*r*a*m*l*s*f*w*
-alias:          input:b*v*p*e*-e*1,*k*130,*r*a*m*l*s*f*w*
-alias:          input:b*v*p*e*-e*1,*k*120,*r*a*m*l*s*f*w*
-alias:          input:b*v*p*e*-e*3,*k*r*a*6,*m*l*s*f*w*
-alias:          input:b*v*p*e*-e*3,*k*r*a*8,*m*l*s*f*w*
-alias:          input:b*v*p*e*-e*3,*k*r*a*2,*m*l*s*f*w*
-alias:          input:b*v*p*e*-e*3,*k*r*a*0,*m*l*s*f*w*
-depends:        
-intree:         Y
-name:           joydev
-vermagic:       4.13.0-41-generic SMP mod_unload 
-</pre>
-
-Podemos ainda pegar informação apenas de um campo especifico desse modulo utilizando o parametro -F
-
-<pre class="language-bash command-line">
-<code>modinfo -F license joydev</code>
-GPL
-</pre>
-
-
-##rmmod
-
-Comando utilizado para remover um modulo. Ignorando as dependencias..
-
-
-<pre class="language-bash command-line">
-  <code>sudo rmmod psmouse</code>
-</pre>
-
-
-Se executarmos o `lsmod` veremos que o `psmouse` não pararece mais na listagem:
-
-
-<pre class="language-bash command-line">
-  <code>lsmod | grep psmouse</code>
-</pre>
-
-##insmod
-
-Comando para instalar o modulo, ignorando as dependências. **Observe que para remover um modulo com rmmod passamos como parametro apenas o nome do modulo, ja com o insmod passamos o caminho para o arquivo**.
-
-<pre class="language-bash command-line">
-  <code>sudo insmod /lib/modules/4.10.0-38-generic/kernel/drivers/input/mouse/psmouse.ko</code>
-</pre>
-
-
-## modprobe
-
-Carrega um modulo no sistema. Com o parametro `-r` ele remove um modulo. **O diferencial desse comando e que ele carrega ou descarrega automaticamente as dependecias do modulo definido no comando**. E nele voce passa tanto para remover quanto para carregar apenas o nome do modulo não o arquivo.
-
 ## lspci
 
 Lista os dispositivos de hardware que estão no barramento PCI do computador.
@@ -350,7 +285,8 @@ Lista os dispositivos de hardware que estão no barramento PCI do computador.
 02:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0c)
 </pre>
 
-No lado esquerdo do output vemos os IDS dos dispositivos e do lado direito uma breve descrição sobre os mesmo. Para ver mais detalhes sobre todos os dispositivos utilizamos a opção `-v` ou `-vv` para ser mais verboso ainda.
+No lado esquerdo do output vemos os IDS dos dispositivos e do lado direito uma breve descrição sobre os mesmo. 
+Para ver mais detalhes sobre os dispositivos utilizamos a opção `-v`, para exibir as informações de forma verbosa usamos `-vv`, para exibir mais informações ainda com `-vvv`.
 
 
 <pre class="language-bash command-line">
@@ -390,7 +326,7 @@ No lado esquerdo do output vemos os IDS dos dispositivos e do lado direito uma b
         Kernel modules: processor_thermal_device
 </pre>
 
-Para ver mais informações apenas de um dispositivo especifico utilizamos a opção `-s` seguido do ID do dispositivo(o `s` seria de seleção)
+Para ver mais informações apenas de um dispositivo específico utilizamos a opção `-s` seguido do ID do dispositivo (o `s` seria de seleção)
 
 <pre class="language-bash command-line">
   <code>lspci -s00:04.0 -v </code>
@@ -469,6 +405,77 @@ Listagem verbosa dos dispositivos:
           bInterfaceClass         9 Hub
     Couldn't open device, some information will be missing
 </pre>
+
+
+É importante frizar que os módulos estão localizados no diretório `/lib/modules/`.
+
+##modinfo
+
+Segundo `man` o comando `modinfo` tem a seguinte descrição:
+
+> Exibir informação sobre modulos do Kernel do Linux
+
+Sendo assim o `modinfo` exibe informações detalhadas a respeito de um módulo
+
+Abaixo vamos utilizar o modinfo para exibir informações a respeito do módulo
+
+<pre class="language-bash command-line">
+  <code>modinfo joydev</code>
+filename:       /lib/modules/4.13.0-41-generic/kernel/drivers/input/joydev.ko
+license:        GPL
+description:    Joystick device interfaces
+author:         Vojtech Pavlik <vojtech@ucw.cz>
+srcversion:     E0E4A2F5EAE529EF007ECC6
+alias:          input:b*v*p*e*-e*1,*k*2C0,*r*a*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*1,*k*130,*r*a*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*1,*k*120,*r*a*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*3,*k*r*a*6,*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*3,*k*r*a*8,*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*3,*k*r*a*2,*m*l*s*f*w*
+alias:          input:b*v*p*e*-e*3,*k*r*a*0,*m*l*s*f*w*
+depends:        
+intree:         Y
+name:           joydev
+vermagic:       4.13.0-41-generic SMP mod_unload 
+</pre>
+
+Podemos ainda pegar informação apenas de um campo especifico desse modulo utilizando o parâmetro -F
+
+<pre class="language-bash command-line">
+<code>modinfo -F license joydev</code>
+GPL
+</pre>
+
+
+##rmmod
+
+Comando utilizado para remover um módulo. Ignorando as dependencias.
+
+
+<pre class="language-bash command-line">
+  <code>sudo rmmod psmouse</code>
+</pre>
+
+
+Se executarmos o `lsmod` veremos que o `psmouse` não pararece mais na listagem:
+
+
+<pre class="language-bash command-line">
+  <code>lsmod | grep psmouse</code>
+</pre>
+
+##insmod
+
+Comando para instalar o modulo, ignorando as dependências. **Observe que para remover um módulo com rmmod passamos como parâmetro apenas o nome do módulo, já com o insmod passamos o caminho para o arquivo**.
+
+<pre class="language-bash command-line">
+  <code>sudo insmod /lib/modules/4.10.0-38-generic/kernel/drivers/input/mouse/psmouse.ko</code>
+</pre>
+
+
+## modprobe
+
+Carrega um módulo no sistema. Com o parâmetro `-r` ele remove um modulo. **O diferencial desse comando e que ele carrega ou descarrega automaticamente as dependêcias do módulo definido no comando**. E nele você passa tanto para remover quanto para carregar apenas o nome do modulo não o arquivo.
 
 ## Identificar e Configurar o Hardware
 

@@ -9,16 +9,18 @@ Guiar o sistema durante o processo de boot.
 Prover comandos comuns para o `boot loader` e opções para o Kernel no momento do `boot`
 Demonstrar conhecimento da sequência de `boot` da BIOS até a finalização do boot
 Conhecimento de `SysVinit` e `systemd`
-Menssagens de `Awareness` da inicialização do sistema
+Mensagens de `Awareness` da inicialização do sistema
 Verificar eventos de `boot` nos arquivos de log 
 
 ## Processo de Boot
+
+Abaixo podemos visualizar a sequência de boot:
 
 	BIOS > MBR > BOOTLOADER > KERNEL > INIT
 
 * A BIOS localiza e executa a MBR
 * O MBR (Master Boot Record) executa o Bootloader
-* O Bootloader (GRUB/LILO) Seleciona e executa o Kernel e initird 
+* O Bootloader (GRUB/LILO) seleciona e executa o Kernel e initird 
 * O Kernel executa o **/sbin/init**
 * O init executa os programas do runlevel/target definido 
 
