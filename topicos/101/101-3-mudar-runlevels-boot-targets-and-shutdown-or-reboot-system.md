@@ -13,7 +13,7 @@ permalink: /101/101-3-mudar-runlevels-boot-targets-and-shutdown-or-reboot-system
 
 ## shutdown
 
-Esse comando realiza o desligamento e até mesmo a reiniclização da máquina. Vale lembrar que usando o `init 0` para desligar, e o `init 6` para desligar.
+Esse comando realiza o desligamento e até mesmo a reiniclização da máquina. Vale lembrar que usando o `init 0` para desligar, e o `init 6` para reiniciar.
 
 Podemos ainda usar o `telinit` para isso, mas esses comandos não realizam operações assessorias como enviar mensagens para os outros usuários que o sistema sera desligado.
 

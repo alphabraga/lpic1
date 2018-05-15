@@ -6,11 +6,11 @@ permalink: /101/101-2-inicializar-o-sistema
 
 Guiar o sistema durante o processo de boot.
 
-Prover comandos comuns para o `boot loader` e opções para o Kernel no momento do `boot`
-Demonstrar conhecimento da sequência de `boot` da BIOS até a finalização do boot
-Conhecimento de `SysVinit` e `systemd`
-Mensagens de `Awareness` da inicialização do sistema
-Verificar eventos de `boot` nos arquivos de log 
+Prover comandos comuns para o `bootloader` e opções para o Kernel no momento do `boot`.
+Demonstrar conhecimento da sequência de `boot` da BIOS até a finalização do boot.
+Conhecimento de `SysVinit` e `systemd`.
+Mensagens de `Awareness` da inicialização do sistema.
+Verificar eventos de `boot` nos arquivos de log.
 
 ## Processo de Boot
 
@@ -55,30 +55,27 @@ Esse comando exibe informações sobre o boot do sistema com se fosse um log.
 
 ## BIOS
 
-A palavra `BIOS` significa Basic Input Output System. E nada mais é que um firmware que guarda as configurações básicas da maquina como data e hora, ordem de dispositivos para o boot, configuraçõs basicas de teclado etc..
+A palavra `BIOS` significa Basic Input Output System. Nada mais é que um firmware que guarda as configurações básicas da máquina como data e hora, ordem de dispositivos para o boot, configuraçõs básicas de teclado e etc.
 
 ## Bootloader
 
-O Bootloader é um software que reside na MBR que é responsavel por realizar o carregamento do Kernel do Linux. Existem dois tipos de bootloader's o LILO, mais antigo, e o GRUB que é que mais atual e que consequentemente é mais cobrado na LPI.
+O Bootloader é um software que reside na MBR que é responsável por realizar o carregamento do Kernel do Linux. Existem dois tipos de bootloader's o LILO, mais antigo, e o GRUB que é que mais atual e que consequentemente é mais cobrado na LPI.
 
 ## Kernel
 
-O Kernel interage a uym nivel mais baiuxo dentro do Linux. Ele coordena a utilização de memoria, dispositivos, priocessamento etc.
+O Kernel interage a um nível mais baixo dentro do Linux. Ele coordena a utilização de memória, dispositivos, processamento etc.
 
 ## initramfs
 
-> O initramfs é uma imagem de sistema de arquivos da raiz (root) utilizado para realizar o boot do Kernel que é disponibilizado como um arquivo cpio comprimido.
+> O initramfs é uma imagem de sistema de arquivos da raiz (root) utilizado para realizar o boot do Kernel, ele é disponibilizado como um arquivo cpio comprimido.
 
 Fonte: https://wiki.debian.org/initramfs
 
-Ele tambem é carregado pelo bootloader para dar suporte ao Kernel. Ele é temporario e carregado em mémoria RAM.
+Ele também é carregado pelo bootloader para dar suporte ao Kernel. Ele é temporário e carregado em mémoria RAM.
 
 ## init
 
-Tem a função de inciar os primeiros processos e serviços do Linux.
-
-**É o processo de ID 1**
-
+Tem a função de iniciar os primeiros processos e serviços do Linux. **É o processo de ID 1**
 É o sistema que configura o os serviços que rodam no Linux. Ele funciona utilizando o conceito de `runlevels`.
 
 Principais inits utilizados
@@ -89,4 +86,4 @@ Principais inits utilizados
 
 Systemd é um gerenciador de sistema e de serviços para o Linux, compativel com o SysV. Systemmd utiliza sockets e D-BUS para inicialização de serviços, oferece a iniciação por demanda de `daemons`, rastreia processos utilizando o controle de grupos do Linux, suporta `snaphotting` e o `restoring` de um determinado estado do sistema.
 
-### upstart
+### Upstart
