@@ -31,6 +31,23 @@ Linux Corp.
 Linux Corp
 </pre>
 
+Uma outra utilização desse comando pouco comum é direcionar standart input para um arquivo.
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>cat > arquivo.txt</code>
+
+Olá aqui eu estou digitando o conteudo do arquivo arquivo.txt
+
+Ao digitar Ctrl+d saio do modo de digitação e o arquivo é salvo
+[Ctrl+d]
+<code>cat arquivo.txt</code>
+
+Olá aqui eu estou digitando o conteudo do arquivo arquivo.txt
+
+Ao digitar Ctrl+d saio do modo de digitação e o arquivo é salvo
+
+</pre>
+
 Agora vamos utilizar o mesmo comando para concatenar dois arquivos:
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
@@ -70,6 +87,26 @@ Windows Corp.
 </pre>
 
 Parametros do comando cat
+
+## -s ou --squeezy-blank
+
+Esse parametro remove linhas em branco duplicadas. Se um arquivo tiver duas ou mais linhas duplicadas ele as remove deixando apenas uma como podemos ver no exemplo abaixo
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>cat -s linux-loop.txt</code>
+Linux Corp.
+
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.
+Linux Corp.  
+</pre>
 
 ## -n
 
@@ -136,6 +173,10 @@ Linux Corp.%
 
 O `$` significa final de linha e o `^I` representa um tab.
             
+
+## tac
+
+O comando `tac` é o contrario do `cat` possui os mesmos parametros mas ele exibe as linhas de trás pra frente, ou seja, de forma inversa.
 
 
 ## cut

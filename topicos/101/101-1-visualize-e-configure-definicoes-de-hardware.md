@@ -223,7 +223,11 @@ Podemos observar acima nomes de modulos carregados pelo sistema. Mas o comando l
 
 ## /dev/
 
-Esse diretório faz referências a dispositivos do sistema inclusive de armazenamento. É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretório.
+Esse diretório faz referências a dispositivos do sistema inclusive de armazenamento. 
+
+## udev
+
+É o processo de nome `udev` que monta esses dispositivos que ficam exibidos nesse diretório.
 
 ## dbus
 

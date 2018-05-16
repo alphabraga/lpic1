@@ -4,12 +4,12 @@ title: 104.5 Gerenciar Permissões e Owership de Arquivos (Peso 3)
 permalink: 104/104-5-gerenciar-permissoes-e-ownership-de-arquivos
 ---
 
-Ter a capacidade de controlar acesso a arquivos e tambem e utilizar o controle de permissões ownerships de modo adequado.
+Ter a capacidade de controlar acesso a arquivos e também e utilizar o controle de permissões e ownerships de modo adequado.
 
-* Gerenciar acesso a permissões em arquivos regulares e especiais como tambem em diretórios
-* Utilizar modos de acesso como o `sgid` e o `sticky bit` para manter a segurança
-* Saber como mudar a mascara de criação de arquivos
-* Utilizar o campo de grupo para garantir acesso a arquvios menbros de grupos
+* Gerenciar acesso a permissões em arquivos regulares e especiais como também em diretórios
+* Utilizar modos de acesso como o `suid`, `sgid` e o `sticky bit` para manter a segurança
+* Saber como mudar a máscara de criação de arquivos
+* Utilizar o campo de grupo para garantir acesso a arquivos menbros de grupos
 
 ## chmod
 
@@ -21,18 +21,9 @@ O comando `chmod` segundo o `man` é:
 > mode bits.
 
 
-Em resumo esse comando altera as pemissões de um arquivo ou diretório. Atraves de parametros utilizando `letras` que podemos chamar de simbolico e o octal.
+Em resumo esse comando altera as pemissões de um arquivo ou diretório. Através de parâmetros utilizando `letras` que podemos chamar de símbolico e o octal que utiliza números.
 
-### Modo Octal
-
-
-
-
-
-
-
-
-### Modo Simbolico
+### Modo Símbolico
 
 Para visualizar as pemissões de um arquivo iremos executar o comando
 
@@ -121,6 +112,21 @@ Dar permissão de execução para o dono, o grupo e os outros:
 ### -R, --recursive
 
 Realiza as alterações de forma recursiva
+
+### Modo Octal
+
+O modo octal utiliza o o comando chmod para alterar as pemissoes só que em vez de letras usamos o apenas números onde:
+
+* 4 = leirura
+* 2 = escrita
+* 1 = execução
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
+<code>chmod 655 arquivo.txt</code> 
+<code>ls -l arquivo.txt</code> 
+---x--x--x 1 alphabraga alphabraga 0 Abr 10 23:02 arquivo.txt
+</pre>
+
 
 ## chown
 
