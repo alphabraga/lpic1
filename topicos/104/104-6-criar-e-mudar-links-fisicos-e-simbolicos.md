@@ -104,7 +104,7 @@ O para criar links simbolicos utilizamos o comando `ln` com parametro `-s`. Veja
 11010481 -rw-rw-r-- 1 alphabraga alphabraga  0 Abr 11 22:43 novas-configs.app
 </pre>
 
-Já vemos de cara que eles possuem `inodes` diferentes, essa já seria uma diferença de links simbolicos e físicos. Alem disso vemos que existe um caracter `l` proximos aos caracteres de permissões. O `l` é de link, esse caractere não aparece em links fisicos.
+Já vemos de cara que eles possuem `inodes` diferentes, essa já seria uma diferença de links simbolicos e físicos. Alem disso vemos que existe um caracter `l` proximo aos caracteres de permissões. O `l` é de link, esse caractere não aparece em links físicos. Um link simbilico sempre tera as pemissoes `rwxrwxrwx`.
 
 Podemos ainda criar links simbolicos de pastas. Essa já é a segunda diferença entre links fisicos e simbolicos. Veja o exemplo abaixo:
 

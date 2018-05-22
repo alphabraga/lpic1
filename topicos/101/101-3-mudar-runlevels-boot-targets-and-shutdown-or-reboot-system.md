@@ -17,6 +17,8 @@ Esse comando realiza o desligamento e até mesmo a reiniclização da máquina. 
 
 Podemos ainda usar o `telinit` para isso, mas esses comandos não realizam operações assessorias como enviar mensagens para os outros usuários que o sistema sera desligado.
 
+Uma dica para memorizar os parametros é que ao contrario de alguns comandos eles são bem intuitivos. As letras correspondem as inciais de cada ação com excessão para o `-k`.
+
 O comando pode ser utilizado sem argumentos. Ele desliga a máquina em 1 minuto.
 
 <pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
@@ -49,6 +51,47 @@ O comando abaixo desliga a máquina em 60 minutos
 <code>shutdown +60</code>	
 </pre>
 
+Executa o halt
+
+<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
+<code>shutdown -H</code>	
+</pre>
+
+## -H, --halt
+
+Esse comando desliga o linux mas não a máquina.
+
+## -P, --poweroff
+
+Power-off the machine (the default).
+
+## -r, --reboot
+
+Reinicia a máquina
+
+## -h
+
+Equivalent to --poweroff, unless --halt is specified.
+
+## -k
+
+Com esse parametro o sistema não realiza o halt, power-off ou reboo, apenas escreve as mensagens wall.
+
+## --no-wall
+
+Não envia mensagens wall.
+
+## -c
+
+Cancela um shutdown pendente. Esse comando evita que que um comando de desligamento seja executado caso claro ele não seja invocado com os agrumantos "now" ou "+0"
+
+<pre class="language-bash command-line">
+<code>shutdown +2</code>
+Shutdown scheduled for Mon 2018-04-16 16:13:27 -03, use 'shutdown -c' to cancel.
+<code>shutdown -c</code>
+</pre>
+
+
 ### Poweroff
 
 Poweroff envia um sinal ACPI com instruções para desligar o sistema. Vejamos alguns exemplos:
@@ -65,48 +108,6 @@ Poweroff envia um sinal ACPI com instruções para desligar o sistema. Vejamos a
 
 <pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
 <code>poweroff --reboot    #reinicia a máquina</code>	
-</pre>
-
-
-Executa o halt
-
-<pre class="language-bash command-line" data-user="alphabraga" data-host="localhost">
-<code>shutdown -H</code>	
-</pre>
-
-
-## -H, --halt
-
-Esse comando desliga o linux mas não a máquina.
-
-## -P, --poweroff
-
-Power-off the machine (the default).
-
-## -r, --reboot
-
-Reboot the machine.
-
-## -h
-
-Equivalent to --poweroff, unless --halt is specified.
-
-## -k
-
-Do not halt, power-off, reboot, just write wall message.
-
-## --no-wall
-
-Do not send wall message before halt, power-off, reboot.
-
-## -c
-
-Cancela um shutdown pendente. Esse comando evita que que um comando de desligamento seja executado caso claro ele não seja invocado com os agrumantos "now" ou "+0"
-
-<pre class="language-bash command-line">
-<code>shutdown +2</code>
-Shutdown scheduled for Mon 2018-04-16 16:13:27 -03, use 'shutdown -c' to cancel.
-<code>shutdown -c</code>
 </pre>
 
 ## halt

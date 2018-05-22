@@ -52,7 +52,13 @@ Veja abaixo o conteudo do diretório:
 
 ## /proc/
 
-Guarda informações sobre **processos ativos no sistema e recursos de hardware**. Nesse diretório ficam arquivos que são cobrados na LPI 101 como o [/proc/interrups](#), [/proc/dma](#), [/proc/ioports](#) e o [/proc/modules](#). 
+Guarda informações sobre **processos ativos no sistema e recursos de hardware**. 
+Nesse diretório ficam arquivos que são cobrados na LPI 101 como o [/proc/interrups](#), [/proc/dma](#), [/proc/ioports](#) e o [/proc/modules](#).
+Esse diretório é montado utilizando um sistema de arquivos chamado `procfs`.
+
+> Até a versão 2.4 do kernel linux, o diretório /proc era a única forma de acessar detalhes do kernel e configurações do sistema. Entretanto, os desenvolvedores do kernel não gostavam do crescimento descontrolado de informações dentro do /proc, mais especificamente as informações que não tinham nada a ver com processos (o intuito original do diretório /proc). Por essa razão, os desenvolvedores do kernel decidiram mover a médio e longo prazo esses aspectos(informações) do /proc que não tinham nada a ver com gerenciamento de processos para um novo sistema de arquivo virtual, o sysfs.
+
+Fonte: [tuxcademy.org](https://www.tuxcademy.org/download/en/adm1/adm1-en-manual.pdf)
 
 Abaixo conteúdo do diretório:
 
@@ -481,20 +487,22 @@ Comando para instalar o modulo, ignorando as dependências. **Observe que para r
 
 Carrega um módulo no sistema. Com o parâmetro `-r` ele remove um modulo. **O diferencial desse comando e que ele carrega ou descarrega automaticamente as dependêcias do módulo definido no comando**. E nele você passa tanto para remover quanto para carregar apenas o nome do modulo não o arquivo.
 
+Com o parametro `-s` qualquer tipo de erro ao adicionar ou remover um modulo é enviado para o `syslog` (gerenciador de logs do Linux). 
+
 ## Identificar e Configurar o Hardware
 
-### IDE
+## IDE
 
 falta
 
-### PATA
+## PATA
 
 falta
 
-### SATA
+## SATA
 
 falta
 
-### SCSI
+## SCSI
 
 falta

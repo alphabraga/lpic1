@@ -8,7 +8,7 @@ Candidatos devem ter a capacidade de gerenciar a prioridade de processos.
 
 
 * Saber a prioridade padrão de um `job` que foi criado;
-* Executar um programa com maioor ou menor prioridade que a padrão;
+* Executar um programa com maior ou menor prioridade que a padrão;
 * Mudar a prioridade de um processo em execução;
 
 ## ps
@@ -22,7 +22,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 4 R  1000  9860  9850  0  80   0 -  7240 -      pts/18   00:00:00 ps
 </pre>
 
-A prioridade é exibida na coluna NI, o processo `bash` e `ps` possuem a mesma prioridade `0`.
+A prioridade é exibida na coluna NI, o processo `bash` e `ps` possuem a mesma prioridade `0`. ** Vale resaltar que todo o processo por padrão tem prioridade 0 quando executado sem o nice ou renice**.
 
 
 ## top
@@ -68,7 +68,7 @@ Esses são os niveis de prioridade de processos:
 * Quanto menor o número acima, maior a prioridade;
 * Ao executar normalmente um processo (sem chamar o nice) o processo tem prioridade `0`;
 * Ao executar um processo chamando o nice (Ex: `nice firefox`) ele vai começar com prioridade `10`;
-* Um usuário comum pode apenas diminuir a prioridade de seus processos;
+* Um usuário comum pode apenas diminuir a prioridade de seus processos (verifiquei isso com testes);
 * O root pode aumentar e diminuir a prioridade de processos de qualquer usuário;
 * Apenas o root pode atribuir valores negativos de `nice` a processos;
 
@@ -139,14 +139,7 @@ Podemos omitir o `-n`. Observe que no `renice` removemos por completo, não fica
 <code>renice 15 20159</code>
 </pre>
 
-
-Para atriuir um valor negativo omitindo o `-n`
-
-<pre class="command-line language-bash" data-user="root" data-host="localhost">
-<code>renice 15 20159</code>
-</pre>
-
-Um valor negativo fica assim:
+Para atriuir um valor negativo omitindo o `-n`. Um valor negativo fica assim:
 
 <pre class="command-line language-bash" data-user="root" data-host="localhost">
 <code>renice -15 20159</code>
@@ -165,4 +158,3 @@ Ou do grupo
 <pre class="command-line language-bash" data-user="root" data-host="localhost">
 <code>renice -g developers -n 15</code>
 </pre>
-

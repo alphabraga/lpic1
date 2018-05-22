@@ -4,7 +4,7 @@ title: 103.5 Criar Monitorar e Matar Processos
 permalink: 103/103-5-criar-monitorar-e-matar-processos
 ---
 
-* Ter a capacidade de realizar gerenciamento de báciso de processoss;
+* Ter a capacidade de realizar gerenciamento de básico de processos;
 * Executar processos em `foreground` e `background`;
 * Fazer com que um programa continue sua execução mesmo após o logoff do usuário que executou o mesmo;
 * Monitorar processos ativos;
@@ -13,7 +13,7 @@ permalink: 103/103-5-criar-monitorar-e-matar-processos
 
 ## &
 
-Ao executar um comando podemos colocar um `&` no final do comando para colocar o mesmo em `background`. Abaixo podemos observar que o comando `ping` esta sendo executado em `background`, porém o output do comando continua saindo para para o terminal. O que de certa forma pode prejudicar a execução de outros comandos, já que a intenção é mandar um determinado comando para ser execudo em background e ficar com o `bash` livre para a execução de outros comandos. 
+Ao executar um comando colocamos um `&` no final do comando para deixar o mesmo em `background`. Abaixo podemos observar que o comando `ping` esta sendo executado em `background`, porém o output do comando continua saindo para para o terminal. O que de certa forma pode prejudicar o usuário em digitar outros comandos, já que a intenção é mandar um determinado comando para ser execudo em background e ficar com o `bash` livre para a execução de outros comandos. 
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>ping 127.0.0.1  & </code>
