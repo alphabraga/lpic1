@@ -221,7 +221,7 @@ Linux Corp.
 
 ## -v
 
-Podemos imprimir na primeira linha o nome do arquivo com o parametro `-v` verbose
+Podemos imprimir um cabeçalho, onde na primeira linha o nome do arquiv é inserido com o parametro `-v` verbose
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>head -v linux-loop.txt</code>
@@ -240,7 +240,7 @@ Linux Corp.
 
 ## -c
 
-Com esse parametro podemos exibir apenas detrmiandos bytes do arquivo
+Com esse parametro podemos exibir apenas determiandos bytes do arquivo
 
 <pre class="command-line language-bash" data-user="alphabraga" data-host="localhost">
 <code>head -c1 linux-loop.txt</code>
@@ -288,7 +288,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate lec
 
 ## less
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate lectus eu nunc varius, a commodo ligula tempus. Aenean rhoncus consequat massa, in interdum tellus laoreet blandit. Ut a urna sollicitudin, ullamcorper turpis eu, suscipit nibh. Sed semper justo non dignissim lacinia. Suspendisse sit amet faucibus eros. Praesent vestibulum consectetur nulla in ultricies. Vestibulum auctor eget felis eu malesuada. Mauris sit amet tellus a nibh mattis pulvinar. Etiam tristique velit in est sollicitudin, eu feugiat felis tristique. Duis sed dui fermentum, sodales lorem vestibulum, tristique urna.
+> O Less é um programa similar ao `more`, mas possui muitas outras funcionalidades. O Less não precisa ler todo o input apos inciar, então com grandes arquivos de inputs ele inicia mais rapido que editores de texto como o VI
+- Fonte `man less`
 
 
 
@@ -360,4 +361,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate lec
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate lectus eu nunc varius, a commodo ligula tempus. Aenean rhoncus consequat massa, in interdum tellus laoreet blandit. Ut a urna sollicitudin, ullamcorper turpis eu, suscipit nibh. Sed semper justo non dignissim lacinia. Suspendisse sit amet faucibus eros. Praesent vestibulum consectetur nulla in ultricies. Vestibulum auctor eget felis eu malesuada. Mauris sit amet tellus a nibh mattis pulvinar. Etiam tristique velit in est sollicitudin, eu feugiat felis tristique. Duis sed dui fermentum, sodales lorem vestibulum, tristique urna.
 
+### Termos e Utilitários:
 
+* [cat](#)
+* [cut](#)
+* [expand](#)
+* [fmt](#)
+* [head](#)
+* [join](#)
+* [less](#)
+* [nl](#)
+* [od](#)
+* [paste](#)
+* [pr](#)
+* [sed](#)
+* [sort](#)
+* [split](#)
+* [tail](#)
+* [tr](#)
+* [unexpand](#)
+* [uniq](#)
+* [wc](#)
