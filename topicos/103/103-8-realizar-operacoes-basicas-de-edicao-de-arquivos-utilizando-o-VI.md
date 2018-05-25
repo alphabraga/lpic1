@@ -16,6 +16,11 @@ veja aqui uma imagem com vários comandos do VIM
 [![IMAGE ALT TEXT HERE](/lpic1/img/vi-help-sheet.jpg)](/lpic1/img/vi-help-sheet.jpg)
 
 
+## Corelação de setas e teclas
+
+<v^>
+HJKL
+
 Integer ut urna imperdiet, tempus lacus a, congue dui. Vivamus lacinia ac diam vitae ornare. Aenean vitae massa tellus. Vestibulum placerat, erat at dictum bibendum, est elit sagittis erat, sed maximus lacus justo porta sapien. Praesent dignissim nibh odio. Curabitur a ipsum sed justo fermentum rhoncus. Fusce eget justo vitae quam facilisis egestas ut at tellus. Integer pretium magna non est sagittis, quis tincidunt eros tincidunt. In in justo aliquet, tincidunt metus eget, pulvinar nibh. Quisque risus elit, viverra non venenatis in, convallis vel erat.
 
 ## [/, ?](#)
