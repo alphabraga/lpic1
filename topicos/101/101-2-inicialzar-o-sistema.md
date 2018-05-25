@@ -14,7 +14,7 @@ Verificar eventos de `boot` nos arquivos de log.
 
 ## Processo de Boot
 
-Abaixo podemos visualizar a sequência de boot:
+Abaixo podemos visualizar a sequência de boot de um computador com Linux:
 
 	BIOS > MBR > BOOTLOADER > KERNEL > INIT
 
