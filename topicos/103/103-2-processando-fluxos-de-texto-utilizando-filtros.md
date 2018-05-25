@@ -341,7 +341,37 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate lec
 
 ## tr
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate lectus eu nunc varius, a commodo ligula tempus. Aenean rhoncus consequat massa, in interdum tellus laoreet blandit. Ut a urna sollicitudin, ullamcorper turpis eu, suscipit nibh. Sed semper justo non dignissim lacinia. Suspendisse sit amet faucibus eros. Praesent vestibulum consectetur nulla in ultricies. Vestibulum auctor eget felis eu malesuada. Mauris sit amet tellus a nibh mattis pulvinar. Etiam tristique velit in est sollicitudin, eu feugiat felis tristique. Duis sed dui fermentum, sodales lorem vestibulum, tristique urna.
+**tem que ter exemplos**
+Transforma, "aperta" e/ou deleta caracteres da entrada padrão para a saída padrão. Existe uma diferença simples desse comando com os demais.
+Ele não funciona passando simplemnete o arquivo como parametro, temos que enviar o conteudo do arquivo para stdin do comando com `|` ou com 
+`<`.
+
+	$ cat teste-alfredo.txt | tr A-Z a-z
+	braga
+	tr A-Z a-z < teste-alfredo.txt 
+	braga
+
+
+
+ Veja os parametros abaixo:
+
+No exemplo abaixo vamos transformar os caracteres de minusculos para maiusculos:
+
+	$tr "[a-z]" "[A-Z]" < meu-log.log
+	AGORA TUDO ESTA UPPERCASE
+
+### -c, -C, --complement
+
+Use the complement of SET1
+
+### -d, --delete
+Delete characters in SET1, do not translate
+
+### -s, --squeeze-repeats
+Replace each sequence of a repeated character that is listed in the last specified SET, with a single occurrence of that character
+
+### -t, --truncate-set1
+First truncate SET1 to length of SET2
 
 
 
