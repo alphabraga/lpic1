@@ -44,7 +44,7 @@ title: Indice
   * [103.5 Criar, monitorar e matar processos (Peso 4)](/lpic1/103/103-5-criar-monitorar-e-matar-processos "falta conteudo")
   * [103.6 Alterar a prioridade de execução de processos (Peso 2)](/lpic1/103/103-6-alterar-a-prioridade-de-execucao-de-processos "Revisar Ortografia")
   * [103.7 Buscar texto em arquivos usando expressões regulares (Peso 2)](/lpic1/103/103-7-buscando-texto-em-arquivos-usando-expressoes-regulares "falta conteudo")
-  * [103.8 Realizar operações básicas de edição de arquivos utilizando o VI (Peso 3)](/lpic1/103/103-8-103.8-realizar-operacoes-basicas-de-edicao-de-arquivos-utilizando-o-VI "nada feito")
+  * [103.8 Realizar operações básicas de edição de arquivos utilizando o VI (Peso 3)](/lpic1/103/103-8-realizar-operacoes-basicas-de-edicao-de-arquivos-utilizando-o-VI "nada feito")
 
 * [104: Dispositivos, Linux Sistema de Arquivos, `Filesystem Hierarchy Standard` (Peso 15)](/lpic1/104/dispositivos-linux-sistema-de-arquivo-fhs "nada feito")
   * [104.1 Criar partições e sistema de arquivos (Peso 2)](/lpic1/104/104-1-criar-particoes-e-sistema-de-arquivos "nada feito")

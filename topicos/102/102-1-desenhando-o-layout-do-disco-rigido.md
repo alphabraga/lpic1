@@ -17,7 +17,31 @@ Partição é uma parte de um disco. O particionamento nada mais é do que divid
 
 ## Definição de ponto de montagem
 
-As partições precisão ser adicionandas a arvore de diretorios do Linux. E ai entram os pontos de montagem que nada mais são que do diretrorios que estão associados e esssas partições. Sendo assim dizemos que a partição
+As partições precisam ser adicionandas a arvore de diretórios do Linux. E ai entram os pontos de montagem que nada mais são que do diretórios que estão associados e esssas partições. Sendo assim dizemos que a partição
+
+
+## Diretório / (root) 
+
+Diretório raiz do Linux	
+
+## Diretório /var
+
+Arquivos "variáveis", como logs, base de dados, páginas Web e arquivos de e-mail.
+
+>...variable data files. This includes spool directories and files, administrative and logging data, and transient and temporary files.
+Fonte FHS 
+
+## Diretório home
+
+Local onde ficam os arquivos de usuários comuns
+
+## Diretório /boot
+
+Arquivos do Boot loader (ex: núcleo, initrd).
+
+## Partição de swap
+
+É importante lembrar que uma partição com ID 82 (0x82) será designada para área de swap, enquanto que partições com ID 83 (0x83), Linux Native, serão utilizadas para arquivos do Linux.
 
 
 Ter a capacidade de desenhar o esquema de particionamento  de discos para sistemas Linux.

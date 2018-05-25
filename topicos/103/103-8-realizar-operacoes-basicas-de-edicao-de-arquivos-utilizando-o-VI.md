@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Realizar operações básicas de edição de arquivos utilizando o VI (Peso 3)
-permalink: /103/103-realizar-operacoes-basicas-de-edicao-de-arquivos-utilizando-o-VI
+permalink: /103/103-8-realizar-operacoes-basicas-de-edicao-de-arquivos-utilizando-o-VI
 ---
 
 Ter a capacidade de editar arquivos de texto utilizado o VI. Esse tópico tambem inclui a navegação utilizando o VI, modos do VI, inserindo, editando, excluindo, copiando e encontrando.
@@ -10,6 +10,11 @@ Ter a capacidade de editar arquivos de texto utilizado o VI. Esse tópico tambem
 ## [vi](#)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis molestie sit amet erat vel aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla facilisi. Aliquam malesuada non erat ut imperdiet. Aliquam et fringilla dolor. Morbi turpis quam, mattis in cursus non, posuere feugiat nibh. Donec ac est nisi. Proin pellentesque faucibus tristique.
+
+veja aqui uma imagem com vários comandos do VIM
+
+[![IMAGE ALT TEXT HERE](/lpic1/img/vi-help-sheet.jpg)](/lpic1/img/vi-help-sheet.jpg)
+
 
 Integer ut urna imperdiet, tempus lacus a, congue dui. Vivamus lacinia ac diam vitae ornare. Aenean vitae massa tellus. Vestibulum placerat, erat at dictum bibendum, est elit sagittis erat, sed maximus lacus justo porta sapien. Praesent dignissim nibh odio. Curabitur a ipsum sed justo fermentum rhoncus. Fusce eget justo vitae quam facilisis egestas ut at tellus. Integer pretium magna non est sagittis, quis tincidunt eros tincidunt. In in justo aliquet, tincidunt metus eget, pulvinar nibh. Quisque risus elit, viverra non venenatis in, convallis vel erat.
 

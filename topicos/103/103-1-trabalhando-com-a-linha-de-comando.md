@@ -118,6 +118,40 @@ Acho que isso tá errado!!
 
 Exibe os manuais dos comandos exemplo:
 
+## whatis
+
+
+Cada manual possui uma pequena descrição disponível no início. O comando `whatis` exibe essa descrição do paramêtro passado. Veja o exemplo abaixo:
+
+<pre class="command-line language-bash">
+<code>whatis mysql</code>
+mysql (1)            - the MySQL command-line tool
+</pre>
+
+## info
+
+Tambem exibe informações sobre um determinado comando similar ao man.
+
+> info - read Info documents
+Fonte Manual do comando info
+
+## apropos
+
+Esse comando busca nos arquivos de dos manuais por um determinado termo. Veja o exemplo abaixo:
+
+<pre class="language-bash command-line">
+<code>apropos game</code>       
+endgame (6x)         - endgame chess screensaver
+intro (6)            - introduction to games
+pacman (6x)          - simulates a game of Pac-Man on a randomly-created level.
+penetrate (6x)       - simulates a classic arcade shooting game
+pong (6x)            - Pong Home Video Game Emulator
+winemine (1)         - Wine Minesweeper game
+</pre>
+
+No comando acima buscamos com o comando apropos pelo termo `game` nos manuais. Como retorno temos todos as documentações onde o termo pesquisado foi encontrado.
+
+
 <pre class="language-bash command-line" data-user="alpahbraga" data-host="localhost">
 <code>man cp</code>
 CP(1)                                                                  User Commands
