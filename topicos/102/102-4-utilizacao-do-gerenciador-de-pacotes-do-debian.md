@@ -36,7 +36,7 @@ ii  acl                                         2.2.52-3                        
 
 </pre>
 
-Ou verificar um pacote especifico
+Ou verificar um pacote especifico. Lembre-se de digitar o nome do pacote corretamente.
 
 <pre class="language-bash command-line">
 <code>dpkg -l perl</code>

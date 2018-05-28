@@ -4,7 +4,7 @@ title: 101.1 Visualize e configure definições de hardware (Peso 2)
 permalink: /101/101-1-visualize-e-configure-definicoes-de-hardware
 ---
 
-Nesse tópico será necessário a habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas **com comandos específicos** e **vendo arquivos no sistema de arquivos especial**.
+nesse tópico será necessário a habilidade de visualizar e configurar sistemas de hardware fundamentais. Isso pode ser feito de duas formas **com comandos específicos** e **vendo arquivos no sistema de arquivos especial**.
 
 * Feramentas e utilitários para listar diversas de informações de hardware (lsusb, lspci.)
 * Feramentas e utilitários para manipular dispositivos USB
@@ -25,7 +25,7 @@ sysfs                  0     0      0    - /sys
 
 
 
-Veja abaixo o conteudo do diretório:
+Veja abaixo o conteúdo do diretório:
 
     ├── block
     │   ├── loop0 -> ../devices/virtual/block/loop0

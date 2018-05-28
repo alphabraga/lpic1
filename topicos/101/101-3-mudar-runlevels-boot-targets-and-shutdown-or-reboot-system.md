@@ -150,19 +150,40 @@ Esse arquivo contem informações sobre o runlevel padrão do sistema
 
 "Runlevels" são uma forma obsoleta de iniciar e parar grupos de serviços utilizados n SysV init. Systemd disponibiliza uma camada de compatibilidade que mapeia os runlevels para os targets.
 
-Mapeamento entre runlevels e  targets do systemd
+## Mapeamento entre runlevels e  targets do systemd
 
 Runlevel  Target            
 
-0        poweroff.target   
+<table>
+	<thead>
+		<td>RUNLEVEL</td>
+		<td>TARGET</td>
+	</thead>
+	<tbody>
+		<tr>
+		<td>0</td>
+		<td>poweroff.target</td>			
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>rescue.target</td>
+		</tr>
+		<tr>
+			<td>2,3,4</td>
+			<td>multi-user-.target</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>graphical.target</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>reboot.target</td>
+		</tr>
 
-1        rescue.target     
+	</tbody>
+</table>
 
-2, 3, 4  multi-user.target
-
-5        graphical.target 
-
-6        reboot.target    
 
 
 
