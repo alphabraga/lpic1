@@ -73,7 +73,7 @@ title: Indice
 * [Topic 108: Serviços de Sistema Essenciais](/lpic1/108/servicos-de-sistema-essenciais "nada feito")
   * [108.1 Manutenção de tempo de sistema (Peso X)](/lpic1/108/108-1-manutencao-de-tempo-de-sistema "nada feito")
   * [108.2 Sistema de logs (Peso X)](/lpic1/108/108-2-sistema-de-logs "nada feito")
-  * [108.3 `Mail Transfer Agent` básico (Peso X)](/lpic1/108/mail-transfer-agent-basico "nada feito")
+  * [108.3 `Mail Transfer Agent` básico (Peso X)](/lpic1/108/108-3-mail-transfer-agent-basico "nada feito")
   * [108.4 Gerencie imprssoras e impressão(Peso 2)](/lpic1/108/108-4-gerencie-impressoras-e-impressao "nada feito")
 
 * [Topic 109: Fundamentos de Redes](/lpic1/109/fundamentos-de-redes "nada feito")
