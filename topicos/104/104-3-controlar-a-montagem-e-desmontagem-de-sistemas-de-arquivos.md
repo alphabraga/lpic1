@@ -1,9 +1,8 @@
 ---
 layout: page
-title: 104.3 Controle a Montagem e Desmontagem de Sistemas de Arquivos (Peso 3)
+title: 104.3 Controlar montagem e desmontagem de sistemas de arquivos (Peso 3)
 permalink: 104/104-3-controlar-a-montagem-e-desmontagem-de-sistemas-de-arquivos
 ---
-
 
 
 ## mount
@@ -132,6 +131,7 @@ File System
 * Manualmente montar e desmontar sistemas de arquivos
 * Configurar sistemas de arquivos para montar no momento do boot
 * Configurar sistemas de arquivos montaveis por usuários communs
+
 
 Termos e Utilitários:
 
