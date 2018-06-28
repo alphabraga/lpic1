@@ -1,7 +1,24 @@
 ---
 layout: page
-title: 110.1 Realize Tarefas de Administração de Segurança
-permalink: /110/110-1-realize-tarefas-de-administracao-de-seguranca
+title: 109.2 Configuracao básica de redes (Peso 4)
+permalink: /109/109-2-configuracao-basica-de-redes
 ---
 
-# aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Weight: 4
+
+Candidatos devem ter habilidade em ver, mudar e verificar configurações nos hosts
+
+
+Manualmente e automaticamente configurar interfaces de rede
+Configuração básica de TCP/IP
+Setar uma rota padrão
+
+/etc/hostname
+/etc/hosts
+/etc/nsswitch.conf
+ifconfig
+ifup
+ifdown
+ip
+route
+ping

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 108-3 Mail Transfer Agent Básico
-permalink: /108/108-3-mail-transfer-agent-basico
+title: 108.4 Gerencie impressoras e impressao
+permalink: /108/108-4-gerencie-impressoras-e-impressao
 ---
 
 108.4 Manage printers and printing

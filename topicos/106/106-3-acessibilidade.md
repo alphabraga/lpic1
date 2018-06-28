@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 110.1 Realize Tarefas de Administração de Segurança
-permalink: /106/106-2-configure-o-display-manager
+title: 106.3 Acessibilidade
+permalink: /106/106-3-acessibilidade
 ---
 
 

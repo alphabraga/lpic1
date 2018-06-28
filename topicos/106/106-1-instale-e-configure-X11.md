@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 106.1 Instale e configure o X11 (Peso 2)
-permalink: /106/106-1-instale-e-configure-o-X11
+permalink: /106/106-1-instale-e-configure-X11
 ---
 
 Cadidados devem ser capazes de instalar e configurar o X11
