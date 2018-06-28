@@ -1,7 +1,29 @@
 ---
 layout: page
-title: 110.1 Realize Tarefas de Administração de Segurança
-permalink: /110/110-1-realize-tarefas-de-administracao-de-seguranca
+title: 108.1 Manutenção de Tempo do Sistema (Peso 3)
+permalink: /108/108-1-manutencao-de-tempo-de-sistema
 ---
 
-# aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Habilidade para manter o sistema de tempo e sincronizar o relogio pelo NTP.
+
+
+
+Setar a data e tempo no sistema
+
+Setar o relogio do hardware para o tempo correto em `UTC`
+
+Configurar o timezone correto
+
+COnfiguração básica de NTP
+COnhecimento em utilizar o serviço  depool.ntp.org
+Conhecimento em utilizar o comando ntpq
+
+/usr/share/zoneinfo/
+/etc/timezone
+/etc/localtime
+/etc/ntp.conf
+date
+hwclock
+ntpd
+ntpdate
+pool.ntp.org
