@@ -14,15 +14,7 @@ Canditados devem ser capazes de alterar scripts simples ou escrever novos script
 * Escolher corretamento o interpretador do script com o uso do She-Bang
 * Gerenciar a localização, dono e execução e permissões suid de scripts
 
-### Termos e Utilitários
 
-* if
-* test
-* for
-* while
-* read
-* seq
-* exec
 
 
 Um script nada mais é do que uma conjunto de comandos salvos em um arquivo, sendo que esses comandos são executados em uma determinada ordem.
@@ -86,3 +78,160 @@ Isso é um bash script.
 </pre>
 
 
+## if
+
+A sintaxe do comando **if**:
+
+
+	#!/bin/bash
+
+	# sintaxe com [
+	if [ 1 -eq 1 ];
+	then
+
+		echo "1 é igual a 1"
+
+	fi
+
+	# sintaxe sem [, e usando o test
+	if test 1 -eq 1 ;
+	then
+
+		echo "1 é igual a 1"
+
+	fi
+
+
+## test
+
+O Comando **test** retorna valores de sucesso ou falha ou outras informações fornececidas pelo script. No terminal podemos utilizar o comando test, logo abaixo vamos verificar a existencia do arquivo **~/.bashrc**
+
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost" >
+<code>test -f ~/.bashrc</code>
+<code>echo $?</code>
+0
+</pre>
+
+Como podemos ver o comando retornou **0**, ou seja, o arquivo existe. Agora vamos procurar ter forma intencional o arquivo qye não existe em nosso sistema de arquivos:
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost" >
+<code>test -f ~/arquivo-invalido</code>
+<code>echo $?</code>
+1
+</pre>
+
+O comando retornou **1**. Dessa forma sabemos que o arquivo não existe 
+
+Vejamos abaixo os tipos de testes que podem ser realizados:
+
+
+### ( EXPRESSÃO )
+
+Verificamos se uma expressão é verdadeira
+
+
+	test 1 -eq 1
+	echo $?
+	0
+
+### ! EXPRESSÃO 
+Verificamos se a expressão é falsa
+
+	test ! 1 -eq 2
+	echo $?
+	0
+
+## -a (AND)
+Verificamos se duas expressões são verdadeiras
+
+	test 1 -eq 1 -a 1 -eq 1
+	echo $?
+	0
+
+## -o (OR)
+Verificamos se uma das duas expressões são verdadeiras
+
+	test 1 -eq 1 -o 1 -eq 2
+	echo $?
+	0
+
+## -n STRING
+#NÃO CONSIGO REALIZAR UM EXEMPLO DESSE TOPICO -n
+Verificamos se o tamanho de uma string é diferente de zero
+
+	test -n linux
+	echo $?
+	0
+
+## STRING = STRING
+Verificamos se as strings são iguais
+
+	test linux = linux
+	echo $?
+	0
+
+	test linux = linuZ
+	echo $?
+	1
+
+## STRING != STRING
+Verificamos se as strings são diferentes
+
+	test linux != linuZ
+	echo $?
+	0
+
+## Comparando Inteiros
+
+### -eq
+Igual
+	teste 1 -eq 1
+
+### -ge (greater than or equal)
+Maoir que ou igual
+	teste 10 -ge 9
+
+
+### -gt (maior que)
+       INTEGER1 -gt INTEGER2
+
+
+### -le (menor que, ou igual)
+       INTEGER1 -le INTEGER2
+
+### -lt (menor que )
+
+       INTEGER1 -lt INTEGER2
+
+### -ne (not equal)
+
+       INTEGER1 -ne INTEGER2
+
+
+## for
+
+O Comando for é utilizado para interar em uma lista de elementos. Exemplo abaixo vamos realizar um **loop** por todos os parametros passados para o script *for.sh*. A variável **$@** é uma lista contendo todos os parametros passados para o script
+
+
+	#!/bin/bash
+
+	# para que esse script funcione é'preciso passar diversos parametros para o mesmo
+	# Dessa forma:
+	# bash for.sh banana maça abacate
+
+	for parametro in $@
+	do 
+		echo $parametro
+	done
+
+
+### Termos e Utilitários
+
+* if
+* test
+* for
+* while
+* read
+* seq
+* exec
