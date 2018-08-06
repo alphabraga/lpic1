@@ -142,21 +142,21 @@ Verificamos se a expressão é falsa
 	echo $?
 	0
 
-## -a (AND)
+### -a (AND)
 Verificamos se duas expressões são verdadeiras
 
 	test 1 -eq 1 -a 1 -eq 1
 	echo $?
 	0
 
-## -o (OR)
+### -o (OR)
 Verificamos se uma das duas expressões são verdadeiras
 
 	test 1 -eq 1 -o 1 -eq 2
 	echo $?
 	0
 
-## -n STRING
+### -n STRING
 #NÃO CONSIGO REALIZAR UM EXEMPLO DESSE TOPICO -n
 Verificamos se o tamanho de uma string é diferente de zero
 
@@ -164,7 +164,7 @@ Verificamos se o tamanho de uma string é diferente de zero
 	echo $?
 	0
 
-## STRING = STRING
+### STRING = STRING
 Verificamos se as strings são iguais
 
 	test linux = linux
@@ -175,7 +175,7 @@ Verificamos se as strings são iguais
 	echo $?
 	1
 
-## STRING != STRING
+### STRING != STRING
 Verificamos se as strings são diferentes
 
 	test linux != linuZ
@@ -209,6 +209,41 @@ Maoir que ou igual
        INTEGER1 -ne INTEGER2
 
 
+## case
+
+O comando case é parecido com o **for** pois ele lida com comparações. Mas o comando for lida com isso de forma muito mais complexa. Veja abaixo a sintaxe desse comando:
+
+
+
+	#!/bin/bash
+
+
+	# Recebemos o valor de valor_para_teste
+	# E realizamos diversos testes com o valor
+
+	echo -n "Informe o valor que você deseja testar: "
+	read valor_para_teste
+
+
+	case $valor_para_teste in
+
+		1)
+			echo "O valor é igual a 1"
+			;;
+
+		2|3|4)
+			#Apenas se os valores forem 2, 3 e 4
+			echo "O valor é igual a 2, 3 ou 4"
+			break # não sei a utilização desse break!
+			;;
+		*)
+			# para todas as outras opções como se fosse um else
+			echo "Não tem mais nada a ver com os meus testes"	
+
+	esac
+
+
+
 ## for
 
 O Comando for é utilizado para interar em uma lista de elementos. Exemplo abaixo vamos realizar um **loop** por todos os parametros passados para o script *for.sh*. A variável **$@** é uma lista contendo todos os parametros passados para o script
@@ -216,7 +251,7 @@ O Comando for é utilizado para interar em uma lista de elementos. Exemplo abaix
 
 	#!/bin/bash
 
-	# para que esse script funcione é'preciso passar diversos parametros para o mesmo
+	# para que esse script funcione é preciso passar diversos parametros para o mesmo
 	# Dessa forma:
 	# bash for.sh banana maça abacate
 
@@ -225,6 +260,17 @@ O Comando for é utilizado para interar em uma lista de elementos. Exemplo abaix
 		echo $parametro
 	done
 
+
+<pre class="command-line language-bash" data-user="alphabraga" data-host="localhost" >
+<code>bash for.sh banana abacate melancia</code>
+banana
+abacate
+melancia
+</pre>
+
+## while
+
+Assim como o comando **for** o comando **while** realializa loops. E ele funciona da seguinte forma.
 
 ### Termos e Utilitários
 
