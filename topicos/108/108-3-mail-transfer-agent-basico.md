@@ -12,15 +12,37 @@ Criar email `alias`
 Configurar email `forwarding`
 Conhecimento de programas de MTA disponiveis (postfix, sendmail, qmail, exim) não sera cobrada a configuração desses MTA's
 
-Terms and Utilities:
+## MTA
 
-~/.forward
-sendmail emulation layer commands
-newaliases
-mail
-mailq
-postfix
-sendmail
-exim
-qmail
+MTA é a sigla para Mail Transfer Agent. Que é o programa responsável pelo envio e recebimento de emails. É o que chamamos tambem de **servidor de emails** ou **servidor smtp**.
+
+### Principais MTA's
+
+* PostFix : Hoje em dia é o mais utilizado
+* SendMail: Por muito tempo foi considerado o padrão. Ainda muito utilizado
+* Qmail   : Bem antigo. Não é mais mantido há uns 15 anos.
+* Exim    : Uma outra opção.. nada mais...
+	
+
+##SMTP
+
+O SMTP ou Send Mail Transfer Protocol é o protocolo utilizado para o envio e recebimento emails. Por padrão o `smtp` utiliza a porta `25`.
+
+## ~/.forward
+
+## sendmail emulation layer commands
+
+## newaliases
+
+## mail
+
+## mailq
+
+## postfix
+
+## sendmail
+
+## exim
+
+## qmail
  
