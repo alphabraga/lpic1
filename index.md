@@ -66,7 +66,7 @@ title: Indice
   * [106.3 Acessibilidade (Peso 1)](/lpic1/106/106-3-acessibilidade "nada feito")
 
 * [Topic 107: Tarefas Administrativas](/lpic1/107/criar-particoes-e-sistema-de-arquivos "nada feito")
-  * [107.1 Gerencie usuários e grupos e arquivos relacionados (Peso 5)](/lpic1/107/107-1-criar-particoes-e-sistema-de-arquivos "nada feito")
+  * [107.1 Gerencie usuários e grupos e arquivos relacionados (Peso 5)](/lpic1/107/107-1-gerencie-usuarios-e-grupos-e-arquivos-de-sistemas-relacionados "nada feito")
   * [107.2 Automatize tarefas adiministrativas agendando rotinas(Peso 4)](/lpic1/107/107-2-automatize-tarefas-adiministrativas-agendando-rotinas "nada feito")
   * [107.3 Localização e Internacionalização (Peso 3)](/lpic1/107/107-3-localizacao-e-internacionalizacao "nada feito")
 
