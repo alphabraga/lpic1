@@ -6,9 +6,9 @@ permalink: /107/107-1-gerencie-usuarios-e-grupos-e-arquivos-de-sistemas-relacion
 
 Canditatos devem ter a habilidade de adicionar, remover, suspender e mudar contas de usuários.
 
-* Adicione, modifique e remova usuários e grupos
-* Gerenciar informações de usuários e grupos info e banco de dados de senha e grupos
-* Crie e gerencie contas de usuários com propostio especial e contas limitadas
+* Adicione, modifique e remova usuários e grupos;
+* Gerenciar informações de usuários e grupos info e banco de dados de senha e grupos;
+* Crie e gerencie contas de usuários com propósito especial e contas limitadas;
 
 ## id
 
@@ -72,17 +72,17 @@ mysql : mysql
 
 As colunas são:
 
-1 Coluna login do usuario no sistema 
-2 Coluna Representa a senha que hoje fica no arquivo `passwd`
-3 Coluna id do usuário no sistema
-4 Coluna id do gruopo default do usuário
-5 Coluna ???????????????????????????????
-6 Coluna diretório padrão do usuário 
-7 Coluna o shell padrão do usuário
+* 1 - Login
+* 2 - Representa a Senha que hoje fica no arquivo `passwd`
+* 3 - Id do usuário
+* 4 - Id do Grupo default do usuário
+* 5 - Informações do usuário
+* 6 - Diretório padrão do usuário 
+* 7 - Shell padrão do usuário
 
 ## /etc/shadow
 
-O arquivo `/etc/shadow` contem as senhas dos usuários do sistema. Antes elas ficavam no `passwd`.
+O arquivo `/etc/shadow` contém as senhas dos usuários do sistema. Antes elas ficavam no `passwd`.
 
 	root:!:17712:0:99999:7:::
 	daemon:*:17494:0:99999:7:::
