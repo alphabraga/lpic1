@@ -36,13 +36,22 @@ O SMTP ou Send Mail Transfer Protocol é o protocolo utilizado para o envio e re
 
 ## mail
 
-## mailq
+O comando `mail` é utilizado para enviar e ler emails. Para realizar o envio podemos utiliza-lo de 3 formadas:
 
-## postfix
 
-## sendmail
+### A primeira forma
 
-## exim
 
-## qmail
- 
+Não me lembro temos que olhar ...
+
+### Segunda forma
+
+<pre class="command-line language-bash">
+	<code>echo "O corpo da mensagem" | mail -s "aqui é o titulo da mensagem" nome@dominio.com.br </code>
+</pre>
+
+### Terceira forma
+
+<pre class="command-line language-bash">
+	<code>mail -s "aqui é o titulo da mensagem" nome@dominio.com.br < nome-de-um-arqvivo.txt </code>
+</pre>
