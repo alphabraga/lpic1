@@ -56,7 +56,7 @@ title: Indice
   * [104.7 Encontrar arquivos de sistema e colocar arquivos na localização correta (Peso 2)](/lpic1/104/104-7-encontrar-arquivos-de-sistema-e-colocar-arquivos-na-localizacao-correta "nada feito")
 
 * [105: Shells, Scripts e Gerenciamento de Dados](/lpic1/105/shells-scripts-e-gerenciamento-de-dados "nada feito") 
-  * [105.1 Customize e utilize o ambiente do shell (Peso 4)](/lpic1/105/105-1-criar-particoes-e-sistema-de-arquivos "nada feito")
+  * [105.1 Customize e utilize o ambiente do shell (Peso 4)](/lpic1/105/105-1-modifique-e-utilize-o-ambiente-shell "nada feito")
   * [105.2 Customize ou escreva scripts simples (Peso 4)](/lpic1/105/105-2-customize-ou-escreva-scripts-simples "nada feito")
   * [105.3 Gerencimanto de dados com SQL (Peso X)](/lpic1/105/105-3-gerencimanto-de-dados-com-sql "nada feito")
 

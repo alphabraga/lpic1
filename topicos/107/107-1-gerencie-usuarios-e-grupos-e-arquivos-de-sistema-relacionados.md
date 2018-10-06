@@ -6,9 +6,9 @@ permalink: /107/107-1-gerencie-usuarios-e-grupos-e-arquivos-de-sistemas-relacion
 
 Canditatos devem ter a habilidade de adicionar, remover, suspender e mudar contas de usuários.
 
-* Adicione, modifique e remova usuários e grupos
-* Gerenciar informações de usuários e grupos info e banco de dados de senha e grupos
-* Crie e gerencie contas de usuários com propostio especial e contas limitadas
+* Adicione, modifique e remova usuários e grupos;
+* Gerenciar informações de usuários e grupos info e banco de dados de senha e grupos;
+* Crie e gerencie contas de usuários com propósito especial e contas limitadas;
 
 ## id
 
@@ -72,17 +72,19 @@ mysql : mysql
 
 As colunas são:
 
-1: Login do usuário no sistema 
-2: Representa a senha que hoje fica no arquivo `passwd`
-3: Id do usuário no sistema UID
-4: Id do gruopo default do usuário GUID
-5: Comentário com dados adicionais sobre o usuário
-6: Diretório padrão do usuário 
-7: O shell padrão do usuário
+* 1 - Login
+* 2 - Representa a senha que hoje fica no arquivo `passwd`
+* 3 - Id do usuário
+* 4 - Id do Grupo default do usuário
+* 5 - Informações do usuário
+* 6 - Diretório padrão do usuário 
+* 7 - Shell padrão do usuário
+
+* Os usuários comuns do sistema possuem id apartir de 1000. Antes de 1000 são usuários de sistema.
 
 ## /etc/shadow
 
-O arquivo `/etc/shadow` contem as senhas dos usuários do sistema. Antes elas ficavam no `passwd`.
+O arquivo `/etc/shadow` contém as senhas dos usuários do sistema. Antes elas ficavam no `passwd`.
 
 	root:!:17712:0:99999:7:::
 	daemon:*:17494:0:99999:7:::
@@ -113,7 +115,32 @@ O arquivo `/etc/shadow` contem as senhas dos usuários do sistema. Antes elas fi
 	lightdm:*:17494:0:99999:7:::
 	ntp:*:17494:0:99999:7:::
 
+Assim como o `passwd` o arquivo `/etc/shadow`, cada linha corresponde a senha do usuário onde as colunas são divididas por `:` . A primeira coluna é o nome do usuário e a segunda é um hash que representa a senha. 
+
 ## /etc/group
+
+O arquivo que armazena os dados sobre os grupos do sistema. 
+
+* 1 coluna com o nome do grupo
+* 2 a senha do usuário
+* 3 o id do grupo
+* 4 os usuários que fazem parte do grupo separados por virgula.
+
+	sys:x:3:
+	adm:x:4:syslog,alphabraga
+	tty:x:5:
+	disk:x:6:
+	lp:x:7:
+	mail:x:8:
+	news:x:9:
+	uucp:x:10:
+	man:x:12:
+	proxy:x:13:
+	kmem:x:15:
+	dialout:x:20:
+	fax:x:21:
+	voice:x:22:
+
 
 
 ## /etc/login.defs
@@ -132,6 +159,7 @@ O arquivo `/etc/shadow` contem as senhas dos usuários do sistema. Antes elas fi
 
 ## /etc/skel/
 
+é o diretorio que é copiado para todo novo usuário criado com o comando `useradd` utizando a opção `-m`
 
 
 
