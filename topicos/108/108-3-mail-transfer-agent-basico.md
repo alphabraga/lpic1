@@ -36,22 +36,42 @@ O SMTP ou Send Mail Transfer Protocol é o protocolo utilizado para o envio e re
 
 ## mail
 
-O comando `mail` é utilizado para enviar e ler emails. Para realizar o envio podemos utiliza-lo de 3 formadas:
+O comando `mail` é utilizado para enviar e ler emails. Para realizar o envio podemos utiliza-lo de 3 formas:
+
+Podemos utilizar o comando com o modo interativo. Onde apos digitar o destinátario digitamos `ENTER`. Informa-mos os emails de cópia, essa informação é opcional. Por fim digatamos `ENTER` para começar a digitar o corpo da mensagem. E para realizar o envio da mensagem digitamos `Ctrl+D`.  
+
+<pre class="command-line language-bash">
+	<code>mail -s "aqui é o titulo da mensagem" nome@dominio.com.br [ENTER] </code>
+	<code>Cc:[ENTER]</code>
+	<code>Digitamos a mensagem por aqui[Ctrl+D]</code>
+</pre>
 
 
-### A primeira forma
-
-
-Não me lembro temos que olhar ...
-
-### Segunda forma
+Ou mandando a mensagem com um pipe:
 
 <pre class="command-line language-bash">
 	<code>echo "O corpo da mensagem" | mail -s "aqui é o titulo da mensagem" nome@dominio.com.br </code>
 </pre>
 
-### Terceira forma
+Ou ainda fazendo um redirecionador:
 
 <pre class="command-line language-bash">
 	<code>mail -s "aqui é o titulo da mensagem" nome@dominio.com.br < nome-de-um-arqvivo.txt </code>
 </pre>
+
+O comando `mail` digitado sem agumentos lista as menagens de email do usuário do usuário atual
+
+* A caixa de entrada fica em `var/mail/<usuario>`.
+* A mensagens lidas ficam em `home/<usuario>/mbox` . 
+
+
+Outro diretório importante é o `/var/spool/mail`. Em algumas distribuições o diretório  `/var/mail` é um link para o `/var/spool/mail` . O padrão do Linux é o `/var/spool/mail`.
+
+Nele ficam arquivos texto com os nomes dos usuários. O conteúdo desses arquivos são os emails dos usuários.
+
+
+## /etc/aliases
+
+Arquivo que contem atalhos/apelidos
+
+
