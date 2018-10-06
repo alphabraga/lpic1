@@ -7,13 +7,12 @@ permalink: /105/105-1-modifique-e-utilize-o-ambiente-shell
 105.1 Modifique e utilize o ambiente do Shell Peso 4
 
 
-Candidatos deve ser capazes de modificar ambientes do shel para atender as necessidades dos usuários. E tambem é necessário que saibam modificar ambientes globais e perfils de usuários
+Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. E também é necessário que saibam modificar ambientes globais e perfils de usuários
 
 
 * Definir variáveis de ambeintes (como o PATH), no momento do login ou quando um novo shell é iniciado
-* Escrver funcções em Bash para comando frequentemente utilizados 
+* Escrver funcções em Bash para comandos frequentemente utilizados 
 * Manter `skeleton directories` para novas contas de usuários
-* The following is a partial list of the used files, terms and utilities:
 
 ## source
 
@@ -106,11 +105,11 @@ Remove uma variável do ambiente.
 ## ~/.bash_profile
 
 
-Arquivo que contem variaveis, funcoes e alias de um usuário expecifico
+Arquivo que contêm variáveis, funções e `alias` de um usuário expecifico
 
 ## ~/.bash_login
 
-Arquivo que contem variaveis, funcoes e alias de um usuário expecifico
+Arquivo que contêm variáveis, funções e `alias` de um usuário expecifico
 
 
 ## ~/.profile
