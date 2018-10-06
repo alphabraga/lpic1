@@ -58,7 +58,7 @@ title: Indice
 * [105: Shells, Scripts e Gerenciamento de Dados](/lpic1/105/shells-scripts-e-gerenciamento-de-dados "nada feito") 
   * [105.1 Customize e utilize o ambiente do shell (Peso 4)](/lpic1/105/105-1-modifique-e-utilize-o-ambiente-shell "nada feito")
   * [105.2 Customize ou escreva scripts simples (Peso 4)](/lpic1/105/105-2-customize-ou-escreva-scripts-simples "nada feito")
-  * [105.3 Gerencimanto de dados com SQL (Peso X)](/lpic1/105/105-3-gerencimanto-de-dados-com-sql "nada feito")
+  * [105.3 Gerenciamento de dados com SQL (Peso 2)](/lpic1/105/105-3-gerencimanto-de-dados-com-sql "nada feito")
 
 * [Topic 106: Interfaces de usuário e Desktop](/lpic1/106/interfaces-de-usuario-e-desktop "nada feito")
   * [106.1 Instale e configure X11 (Peso 2)](/lpic1/106/106-1-instale-e-configure-X11 "nada feito")
@@ -71,10 +71,10 @@ title: Indice
   * [107.3 Localização e Internacionalização (Peso 3)](/lpic1/107/107-3-localizacao-e-internacionalizacao "nada feito")
 
 * [Topic 108: Serviços de Sistema Essenciais](/lpic1/108/servicos-de-sistema-essenciais "nada feito")
-  * [108.1 Manutenção de tempo de sistema (Peso X)](/lpic1/108/108-1-manutencao-de-tempo-de-sistema "nada feito")
-  * [108.2 Sistema de logs (Peso X)](/lpic1/108/108-2-sistema-de-logs "nada feito")
-  * [108.3 `Mail Transfer Agent` básico (Peso X)](/lpic1/108/108-3-mail-transfer-agent-basico "nada feito")
-  * [108.4 Gerencie imprssoras e impressão(Peso 2)](/lpic1/108/108-4-gerencie-impressoras-e-impressao "nada feito")
+  * [108.1 Manutenção de tempo de sistema (Peso 3)](/lpic1/108/108-1-manutencao-de-tempo-de-sistema "nada feito")
+  * [108.2 Sistema de logs (Peso 3)](/lpic1/108/108-2-sistema-de-logs "nada feito")
+  * [108.3 `Mail Transfer Agent` básico (Peso 3)](/lpic1/108/108-3-mail-transfer-agent-basico "nada feito")
+  * [108.4 Gerencie impressoras e impressão(Peso 2)](/lpic1/108/108-4-gerencie-impressoras-e-impressao "nada feito")
 
 * [Topic 109: Fundamentos de Redes](/lpic1/109/fundamentos-de-redes "nada feito")
   * [109.1 Fundamentos de protocolos de internet(Peso 4)](/lpic1/109/109-1-fundamentos-de-protocolos-de-internet "nada feito")
