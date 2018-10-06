@@ -72,13 +72,13 @@ mysql : mysql
 
 As colunas são:
 
-1 Coluna login do usuario no sistema 
-2 Coluna Representa a senha que hoje fica no arquivo `passwd`
-3 Coluna id do usuário no sistema
-4 Coluna id do gruopo default do usuário
-5 Coluna ???????????????????????????????
-6 Coluna diretório padrão do usuário 
-7 Coluna o shell padrão do usuário
+1: Login do usuário no sistema 
+2: Representa a senha que hoje fica no arquivo `passwd`
+3: Id do usuário no sistema UID
+4: Id do gruopo default do usuário GUID
+5: Comentário com dados adicionais sobre o usuário
+6: Diretório padrão do usuário 
+7: O shell padrão do usuário
 
 ## /etc/shadow
 
@@ -116,7 +116,23 @@ O arquivo `/etc/shadow` contem as senhas dos usuários do sistema. Antes elas fi
 ## /etc/group
 
 
+## /etc/login.defs
+
+É um arquivo que contem varias configurações relativas a usuários como:
+
+### criação do diretório home de forma automatica 
+
+	CREATE_HOME	yes
+
+### Faixa de UID para usuários comuns do sistema
+
+	UID_MIN                  1000
+	UID_MAX                 60000
+
+
 ## /etc/skel/
+
+
 
 
 ## chage
