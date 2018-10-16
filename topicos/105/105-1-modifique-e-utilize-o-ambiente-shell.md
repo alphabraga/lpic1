@@ -114,8 +114,7 @@ Arquivo que contêm variáveis, funções e `alias` de um usuário expecifico
 
 ## ~/.profile
 
-
-Arquivo que contem variaveis, funcoes e alias de um usuário expecifico
+Arquivo que contem variaveis, funcoes e alias de um usuário expecifico. ** Esse arquivo é executado sempre que uma nova sessão para um determinado usuário é iniciada, por exemplo sempre que for aberto dentro do ambeinte grafico uma janela do terminal esse arquivo sera executado.
 
 ## ~/.bashrc
 

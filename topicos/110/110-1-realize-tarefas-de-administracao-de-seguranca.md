@@ -4,17 +4,14 @@ title: 110.1 Realize Tarefas de Administração de Segurança
 permalink: /110/110-1-realize-tarefas-de-administracao-de-seguranca
 ---
 
-Candidatos devem ter capacidade de rever configurações para garantir segurança do host em concordância com politicas de segurança locais.
-
-Auditar um sistema para encontrar arquivos com o suid ou sgid setado
-
-Setar ou mudar senhas de usuários 
-Definir ou alterar senhas de usuários e informações sobre o envelhecimento da senha
-Ser capaz de utilizar o 'nmap' e o `netstat` para descobrir portas abertas em um sistema
-
-Configurar limites em logins de usuários, processos e utilização de memoria
-Determinar que usuários realizaram login em um sistema ou os que estão logados atualmente
-Utilização e configuração básica do sudo
+* Candidatos devem ter capacidade de rever configurações para garantir segurança do host em concordância com políticas de segurança locais.
+* Auditar um sistema para encontrar arquivos com o suid ou sgid setado.
+* Setar ou mudar senhas de usuários. 
+* Definir ou alterar senhas de usuários e informações sobre o envelhecimento da senha.
+* Ser capaz de utilizar o 'nmap' e o `netstat` para descobrir portas abertas em um sistema.
+* Configurar limites em logins de usuários, processos e utilização de memoria
+* Determinar que usuários realizaram login em um sistema ou os que estão logados atualmente
+* Utilização e configuração básica do sudo
 
 ## find
 
@@ -73,6 +70,33 @@ PORT     STATE SERVICE
 
 
 ## su
+
+O comando `su` possibilita realizar o login de um usuário no sistema. No exemplo abaixo vamos realizar o login do usuario `joao`.
+
+
+<pre class="language-bash command-line" data-user="carlos" >
+<code>su joao</code>
+senha: [informar a senha]
+</pre>
+
+É importante resaltar, que dessa forma, os arquivos configuração de ambiente como `/etc/profile`, `~/bash_profile` não são executados e por consequência as configurações e variáveis de ambeinte não são criadas nesse ambiente. Para que isso seja realziado com o uso do `su` devemos utilizar com o `-`, desse forma:
+
+<pre class="language-bash command-line" data-user="carlos" >
+<code>su - joao</code>
+senha: [informar a senha]
+</pre>
+
+Assim as variaveis de ambeinte de demais configurações ficam disponiveis nesse shell.
+
+Using su without -l or - starts bash as an interactive, but non-login shell, which doesn't read from either of the files you specified. Use the -l or - option or put the relevant config into /root/.bashrc.
+
+Quick summary of config files:
+
+Login shell (-l/--login) reads /etc/profile first, and then the first it finds of: ~/.bash_profile, ~/.bash_login, and ~/.profile.
+Interactive but non-login shell (-i) reads /etc/bash.bashrc and ~/.bashrc, in that order (unless the --rcfile option is used and tells it to look elsewhere).
+Non-interactive shells, e.g. started from within another program without using the -l or -i flags, reads the file specified in the BASH_ENV environment variable.
+When run as sh as a login shell, it will read /etc/profile and ~/.profile, in that order.
+When run as sh as an interactive non-login, it reads the file specified in ENV.
 
 
 ## usermod
