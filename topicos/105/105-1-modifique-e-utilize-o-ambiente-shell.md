@@ -4,10 +4,7 @@ title: 105.1 Modifique e utilize o ambiemte shell
 permalink: /105/105-1-modifique-e-utilize-o-ambiente-shell
 ---
 
-105.1 Modifique e utilize o ambiente do Shell Peso 4
-
-
-Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. E também é necessário que saibam modificar ambientes globais e perfils de usuários
+Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. E também é necessário que saibam modificar ambientes globais e perfils de usuários.
 
 
 * Definir variáveis de ambeintes (como o PATH), no momento do login ou quando um novo shell é iniciado
@@ -16,7 +13,7 @@ Candidatos deve ser capazes de modificar ambientes do shell para atender as nece
 
 ## source
 
-O comando source serve para executar arquivos de script. 
+O comando `source` serve para executar arquivos de script. 
 
 **Mas qual a diferença entre ele e o `sh` ou `bash` ?**. O comando `source` não abre uma nova sessão de shell dessa forma variáveis definidas localmente são lidas pelo script. Vejamos o exemplo abaixo:
 
@@ -28,23 +25,25 @@ Definimos a variável `SISTEMA`
 	linux
 </pre>
 
-O script `meusistema.sh` exibe na tela o valor da variável local previamente definida. Primeiro vamos executar o script apenas utilizando o comanod `bash`
+O script `meusistema.sh` exibe na tela o valor da variável local previamente definida. Veja abaixo o conteúdo de nosso script: 
 
 	echo $SISTEMA
+
+Agora vamos executar o script apenas utilizando o comanod `bash`:
 
 <pre class="command-line language-bash">
 <code>bash meusistema.sh</code>
 
 </pre>
 
-Agora com o source:
+Agora em vez do `bash` vamos usar o `source` com o source:
 
 <pre class="command-line language-bash">
 <code>source meusistema.sh</code>
 linux
 </pre>
 
-Podemos rodar nossos scripts usando o source trocando a palavra "source" por um "." . Ficando dessa forma:
+Podemos rodar nossos scripts usando o source trocando a palavra `source` por um  `.` . Ficando dessa forma:
 
 <pre class="command-line language-bash">
 <code>. meusistema.sh</code>
@@ -52,7 +51,7 @@ linux
 </pre>
 
 
-O source exibe o conteudo da variável local porque não abre uma nova sessão.
+O source exibe o conteúdo da variável local porque não abre uma nova sessão.
 
 
 ## /etc/bash.bashrc
@@ -69,7 +68,7 @@ Esse comando lista **as variáveis de ambiente**
 
 ## set
 
-Esse comando lista todos as **variáveis locais** e **variáveis de ambiente** além das **funções**. 
+Esse comando lista todas as **variáveis locais** e **variáveis de ambiente** além de **funções**. 
 
 Veja o exemplo abaixo onde definimos uma variável local e em seguida procuramos essa variável com o comando `env`. E não encontramos o valor pois o comando `env` só encontra variáveis exportadas.
 
@@ -96,11 +95,16 @@ SISTEMA=linux
 
 O comando export realiza o exportação de uma variável para o ambiente do `shell`. 
 
-É importante ressaltar que um shell script que utiliza variáveis só consegue ler as mesmas se elas estiverem expotadas. Isso porque quando executamos um script um novo `shell` é aberto. Para executar um script levando em consideraão as variáveis locais utilizamos o comando `source` 
+É importante ressaltar que um shell script que utiliza variáveis não declaradas dentro dele, só consegue ler as mesmas se elas estiverem expotadas. Isso porque quando executamos um script um novo `shell` é aberto. Para executar um script levando em consideraão as variáveis locais utilizamos o comando `source` 
 
 ## unset
 
-Remove uma variável do ambiente.
+Remove uma variável até mesmo se ela estiver exportada do ambiente. Para utilizar o comando basta executar:
+
+<pre class="command-line language-bash">
+<code>unset nomedavariavel</code>
+</pre>
+
 
 ## ~/.bash_profile
 
@@ -126,32 +130,32 @@ Esse arquivo é envocado sempre que realizamos o logout do sistema e ele executa
 
 ## function
 
-Vamos aprender como definir uma função no linux
+Vamos aprender como definir funções dentro do linux. Utilizandomos a palavra reservada `function` em seguida um nome para a função, abrimos e fechamos parenteses:
 
-	function meunome {
+	function primeira(){
 
-		echo "Alfredo"
+	        echo "Essa é a primeira função. Usamos a palavra function e abrimos e fechamos parenteses depois do nome da função."
 	}
 
-Ou então:
 
+Podemos dispensar os parenteses, **mas veja que existe um espaço entre o nome da função e o sinal de `{`**:
 
-	sobrenome(){
+	function segunda {
 
-		echo "Braga"
+	        echo "Assim escrevemos a segunda. Sem os parenteses, mas preste atenção pois existe um espaço entre o nome da função e as chaves"
+	}
+
+E por fim podemos omitir a palavra `function`:
+
+	terceira(){
+
+	        echo "Agora temos a terceira função. Escrevemos sem a palavra function, mas com os parenteses"
 	}
 
 
 ## alias
 
-O `alias` tem a funçõe de definir apelidos para comandos. Imagine que você utiliza o comando :
-
-
-	nmap -Pn 127.0.01
-
-
-Diversas vezes em seu terminal linux. E ter que digitar todo esse comando varias vezes pode ser entediante além de improdutivo
-Mas você pode resolver esse problema você pode fazer um do `alias`. Basta definir no arquivo `~/.bash_bashrc` a linha:
+O `alias` tem a função de definir apelidos para comandos. Imagine que você utiliza o comando `nmap -Pn 127.0.01` diversas vezes em seu terminal linux. E ter que digitar todo esse comando varias vezes pode ser entediante além de improdutivo. Mas você pode resolver esse problema, basta criar um `alias`. Basta definir no arquivo `~/.bash_bashrc` a linha:
 
 
 	alias scanlocal="nmap -Pn 127.0.0.1"
@@ -161,10 +165,12 @@ Em seguida basta ler o arquivo `~/.bash_bashrc` com o comando `source`
 
 	source ~/.bash_bashrc
 
-Agora sim! O seu apelido esta disponivel em seu ambiente shell
+Agora sim! O seu apelido esta disponível em seu ambiente shell
 
-
-	scanlocal	
+<pre class="command-line language-bash">
+<code>scanlocal</code>
+</pre>
+		
 
 ## lists
 
