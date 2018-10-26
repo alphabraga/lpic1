@@ -5,16 +5,11 @@ permalink: /107/107-3-localizacao-e-internacionalizacao
 ---
 
 
-Ter a capacidade de localizar um sistema em uma lingua diferente do Inglês. Como também, conhecer o porque LANG=C é útil quando estamos escrevendo scripts.
-
+Ter a capacidade de localizar o sistema em uma lingua diferente do Inglês. Como também, conhecer o porque LANG=C é útil quando estamos escrevendo scripts.
 Configurar locais e variáveis de ambiente
 Configurar `timezones` e variáveis de ambiente
 
-	Internamento no Linux ele sempre trabalha com UTC. Por exemplo quando ele salva um arquivo ele grava as informações de data em UTC, mas apenas para visualização do usuário final ele exibe de ouyra forma.
-
-		Professor Ricardo do Curso da Certificação da UDEMY
-
-Quando definimos a variável 
+O Linux internamente trabalha com UTC. Por exemplo quando ele salva um arquivo ele grava as informações de data em UTC, mas apenas para visualização do usuário final ele exibe de outra forma.
 
 ## /etc/timezone
 
@@ -28,16 +23,20 @@ America/Belem
 
 ## /etc/localtime
 
-Esse é o principal arquivo de configuração de timezone. Na verdade ele é um link simbolico que aponto para algum **arquivo binário** dentro do diretório `/usr/share/zoneinfo`.
+Esse é o principal arquivo de configuração de timezone. Na verdade ele é um link simbólico que aponta para algum **arquivo binário** dentro do diretório `/usr/share/zoneinfo`.
 
 
 Podemos mudar o timezone removendo o arquivo:
 
-	rm /etc/localtime
+<pre class="command-line language-bash">
+<code>rm /etc/localtime</code>
+</pre>
 
 E criamos novamente o arquivo apontando para um novo timezone:
 
-	ln -s /usr/share/zoneinfo/America/Belem /etc/localtime
+<pre class="command-line language-bash">
+<code>ln -s /usr/share/zoneinfo/America/Belem /etc/localtime</code>
+</pre>
 
 
 Veja abaixo como o arquivo é apenas um link que aponta para `/usr/share/zoneinfo/America/Belem`
@@ -49,7 +48,7 @@ lrwxrwxrwx 1 root root 33 Jun 29 23:20 /etc/localtime -> /usr/share/zoneinfo/Ame
 
 ## /usr/share/zoneinfo/
 
-O diretório `/usr/share/zoneinfo` é uma estrutura de diretório com configuraçoes de diferentes timezones. Sendo que muitas delas são apenas links para outras configurações.
+O diretório `/usr/share/zoneinfo` é uma estrutura de diretório com configurações de diferentes timezones. Sendo que muitas delas são apenas links para outras configurações.
 
 ## LC_*
 
@@ -144,7 +143,7 @@ Quando escrevemos um script e não queremos que as configurações de localizaç
 
 ## tzselect
 
-É um comando que nos ajuda a encontrar o timezone que desejamos definir no sistema. ** Ele não altera a configuração do sistema apenas exibe o timezone escolhido**.
+É um comando que nos ajuda a encontrar o timezone que desejamos definir no sistema. **Ele não altera a configuração do sistema apenas exibe o timezone escolhido**. Veja abaixo a utilização do comando: 
 
 
 <pre class="command-line language-bash">
