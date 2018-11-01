@@ -105,6 +105,15 @@ Podemos checar se os comandos executados foram realizados com sucesso com
 </pre>
 
 
+Podemos verificar se existem outros serviços que podem ser desabilitados no arquivo `/etc/initab`
+
+
+Ou você tem em execução em sua maquina o serviço inetd ou xinetd
+
+## /etc/inetd.conf
+
+É o principal arquivo de configuração do `inetd`
+
 ## /etc/xinetd.d/
 
 ## /etc/xinetd.conf
