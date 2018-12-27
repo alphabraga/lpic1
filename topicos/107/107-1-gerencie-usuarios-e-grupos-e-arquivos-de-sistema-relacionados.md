@@ -12,8 +12,7 @@ Canditatos devem ter a habilidade de adicionar, remover, suspender e mudar conta
 
 ## id
 
-O comando `id` exibe as informações sobre o usuário logado na sessão.
-
+O comando `id` exibe as informações sobre o usuário logado na sessão. O comando exibe os IDs de usuário e grupos ao qual ele pertence.
 
 <pre class="command-line language-bash">
 <code>id</code>
