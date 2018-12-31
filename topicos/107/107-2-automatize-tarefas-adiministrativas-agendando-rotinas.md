@@ -90,11 +90,11 @@ Dia da semana. Os valores vão de 0 à 7, onde:
 
 
 
-## /etc/cron.allow
+## /etc/cron.allow e /etc/cron.deny
 
+É possivel definir que usuários podem agendar tarefas, apenas fazendo o uso dos arquivos `/etc/cron.allow` e `/etc/cron.deny`. 
 
-## /etc/cron.deny
-
+Esses arquivos não existem por padrão, é preciso criar-los. O arquivo cron.allow tem prioridade frente ao cron.deny, ou seja, se o nome de usuário estiver nos dois arquivos o usuário tera permissão de usar o cron, caso esteja apenas no deny aí sim ele não tera acesso ao cron.Se o arquivo cron.allow estiver vazio nenhum usuario tera acesso. Lembrando que o root não esta incluido nessas regras pois o root sempre tem acesso indepentende de como os arquivos cron.allow e cron.deny estão definidos.
 
 ## /var/spool/cron/
 
@@ -158,6 +158,12 @@ Podemos ainda apagar os dados da crontab com um simples comando. Utilizando a op
 
 ## at
 
+O comando `at` serve para agenar uma tarefa no sistema.
+
+	-executes commands at a specified time. (do man do at)
+
+
+Exemplo de uso do comando at para agendar uma tarefa a meia noite:
 
 ## atq
 
@@ -167,5 +173,30 @@ Podemos ainda apagar os dados da crontab com um simples comando. Utilizando a op
 
 ## anacron
 
+O cron só funciona se a maquina estiver ligada, cso você tenha um agendamento agendado a cada 1 hora essas tarefas serão perdidas se sua maquina for desligada por algumas horas.
+
+Ao contário do cron que é um daemon, o anacron é executado quando a maquina é iniciada e de tempos em tempos. É comum usar o anacron em máquinas desktop. No anacron não existe agendamento por usuário, por conta disso temos apenas o arquivo `/etc/anacrontab`
 
 ## /etc/anacrontab
+
+
+	# /etc/anacrontab: configuration file for anacron
+	# See anacron(8) and anacrontab(5) for details.
+	SHELL=/bin/sh
+	PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+	HOME=/root
+	LOGNAME=root
+	# These replace cron's entries
+	1       5       cron.daily      run-parts --report /etc/cron.daily
+	7       10      cron.weekly     run-parts --report /etc/cron.weekly
+	@monthly        15      cron.monthly    run-parts --report /etc/cron.monthly
+
+
+Na primeira coluna temos o campo `periodo` indicando de quantos em quantos dias uma tarefa sera executada. Na primeira linha temos `1`. Por tanto, o comando sera executado a cada dia e na ultima linha temos `7` dessa forma o comando sera executado a cada 7 dias. Não é possivel definir as horas, a menor unidade de medida é o dia. Podemos usar ainda esses formatos na primeira coluna:
+
+ * @monthy
+ * @dayly
+ * @weekely
+
+A segunda coluna é o `delay`. Ela define quantos minutos depois da coluna `periodo` ser atingida o comando vai ser exectado.
+A terceira coluna é apenas um identificador. Esse identificador serve para identificar a execução de sua tarefa em logs.
