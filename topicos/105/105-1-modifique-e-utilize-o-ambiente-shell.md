@@ -4,11 +4,11 @@ title: 105.1 Modifique e utilize o ambiemte shell
 permalink: /105/105-1-modifique-e-utilize-o-ambiente-shell
 ---
 
-Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. E também é necessário que saibam modificar ambientes globais e perfils de usuários.
+Candidatos devem ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. E também é necessário que saibam modificar ambientes globais e perfils de usuários.
 
 
-* Definir variáveis de ambeintes (como o PATH), no momento do login ou quando um novo shell é iniciado
-* Escrver funcções em Bash para comandos frequentemente utilizados 
+* Definir variáveis de ambiente (como o PATH), no momento do login ou quando um novo shell é iniciado.
+* Escrver funções em Bash para comandos frequentemente utilizados 
 * Manter `skeleton directories` para novas contas de usuários
 
 ## source
@@ -17,7 +17,7 @@ O comando `source` serve para executar arquivos de script.
 
 **Mas qual a diferença entre ele e o `sh` ou `bash` ?**. O comando `source` não abre uma nova sessão de shell dessa forma variáveis definidas localmente são lidas pelo script. Vejamos o exemplo abaixo:
 
-Definimos a variável `SISTEMA`
+Definimos a variável `SISTEMA`:
 
 <pre class="command-line language-bash">
 	<code>SISTEMA=linux</code>
@@ -29,13 +29,14 @@ O script `meusistema.sh` exibe na tela o valor da variável local previamente de
 
 	echo $SISTEMA
 
-Agora vamos executar o script apenas utilizando o comanod `bash`:
+Agora vamos executar o script utilizando o comanod `bash`:
 
 <pre class="command-line language-bash">
 <code>bash meusistema.sh</code>
 
 </pre>
 
+Perceba que o valor da variável SISTEMA não foi exibido na tela.
 Agora em vez do `bash` vamos usar o `source` com o source:
 
 <pre class="command-line language-bash">
@@ -43,7 +44,7 @@ Agora em vez do `bash` vamos usar o `source` com o source:
 linux
 </pre>
 
-Podemos rodar nossos scripts usando o source trocando a palavra `source` por um  `.` . Ficando dessa forma:
+Podemos executar nossos scripts usando o source trocando a palavra `source` por um  `.` . Ficando dessa forma:
 
 <pre class="command-line language-bash">
 <code>. meusistema.sh</code>
@@ -56,7 +57,7 @@ O source exibe o conteúdo da variável local porque não abre uma nova sessão.
 
 ## /etc/bash.bashrc
 
-Esse arquivo é utilizado para definir funções e variáveis de ambiente. **Ele é invocado sempre que um novo bash é aberto.** Isso seginifca que sempre que um novo terminal for aberto no ambinete grafico ou em linha de comando digitando `bash` o arquivo `/etc/bash.bashrc` é chamado.
+Esse arquivo é utilizado para definir funções e variáveis de ambiente. **Ele é invocado sempre que um novo bash é aberto.** Isso significa que sempre que um novo terminal for aberto no ambiente gráfico ou em linha de comando digitando `bash` o arquivo `/etc/bash.bashrc` é chamado.
 
 ## /etc/profile
 
