@@ -60,7 +60,8 @@ Esse arquivo é utilizado para definir funções e variáveis de ambiente. Ele �
 
 ## /etc/profile
 
-Esse arquivo é utilizado para definir funções e variáveis de ambiente. Esse arquivo executa atravez de um `source` o arquivo `/etc/bash.bashrc`.
+Esse arquivo é utilizado para definir funções e variáveis de ambiente. **Ele é invocado sempre que um novo bash é aberto.** Isso seginifca que sempre que um novo terminal for aberto no ambinete grafico ou em linha de comando digitando `bash` o arquivo `/etc/bash.bashrc` é chamado.
+Esse arquivo executa atravez de um `source` o arquivo `/etc/bash.bashrc`.
 
 ## env
 
@@ -123,6 +124,11 @@ Arquivo que contem variaveis, funcoes e alias de um usuário expecifico. ** Esse
 ## ~/.bashrc
 
 Arquivo que contem variaveis, funcoes e alias de um usuário expecifico
+
+
+### Ordem de execução
+
+O sistema inicialmente procura por `~/.bash_profile` se ele não encontrar vai procurar o `~/.bash_login` e por sua vez se o mesmo não for encontrado o sistema vai procurar o `~/.profile`
 
 ## ~/.bash_logout
 

@@ -55,9 +55,9 @@ title: Indice
   * [104.6 Criar e mudar links físicos e simbolicos (Peso 2)](/lpic1/104/104-6-criar-e-mudar-links-fisicos-e-simbolicos "correção ortografica e revisão de conteúdo")
   * [104.7 Encontrar arquivos de sistema e colocar arquivos na localização correta (Peso 2)](/lpic1/104/104-7-encontrar-arquivos-de-sistema-e-colocar-arquivos-na-localizacao-correta "nada feito")
 
-* [105: Shells, Scripts e Gerenciamento de Dados (Peso 10)](/lpic1/105/shells-scripts-e-gerenciamento-de-dados "nada feito") 
-  * [105.1 Customize e utilize o ambiente do shell (Peso 4)](/lpic1/105/105-1-modifique-e-utilize-o-ambiente-shell "nada feito")
-  * [105.2 Customize ou escreva scripts simples (Peso 4)](/lpic1/105/105-2-customize-ou-escreva-scripts-simples "nada feito")
+* [105: Shells, Scripts e Gerenciamento de Dados (Peso 10)](/lpic1/105/shells-scripts-e-gerenciamento-de-dados) 
+  * [105.1 Customize e utilize o ambiente do shell (Peso 4)](/lpic1/105/105-1-modifique-e-utilize-o-ambiente-shell)
+  * [105.2 Customize ou escreva scripts simples (Peso 4)](/lpic1/105/105-2-customize-ou-escreva-scripts-simples)
   * [105.3 Gerenciamento de dados com SQL (Peso 2)](/lpic1/105/105-3-gerencimanto-de-dados-com-sql "nada feito")
 
 * [Topic 106: Interfaces de usuário e Desktop (Peso 5)](/lpic1/106/interfaces-de-usuario-e-desktop "nada feito")
