@@ -1,14 +1,14 @@
 ---
 layout: page
-title: 105.1 Modifique e utilize o ambiemte shell
+title: 105.1 Modifique e utilize o ambiente shell
 permalink: /105/105-1-modifique-e-utilize-o-ambiente-shell
 ---
 
-Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. E também é necessário que saibam modificar ambientes globais e perfils de usuários.
+Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. É também é necessário que saibam modificar ambientes globais e perfils de usuários.
 
 
-* Definir variáveis de ambeintes (como o PATH), no momento do login ou quando um novo shell é iniciado
-* Escrver funcções em Bash para comandos frequentemente utilizados 
+* Definir variáveis de ambientes (como o PATH), no momento do login ou quando um novo shell é iniciado
+* Escrever funções em Bash para comandos frequentemente utilizados 
 * Manter `skeleton directories` para novas contas de usuários
 
 ## source
@@ -36,7 +36,7 @@ Agora vamos executar o script apenas utilizando o comanod `bash`:
 
 </pre>
 
-Agora em vez do `bash` vamos usar o `source` com o source:
+Agora em vez do `bash` vamos usar o `source`:
 
 <pre class="command-line language-bash">
 <code>source meusistema.sh</code>
@@ -56,11 +56,11 @@ O source exibe o conteúdo da variável local porque não abre uma nova sessão.
 
 ## /etc/bash.bashrc
 
-Esse arquivo é utilizado para definir funções e variáveis de ambiente.
+Esse arquivo é utilizado para definir funções e variáveis de ambiente. Ele é considerado um arquivo global do sistema
 
 ## /etc/profile
 
-Esse arquivo é utilizado para definir funções e variáveis de ambiente.
+Esse arquivo é utilizado para definir funções e variáveis de ambiente. Esse arquivo executa atravez de um `source` o arquivo `/etc/bash.bashrc`.
 
 ## env
 
