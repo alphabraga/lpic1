@@ -4,20 +4,22 @@ title: 108.4 Gerencie impressoras e impressao
 permalink: /108/108-4-gerencie-impressoras-e-impressao
 ---
 
-108.4 Manage printers and printing
-Weight: 2
+Candidatos devem ter habilidade de gerenciar filas de impressão e tarefas de impressão de usuários utilizando o CUPS e a interface de compatibilidade LPD.
 
-Description: Candidates should be able to manage print queues and user print jobs using CUPS and the LPD compatibility interface.
+### Configuração Básica do CUPS (impressoras locais e remotas)
 
-Key Knowledge Areas:
+texto aqui
 
-Basic CUPS configuration (for local and remote printers)
-Manage user print queues
-Troubleshoot general printing problems
-Add and remove jobs from configured printer queues
-Terms and Utilities:
+### Gerenciar filas de impressão
 
-CUPS configuration files, tools and utilities
-/etc/cups/
-lpd legacy interface (lpr, lprm, lpq)
-Topic 109: Networking Fundamentals
+texto aqui
+
+### Identificar problemas comuns relacionados a impressão
+
+texto aqui
+
+### Adcionar e remover tarefas de filas de impressão
+
+* CUPS configuration files, tools and utilities
+* /etc/cups/
+* lpd legacy interface (lpr, lprm, lpq)

@@ -204,6 +204,16 @@ one two three four
 </pre>
 
 
+Para remover um valor dentro da lista utilizamos o comando usent da seguinte forma:
+
+<pre class="command-line language-bash">
+	<code>ARRAY1 = (um dois tres)</code>
+	<code>unset ARRAY1[2]</code>
+	<code>echo ${ARRAY1[*]}</code>
+</pre> 
+
+Podemos observar que a sintaxe para remover o valor da lista não utiliza o `$`. 
+
 Referring to the content of a member variable of an array without providing an index number is the same as referring to the content of the first element, the one referenced with index number zero.
 
 10.2.3. Deleting array variables
