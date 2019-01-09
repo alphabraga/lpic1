@@ -50,6 +50,11 @@ lrwxrwxrwx 1 root root 33 Jun 29 23:20 /etc/localtime -> /usr/share/zoneinfo/Ame
 
 O diretório `/usr/share/zoneinfo` é uma estrutura de diretório com configurações de diferentes timezones. Sendo que muitas delas são apenas links para outras configurações.
 
+## LC_TIME
+
+Variável de localização é utilizada para definir a formatação de data e hora?
+
+
 ## LC_*
 
 

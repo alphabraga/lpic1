@@ -80,7 +80,64 @@ Exibe a impressora padrão:
 
 ## Gerenciar filas de impressão
 
-texto aqui
+### lpq
+
+O comando `lpq` exibe o status da fila de impressão. Utilziado sem parametros ele lista informações sobre a fila de impressão da impressora padrão:
+
+	alphabraga@helix ~lpq 
+	IMPRESSORA-GETIN-CORED is ready
+	no entries
+
+Para ver informações de uma impressora espefica use o parametro `-P`.
+
+### lpadmin
+
+Esse comando realiza a configuração de impressoras. Abaixo veremos os passsos para adicionar uma impressora "HP Deskjet 2510".
+
+#### Primeiro vamos procurar o modulo
+
+	$ lpinfo -m | grep "HP Deskjet 2510"
+	drv:///hpcups.drv/hp-deskjet_2510_series.ppd HP Deskjet 2510 Series, hpcups 3.16.3
+
+#### Depois o device
+
+	$ lpinfo -v | grep "hp-deskjet"
+	drv:///hpcups.drv/hp-deskjet_3510_series.ppd
+
+#### Por fim, vamos adiocnar a impressora
+
+O parametro `-E` é para habilitar a impressora.
+
+	$lpadmin -p IMPRESSORA-HP -E -v "drv:///hpcups.drv/hp-deskjet_3510_series.ppd" -m "drv:///hpcups.drv/hp-deskjet_3510_series.ppd"
+
+### lpoptions
+
+O comando `lpoptions` exibe e altera parametros de impressoras.
+
+Caso o comando seja executado sem parametros são exibidas as informações da impressora padrão:
+
+	~ lpoptions 
+	copies=1 device-uri=socket://10.10.1.243:9100 finishings=3 job-cancel-after=10800 job-hold-until=no-hold job-priority=50 job-sheets=none,none marker-change-time=1543840461 marker-colors=#000000,#000000 marker-levels=80,0 marker-names='Toner,Toner\ usado' marker-types=toner,waste-toner number-up=1 printer-commands=none printer-info=IMPRESSORA-GETIN-CORED printer-is-accepting-jobs=true printer-is-shared=true printer-location=10.10.1.243 printer-make-and-model='Ricoh MP 501 PDF' printer-state=3 printer-state-change-time=1543840461 printer-state-reasons=none printer-type=135380 printer-uri-supported=ipp://localhost/printers/IMPRESSORA-GETIN-CORED
+
+Ou podemos simplesmente passar o nome da empresa como parametro:
+
+	$ lpoptions IMPRESSORA-GETIN-CORED
+	copies=1 device-uri=socket://10.10.1.243:9100 finishings=3 job-cancel-after=10800 job-hold-until=no-hold job-priority=50 job-sheets=none,none marker-change-time=1543840461 marker-colors=#000000,#000000 marker-levels=80,0 marker-names='Toner,Toner\ usado' marker-types=toner,waste-toner number-up=1 printer-commands=none printer-info=IMPRESSORA-GETIN-CORED printer-is-accepting-jobs=true printer-is-shared=true printer-location=10.10.1.243 printer-make-and-model='Ricoh MP 501 PDF' printer-state=3 printer-state-change-time=1543840461 printer-state-reasons=none printer-type=135380 printer-uri-supported=ipp://localhost/printers/IMPRESSORA-GETIN-CORED	
+
+
+### lpr
+
+Envia arquivos para empressora, passando apenas o arquivo ele manda para a impressora padrão:
+
+	$ lpr /etc/passwd
+
+Podemos definir a impressora com `-P`	
+
+	lpr /etc/passwd -P NOMEDAIMPRESSORA
+
+Podemos usar ainda assim
+
+	$ grep alphabraga /etc/passwd | lpr 
 
 ## Identificar problemas comuns relacionados a impressão
 
