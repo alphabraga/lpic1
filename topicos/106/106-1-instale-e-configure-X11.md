@@ -4,14 +4,18 @@ title: 106.1 Instale e configure o X11 (Peso 2)
 permalink: /106/106-1-instale-e-configure-X11
 ---
 
-Cadidados devem ser capazes de instalar e configurar o X11
-Verificar se a placa de video e monitor é compativel com o servidor X
-Precauções sobre fontes do servidor X
-Entendimento básico e conhecimento do arquivo de configuração do servidor X
+* Cadidados devem ser capazes de instalar e configurar o X11
+* Verificar se a placa de video e monitor é compativel com o servidor X
+* Precauções sobre fontes do servidor X
+* Entendimento básico e conhecimento do arquivo de configuração do servidor X
 
 ## /etc/X11/xorg.conf
 
-É o principal arquivo de configuação do servidor X11. Em distribuições mais recentes esse arquivo não é criado por padrão. Sendo necessario criar o mesmo manualmente atravez do comando `Xorg -configure`. Mas lembre-se para executar o comando é necessario que o servidor X11 esteja parado. 
+É o principal arquivo de configuação do servidor X11. Em distribuições mais recentes esse arquivo não é criado por padrão. Sendo necessario criar o mesmo manualmente atravez do comando: 
+
+	$ Xorg -configure 
+
+Mas lembre-se para executar o comando é necessario que o servidor X11 esteja parado. 
 Esse arquivo pode ser utilizado principalmente no caso  de configurações específicas necessárias para algum dispositivo que esteja utilizando.
 
 Veja abaixo o arquivo `xorg.conf`:
@@ -179,7 +183,7 @@ vamos executar o comndo para ver o output gerado:
 
 Comando que exibe informações sobre uma janela já aberta do X:
 
-	 alphabraga@helix  ~  xwininfo 
+	 $ xwininfo 
 
 	xwininfo: Please select the window about which you
 	          would like information by clicking the
@@ -206,6 +210,8 @@ Comando que exibe informações sobre uma janela já aberta do X:
 	  Corners:  +0+50  -0+50  -0-0  +0-0
 	  -geometry 190x52+0-0
 
+
+## Fontes do Servidor X
 
 
 ### Qual o arquivo de configuração em que são definidos os diretórios que contém as fontes que podem ser utilizadas pelo servidor X?
