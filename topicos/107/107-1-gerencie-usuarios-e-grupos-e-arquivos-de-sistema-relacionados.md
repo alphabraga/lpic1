@@ -238,12 +238,71 @@ alphabraga:x:1000:
 
 ## groupadd
 
+Comando utilizado para adicionar grupos no sistema. A sua sintaxe é bem similar ao `useradd`:
 
-## groupdel
+
+	# groupadd suporte
+
+O comando acima ira adicionar o grupo suporte ao sistema. Executando o comandos abaixo, podemos nos certificar que o grupo foi criado com sucesso:
+
+
+	# grep suporte /etc/group
+	suporte:x:1002:
+	# grep suporte /etc/gshadow	
+	suporte:!::
+
+Abaixo todas as opções que o comando possui:
+
+
+	# groupadd --help
+	Usage: groupadd [options] GROUP
+	Options:
+	  -f, --force                   exit successfully if the group already exists,
+	                                and cancel -g if the GID is already used
+	  -g, --gid GID                 use GID for the new group
+	  -h, --help                    display this help message and exit
+	  -K, --key KEY=VALUE           override /etc/login.defs defaults
+	  -o, --non-unique              allow to create groups with duplicate
+	                                (non-unique) GID
+	  -p, --password PASSWORD       use this encrypted password for the new group
+	  -r, --system                  create a system account
+	  -R, --root CHROOT_DIR         directory to chroot into
+	      --extrausers              Use the extra users database
+
+Podemos definir por exemplo o `gid` com o parametro -g, ficando dessa forma:
+
+	# groupadd -g5000 suporte
 
 
 ## groupmod
 
+Comando utilizado para mudar informações de grupos. Abaixo opções do comando:
+
+	# groupmod --help
+	Usage: groupmod [options] GROUP
+	Options:
+	  -g, --gid GID                 change the group ID to GID
+	  -h, --help                    display this help message and exit
+	  -n, --new-name NEW_GROUP      change the name to NEW_GROUP
+	  -o, --non-unique              allow to use a duplicate (non-unique) GID
+	  -p, --password PASSWORD       change the password to this (encrypted)
+	                                PASSWORD
+	  -R, --root CHROOT_DIR         directory to chroot into
+
+
+Exemplo de como mudar o nome de um grupo
+
+	# groupmod -n devops suporte
+
+O comando acima muda o nome do grupo de `suporte` para `devops`.
+
+Para mudar o id podemos utilizar o parametro `-g`:
+
+	groupmod -g 5005 devops
+
+O comando acima muda o gid do grupo devops para 505.
+
+## groupdel
 
 ## passwd
 
@@ -303,3 +362,24 @@ Usado com a opção `-r` serve para apagar tambem o diretório pessoal:
 
 
 ## usermod
+
+
+## newgrp
+
+Como já foi abordado nos topicos acima todo usuário linux possui um grupo padrão e pode fazer parte de outros grupos auxiliares. Sempre que criamos um aquivos o grupo do arquivo será o grupo padrão, veja o exemplo abaixo:
+
+	$ touch arquivo-teste
+	$ ls -la arquivo-teste
+	-rw-rw-r-- 1 alphabraga alphabraga 0 Jan 24 13:11 teste
+
+Veja que o grupo do arquivo é o grupo padrão do usuario. Para mudar para um dos seus grupos auxiliares basta digitar o comando:
+
+	$ newgrp devops
+	$ touch teste-devops
+	$ls -la teste-devops
+	-rw-rw-r-- 1 alphabraga devops 0 Jan 24 13:11 teste-devops
+
+Pronto agora o grupo é o devops. Para voltar ao grupo padão basta utilizar o comando sem parametros:
+
+
+	$ newgrp

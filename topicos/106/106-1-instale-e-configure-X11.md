@@ -214,6 +214,8 @@ Comando que exibe informações sobre uma janela já aberta do X:
 ## Fontes do Servidor X
 
 
+
+
 ### Qual o arquivo de configuração em que são definidos os diretórios que contém as fontes que podem ser utilizadas pelo servidor X?
 
 Resposta: /etc/xorg.conf CONFIRMAR
