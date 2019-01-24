@@ -165,6 +165,7 @@ O arquivo que armazena os dados sobre os grupos do sistema.
 	fax:x:21:
 	voice:x:22:
 
+O arquivo /etc/group deve ser editado com o comando `vigr` para evitar que o arquivo seja comrrompido.
 
 
 ## /etc/login.defs
@@ -306,6 +307,12 @@ O comando acima muda o gid do grupo devops para 505.
 
 ## passwd
 
+Comando utilizado para mudar a senha de usuarios.
+
+Vale lembrar que esse comando pode ser utilizado para bloquear uma conta com o parametro `-l`:
+
+	# passwd -l fulano
+
 
 ## useradd
 
@@ -363,6 +370,9 @@ Usado com a opção `-r` serve para apagar tambem o diretório pessoal:
 
 ## usermod
 
+Podemos bloquear um usuário cvom o parametro `-L`:
+
+	# usermod -L fulano
 
 ## newgrp
 
