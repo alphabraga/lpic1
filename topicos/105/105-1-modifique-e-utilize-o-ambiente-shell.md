@@ -6,18 +6,15 @@ permalink: /105/105-1-modifique-e-utilize-o-ambiente-shell
 
 Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. É também é necessário que saibam modificar ambientes globais e perfils de usuários.
 
-
-* Definir variáveis de ambientes (como o PATH), no momento do login ou quando um novo shell é iniciado
-* Escrever funções em Bash para comandos frequentemente utilizados 
-* Manter `skeleton directories` para novas contas de usuários
+* Definir variáveis de ambientes (como o PATH), no momento do login ou quando um novo shell é iniciado.
+* Escrever funções em Bash para comandos frequentemente utilizados.
+* Manter `skeleton directories` para novas contas de usuários.
 
 ## source
 
-O comando `source` serve para executar arquivos de script. 
+O comando `source` serve para executar arquivos de script. **Mas qual a diferença entre ele e o `sh` ou `bash` ?** O comando `source` não abre uma nova sessão de shell dessa forma variáveis definidas localmente são lidas pelo script. Vejamos o exemplo abaixo:
 
-**Mas qual a diferença entre ele e o `sh` ou `bash` ?**. O comando `source` não abre uma nova sessão de shell dessa forma variáveis definidas localmente são lidas pelo script. Vejamos o exemplo abaixo:
-
-Definimos a variável `SISTEMA`
+Definimos a variável `SISTEMA` e exibimos o seu valor com um echo:
 
 <pre class="command-line language-bash">
 	<code>SISTEMA=linux</code>
@@ -25,43 +22,45 @@ Definimos a variável `SISTEMA`
 	linux
 </pre>
 
-O script `meusistema.sh` exibe na tela o valor da variável local previamente definida. Veja abaixo o conteúdo de nosso script: 
+O script `meusistema.sh` exibe na tela o valor da variável local previamente definida. Veja abaixo o conteúdo do script: 
 
 	echo $SISTEMA
 
-Agora vamos executar o script apenas utilizando o comanod `bash`:
+Agora vamos executar o script utilizando o comando `bash`:
 
 <pre class="command-line language-bash">
 <code>bash meusistema.sh</code>
 
 </pre>
 
+Perceba que o valor da variável SISTEMA não foi exibido na tela.
 Agora em vez do `bash` vamos usar o `source`:
+
 
 <pre class="command-line language-bash">
 <code>source meusistema.sh</code>
 linux
 </pre>
 
-Podemos rodar nossos scripts usando o source trocando a palavra `source` por um  `.` . Ficando dessa forma:
+Podemos executar nossos scripts trocando a palavra `source` por um  `.` . Dessa forma:
 
 <pre class="command-line language-bash">
 <code>. meusistema.sh</code>
 linux
 </pre>
 
-
 O source exibe o conteúdo da variável local porque não abre uma nova sessão.
+
+## /etc/profile
+
+Esse arquivo é invocado sempre que um novo login é realizado. Nele são contidas variaveis e funções.
 
 
 ## /etc/bash.bashrc
 
-Esse arquivo é utilizado para definir funções e variáveis de ambiente. Ele é considerado um arquivo global do sistema
-
-## /etc/profile
-
 Esse arquivo é utilizado para definir funções e variáveis de ambiente. **Ele é invocado sempre que um novo bash é aberto.** Isso seginifca que sempre que um novo terminal for aberto no ambinete grafico ou em linha de comando digitando `bash` o arquivo `/etc/bash.bashrc` é chamado.
 Esse arquivo executa atravez de um `source` o arquivo `/etc/bash.bashrc`.
+
 
 ## env
 
@@ -109,17 +108,15 @@ Remove uma variável até mesmo se ela estiver exportada do ambiente. Para utili
 
 ## ~/.bash_profile
 
-
 Arquivo que contêm variáveis, funções e `alias` de um usuário expecifico
 
 ## ~/.bash_login
 
 Arquivo que contêm variáveis, funções e `alias` de um usuário expecifico
 
-
 ## ~/.profile
 
-Arquivo que contem variaveis, funcoes e alias de um usuário expecifico. ** Esse arquivo é executado sempre que uma nova sessão para um determinado usuário é iniciada, por exemplo sempre que for aberto dentro do ambeinte grafico uma janela do terminal esse arquivo sera executado.
+Arquivo que contem variaveis, funcoes e alias de um usuário expecifico. **Esse arquivo é executado sempre que uma nova sessão para um determinado usuário é iniciada, por exemplo sempre que for aberto dentro do ambeinte grafico uma janela do terminal esse arquivo sera executado**.
 
 ## ~/.bashrc
 
@@ -206,6 +203,16 @@ three
 one two three four	
 </pre>
 
+
+Para remover um valor dentro da lista utilizamos o comando usent da seguinte forma:
+
+<pre class="command-line language-bash">
+	<code>ARRAY1 = (um dois tres)</code>
+	<code>unset ARRAY1[2]</code>
+	<code>echo ${ARRAY1[*]}</code>
+</pre> 
+
+Podemos observar que a sintaxe para remover o valor da lista não utiliza o `$`. 
 
 Referring to the content of a member variable of an array without providing an index number is the same as referring to the content of the first element, the one referenced with index number zero.
 

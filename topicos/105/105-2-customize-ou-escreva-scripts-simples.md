@@ -130,7 +130,7 @@ O Comando **test** retorna valores de sucesso ou falha ou outras informações f
 0
 </pre>
 
-Como podemos ver o comando retornou **0**, ou seja, o arquivo existe. Agora vamos procurar de forma intencional o arquivo que **não** existe em nosso sistema de arquivos:
+Como podemos ver o comando retornou **0**, ou seja, o arquivo existe. Agora vamos procurar de forma intencional por um arquivo que **não** existe em nosso sistema de arquivos:
 
 <pre class="command-line language-bash"  >
 <code>test -f ~/arquivo-invalido</code>
@@ -173,13 +173,28 @@ Verificamos se uma das duas expressões são verdadeiras
 	echo $?
 	0
 
+### -z STRING
+
+Verificamos se uma string tem comprimento igual a zero:
+
+	if test "" -z ; then
+		echo "A string não possui caracateres"
+	fi
+
 ### -n STRING
-#NÃO CONSIGO REALIZAR UM EXEMPLO DESSE TOPICO -n
 Verificamos se o tamanho de uma string é diferente de zero
 
-	test -n linux
+	test -n "linux"
 	echo $?
 	0
+
+	test -n ""
+	echo $?
+	1
+
+	test -n 
+	echo $?
+	1
 
 ### STRING = STRING
 Verificamos se as strings são iguais
@@ -237,6 +252,21 @@ Maoir que ou igual
 
        INTEGER1 -ne INTEGER2
 
+
+## Operadores para arquivos
+
+* -d	Verifica se o arquivo existe e se é um diretório.
+* -e	Verifica se o arquivo existe.
+* -f	Verifica se o arquivo existe e se é um arquivo regular.
+* -r	Verifica se o arquivo existe e se possui permissão de leitura para o usuário atual.
+* -s	Verifica se o arquivo existe e não está vazio.
+* -w	Verifica se o arquivo existe e se possui permissão de escrita.
+* -x	Verifica se o arquivo existe e possui permissão de execução.
+* -O	Verifica se o arquivo existe e se é de propriedade do usuário atual.
+* -G	Verifica se o arquivo existe e seu grupo padrão é o mesmo do usuário atual.
+* -L ou -h	Verifica se o arquivo existe e se é um link simbólico.
+* arq1 -nt arq2	Verifica se arq1 é mais novo que arq2.
+* arq1-ot arq2	Verifica se arq1 é mais antigo que arq2.
 
 ## case
 
@@ -317,6 +347,10 @@ Descrever o comando **read**
 
 Descrever o comando **seq**
 
+
+## shift
+
+This command takes one argument, a number. The positional parameters are shifted to the left by this number, N. The positional parameters from N+1 to $# are renamed to variable names from $1 to $# - N+1.
 
 ### Termos e Utilitários
 
