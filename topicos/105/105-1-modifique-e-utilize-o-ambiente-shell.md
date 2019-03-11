@@ -4,7 +4,7 @@ title: 105.1 Modifique e utilize o ambiente shell
 permalink: /105/105-1-modifique-e-utilize-o-ambiente-shell
 ---
 
-Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. É também é necessário que saibam modificar ambientes globais e perfils de usuários.
+Candidatos deve ser capazes de modificar ambientes do shell para atender as necessidades dos usuários. E também é necessário que saibam modificar ambientes globais e perfils de usuários.
 
 * Definir variáveis de ambientes (como o PATH), no momento do login ou quando um novo shell é iniciado.
 * Escrever funções em Bash para comandos frequentemente utilizados.
@@ -53,12 +53,12 @@ O source exibe o conteúdo da variável local porque não abre uma nova sessão.
 
 ## /etc/profile
 
-Esse arquivo é invocado sempre que um novo login é realizado. Nele são contidas variaveis e funções.
+Esse arquivo é invocado sempre que um novo login é realizado. Nele são contidas variáveis e funções.
 
 
 ## /etc/bash.bashrc
 
-Esse arquivo é utilizado para definir funções e variáveis de ambiente. **Ele é invocado sempre que um novo bash é aberto.** Isso seginifca que sempre que um novo terminal for aberto no ambinete grafico ou em linha de comando digitando `bash` o arquivo `/etc/bash.bashrc` é chamado.
+Esse arquivo é utilizado para definir funções e variáveis de ambiente. **Ele é invocado sempre que um novo bash é aberto.** Isso signifca que sempre que um novo terminal for aberto no ambiente gráfico ou em linha de comando digitando `bash` o arquivo `/etc/bash.bashrc` é chamado.
 Esse arquivo executa atravez de um `source` o arquivo `/etc/bash.bashrc`.
 
 
@@ -80,7 +80,7 @@ Veja o exemplo abaixo onde definimos uma variável local e em seguida procuramos
 	<code>env | grep SISTEMA </code>
 </pre>
 
-Para encontrar variáveis locais utilizamos o comando `set`:
+Para encontrar variáveis locais utilizamos o comando `set`, que lista variáveis locais, exportadas e funções:
 
 <pre class="command-line language-bash">
 <code>SISTEMA=linux</code>
@@ -95,7 +95,7 @@ SISTEMA=linux
 
 O comando export realiza o exportação de uma variável para o ambiente do `shell`. 
 
-É importante ressaltar que um shell script que utiliza variáveis não declaradas dentro dele, só consegue ler as mesmas se elas estiverem expotadas. Isso porque quando executamos um script um novo `shell` é aberto. Para executar um script levando em consideraão as variáveis locais utilizamos o comando `source` 
+É importante ressaltar que um shell script que utiliza variáveis não declaradas dentro dele, só consegue ler as mesmas se elas estiverem expotadas. Isso porque quando executamos um script um novo `shell` é aberto. Para executar um script levando em consideração as variáveis locais utilizamos o comando `source` 
 
 ## unset
 
