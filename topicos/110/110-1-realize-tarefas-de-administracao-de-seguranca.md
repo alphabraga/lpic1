@@ -68,10 +68,11 @@ PORT     STATE SERVICE
 
 ## /etc/sudoers
 
+É um arquivo onde são encontradas as configurações de segurança do utilitário sudo. O mais indicado é a edição desse arquivo com o programa `visudo`.
 
 ## su
 
-O comando `su` possibilita realizar o login de um usuário no sistema. No exemplo abaixo vamos realizar o login do usuario `joao`.
+O comando `su` possibilita realizar o login ou troca de um usuário no sistema. No exemplo abaixo vamos realizar o login do usuario `joao`.
 
 
 <pre class="language-bash command-line" data-user="carlos" >
@@ -79,25 +80,14 @@ O comando `su` possibilita realizar o login de um usuário no sistema. No exempl
 senha: [informar a senha]
 </pre>
 
-É importante resaltar, que dessa forma, os arquivos configuração de ambiente como `/etc/profile`, `~/bash_profile` não são executados e por consequência as configurações e variáveis de ambeinte não são criadas nesse ambiente. Para que isso seja realziado com o uso do `su` devemos utilizar com o `-`, desse forma:
+É importante resaltar, que dessa forma, os arquivos configuração de ambiente como `/etc/profile`, `~/bash_profile` não são executados e por consequência as configurações e variáveis de ambiente não são criadas nesse ambiente. Para que isso seja realziado com o uso do `su` devemos utilizar com o `-`, desse forma:
 
 <pre class="language-bash command-line" data-user="carlos" >
 <code>su - joao</code>
 senha: [informar a senha]
 </pre>
 
-Assim as variaveis de ambeinte de demais configurações ficam disponiveis nesse shell.
-
-Using su without -l or - starts bash as an interactive, but non-login shell, which doesn't read from either of the files you specified. Use the -l or - option or put the relevant config into /root/.bashrc.
-
-Quick summary of config files:
-
-Login shell (-l/--login) reads /etc/profile first, and then the first it finds of: ~/.bash_profile, ~/.bash_login, and ~/.profile.
-Interactive but non-login shell (-i) reads /etc/bash.bashrc and ~/.bashrc, in that order (unless the --rcfile option is used and tells it to look elsewhere).
-Non-interactive shells, e.g. started from within another program without using the -l or -i flags, reads the file specified in the BASH_ENV environment variable.
-When run as sh as a login shell, it will read /etc/profile and ~/.profile, in that order.
-When run as sh as an interactive non-login, it reads the file specified in ENV.
-
+Assim as variáveis de ambiente de demais configurações ficam disponíveis nesse shell.
 
 ## usermod
 
@@ -107,11 +97,70 @@ When run as sh as an interactive non-login, it reads the file specified in ENV.
 
 ## who 
 
+Mosta informações dos usuários logados:
+
+	# who
+	alphabraga tty7         2019-01-26 16:23 (:0)
+	blue ~ # who -a
+	           system boot  2019-01-26 16:22
+	           run-level 5  2019-01-26 16:22
+	LOGIN      tty1         2019-01-26 16:22              1451 id=tty1
+	alphabraga + tty7         2019-01-26 16:23  old         1695 (:0)
+
+Com os parametros `-a` são exibidas mais informações e com o `-H` é exibido um header. 
+
+	# who -aH
+	NAME       LINE         TIME             IDLE          PID COMMENT  EXIT
+	           system boot  2019-01-26 16:22
+	           run-level 5  2019-01-26 16:22
+	LOGIN      tty1         2019-01-26 16:22              1451 id=tty1
+	alphabraga + tty7         2019-01-26 16:23  old         1695 (:0)
+
 ## w 
+
+Tem a mesma funcionalidade o `who`, mas ele exibe mais informações como o que o usuário esta fazendo, ou melhor, que comando ele esta executando.
+
+	# w
+	 17:12:12 up 49 min,  1 user,  load average: 0,48, 0,73, 0,92
+	USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+	alphabra tty7     :0               16:23   49:22   3:20   6.29s cinnamon-session --session cinnamon
+
 
 ## last
 
-Lista o últimos login realizado com sucesso dos usuários.
+Lista o últimos logins realizado com sucesso dos usuários.
+
+
+	# last
+	alphabra tty7         :0               Sat Jan 26 16:23    gone - no logout
+	reboot   system boot  4.10.0-38-generi Sat Jan 26 16:22   still running
+	alphabra tty7         :0               Fri Jan 25 23:15 - crash  (17:06)
+	reboot   system boot  4.10.0-38-generi Fri Jan 25 23:15   still running
+	alphabra tty7         :0               Wed Jan 23 23:54 - crash (1+23:21)
+	reboot   system boot  4.10.0-38-generi Wed Jan 23 23:54   still running
+	alphabra tty7         :0               Wed Jan 23 17:17 - down   (06:09)
+	reboot   system boot  4.10.0-38-generi Wed Jan 23 17:17 - 23:26  (06:09)
+	alphabra tty7         :0               Wed Jan 23 15:39 - crash  (01:37)
+	reboot   system boot  4.10.0-38-generi Wed Jan 23 15:38 - 23:26  (07:47)
+	alphabra tty7         :0               Tue Jan 22 23:01 - crash  (16:37)
+	reboot   system boot  4.10.0-38-generi Tue Jan 22 23:00 - 23:26 (1+00:26)
+	alphabra tty7         :0               Tue Jan 22 09:12 - down   (02:44)
+	reboot   system boot  4.10.0-38-generi Tue Jan 22 09:12 - 11:57  (02:44)
+	alphabra tty7         :0               Mon Jan 21 23:31 - crash  (09:40)
+	reboot   system boot  4.10.0-38-generi Mon Jan 21 23:31 - 11:57  (12:25)
+	alphabra tty7         :0               Mon Jan 21 21:30 - crash  (02:01)
+	reboot   system boot  4.10.0-38-generi Mon Jan 21 21:29 - 11:57  (14:27)
+	alphabra tty7         :0               Sun Jan 20 23:23 - crash  (22:06)
+	reboot   system boot  4.10.0-38-generi Sun Jan 20 23:23 - 11:57 (1+12:33)
+	alphabra tty7         :0               Sun Jan 20 23:02 - crash  (00:20)
+	reboot   system boot  4.10.0-38-generi Sun Jan 20 23:02 - 11:57 (1+12:54)
+	alphabra tty7         :0               Sun Jan 20 12:28 - 12:48  (00:19)
+	reboot   system boot  4.10.0-38-generi Sun Jan 20 12:28 - 12:48  (00:19)
+	alphabra tty7         :0               Sun Jan 20 00:20 - crash  (12:08)
+	reboot   system boot  4.10.0-38-generi Sun Jan 20 00:20 - 12:48  (12:28)
+
+
+
 
 O `last` realiza a busca dessas informações no arquivo `/var/log/wtmp` (ou você pode definir o arquivo que deseja realizar a busca com a opção `-f`) e exibe uma lista com todos os usuários logados e que sairam desde sua criação.
 
@@ -146,7 +195,7 @@ reboot   system boot  Wed Aug  8 20:05 - 19:08  (23:02)     4.10.0-38-generic
 
 ## lastb
 
-O `lastb` é similar ao `last`, exeto que por padrão busca as informações do arquivo de log `/var/log/btmp` que contem todas as informações de tentativas de login mal sucedidas (ou `bad` login attemps).
+O `lastb` é similar ao `last`, exeto que por padrão busca as informações do arquivo de log `/var/log/btmp` que contêm todas as informações de tentativas de login mal sucedidas (ou `bad` login attemps).
 
 No linux Mint o `lastb` é um link para o `last`:
 
@@ -156,5 +205,5 @@ lrwxrwxrwx 1 root root 4 May 16 12:00 /usr/bin/lastb -> last
 </pre>
 
 
-
+## lastlog
 
