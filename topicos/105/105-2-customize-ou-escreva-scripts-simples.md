@@ -11,16 +11,12 @@ Canditados devem ser capazes de alterar scripts simples ou escrever novos script
 * Utilizar testes
 * Utilizar substituição de comando
 * Testar valores de retorno, para verificar falha ou sucesso ou outras informações forncecidas por um comando
-* Realizar envio de email condicional para o superusuário
+* Realizar envio de email condicional para o super usuário
 * Escolher corretamente o interpretador do script com o uso do She-Bang
 * Gerenciar a localização, dono e execução e permissões suid de scripts
 
 
-
-
 Um script nada mais é do que um conjunto de comandos salvos em um arquivo, sendo que esses comandos são executados seguindo determinada ordem.
-
-Um script bash é interpretado pelo bash e seu resultado é executado. 
 
 ### Estrututa básica de um arquivo de script bash
 
@@ -66,7 +62,7 @@ Dessa forma não se faz nessário a utilização do comando **bash**. O script f
 	echo "Isso é um bash script."
 
 
-Mas para de fato o script funcionar precisamos ainda colcoar a permissão de execução nele.
+Mas para de fato o script funcionar precisamos ainda colocar a permissão de execução nele.
 
 <pre class="command-line language-bash"  >
 <code>chmod +x imprimir.sh</code>

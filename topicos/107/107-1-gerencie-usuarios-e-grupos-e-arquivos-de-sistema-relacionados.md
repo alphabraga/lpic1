@@ -119,19 +119,20 @@ O arquivo `/etc/shadow` contém as senhas dos usuários do sistema. Antes elas f
 Assim como o `passwd` o arquivo `/etc/shadow`, cada linha corresponde a senha do usuário onde as colunas são divididas por `:` 
 
 * 1: coluna é o nome do usuário, que deve corresponder a um nome de usuário válido no passwd
-* 2: é um hash que representa a senha. `*` significa que a conta esta bloqueada para login, um ` ` (espaço) significa que  aconta pode ser acessada sem senha
+* 2: é um hash que representa a senha. 
 * 3: representa o número de dias desde 01/01/1970 que a senha foi alterada 
 * 4: número minimo de dias para que a senha possa ser alterada
 * 5: número de dias depois dos quais a senha TEM QUE SER ser alterada, por padrão o valor é 99999
 * 6: número de dias para informar ao usuário que a senha TEM QUE SER ALTERADA
 * 7: número de dias depois da senha ter sido expirada, ate que a conta seja bloqueada
-* 8:O número de dias, a partir de 0 1 10 1 / 1 970, desde que a conta foi bloqueada;
+* 8:O número de dias, a partir de 01/01/1970, desde que a conta foi bloqueada;
 9. Campo reservado.
 
 O `/etc/shadow` pode ser tambem editado de forma segura, usando o comando `vipw` com o parametro `-s`:
 
 	$ vipw -s
 
+O segundo campo de senha possui algumas caracteristicas. Caso o campo tenha o caracter `*` indica que a conta nunca teve uma senha e por conta disso não é permitido acesso ao sistema com essa conta. Já senhas com `!` ou com `!` no começo do hash indica que a conta foi bloqueada utilizando o comando `usermod -L` ou `passwd -l`.
 
 ## pwconv
 

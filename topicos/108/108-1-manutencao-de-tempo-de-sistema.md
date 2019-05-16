@@ -8,7 +8,7 @@ Habilidade para manter o sistema de tempo e sincronizar o relógio pelo NTP.
 
 
 * Setar a data e tempo no sistema
-* Setar o relogio do hardware para o tempo correto em `UTC`
+* Setar o relógio do hardware para o tempo correto em `UTC`
 * Configurar o timezone correto
 * Configuração básica de NTP
 * Conhecimento em utilizar o serviço  depool.ntp.org
@@ -17,7 +17,7 @@ Habilidade para manter o sistema de tempo e sincronizar o relógio pelo NTP.
 
 ### Introdução
 
-No linux existem dois tipo de relógios. O relógio de hardware, também conhecido como relógio da bios. Após o boot do linux o software clock assume. Existem comandos para exibir esses dois horários.
+No linux existem dois tipo de relógios. O relógio de hardware, também conhecido como relógio da bios e o sofware colck que após o boot do linux o software clock assume. Existem comandos para exibir esses dois horários.
 
 ### Comando `date`
 

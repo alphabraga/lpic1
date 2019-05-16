@@ -9,7 +9,7 @@ permalink: /110/110-1-realize-tarefas-de-administracao-de-seguranca
 * Setar ou mudar senhas de usuários. 
 * Definir ou alterar senhas de usuários e informações sobre o envelhecimento da senha.
 * Ser capaz de utilizar o 'nmap' e o `netstat` para descobrir portas abertas em um sistema.
-* Configurar limites em logins de usuários, processos e utilização de memoria
+* Configurar limites em logins de usuários, processos e utilização de memória
 * Determinar que usuários realizaram login em um sistema ou os que estão logados atualmente
 * Utilização e configuração básica do sudo
 
@@ -19,7 +19,7 @@ Podemos utilizar o comando `find` para buscar arquivos com permissões que podem
 
 ## passwd
 
-Utilizado para mudar a senha de usuário
+Utilizado para mudar a senha de usuário. Para mais informações sobre esse comando ver a sessão 107.1
 
 ## fuser
 
