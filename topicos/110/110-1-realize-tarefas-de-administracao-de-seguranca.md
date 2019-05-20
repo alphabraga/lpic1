@@ -111,9 +111,7 @@ When run as sh as an interactive non-login, it reads the file specified in ENV.
 
 ## last
 
-Lista o últimos login realizado com sucesso dos usuários.
-
-O `last` realiza a busca dessas informações no arquivo `/var/log/wtmp` (ou você pode definir o arquivo que deseja realizar a busca com a opção `-f`) e exibe uma lista com todos os usuários logados e que sairam desde sua criação.
+Lista o últimos logins realizados com sucesso. O `last` realiza a busca dessas informações no arquivo `/var/log/wtmp` (ou você pode definir o arquivo que deseja realizar a busca com a opção `-f`) e exibe uma lista com todos os usuários logados e que sairam desde sua criação.
 
 Veja o exemplo de utilização abaixo:
 
@@ -146,7 +144,7 @@ reboot   system boot  Wed Aug  8 20:05 - 19:08  (23:02)     4.10.0-38-generic
 
 ## lastb
 
-O `lastb` é similar ao `last`, exeto que por padrão busca as informações do arquivo de log `/var/log/btmp` que contem todas as informações de tentativas de login mal sucedidas (ou `bad` login attemps).
+O `lastb` é similar ao `last`, exeto que por padrão busca as informações do arquivo de log `/var/log/btmp` que contem todas as informações de tentativas de login mal sucedidas (ou `bad login attemps`).
 
 No linux Mint o `lastb` é um link para o `last`:
 
@@ -154,7 +152,3 @@ No linux Mint o `lastb` é um link para o `last`:
 <code>ls -la /usr/bin/lastb</code>
 lrwxrwxrwx 1 root root 4 May 16 12:00 /usr/bin/lastb -> last
 </pre>
-
-
-
-

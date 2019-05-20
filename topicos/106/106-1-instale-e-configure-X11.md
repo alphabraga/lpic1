@@ -16,7 +16,7 @@ permalink: /106/106-1-instale-e-configure-X11
 	$ Xorg -configure 
 
 Mas lembre-se para executar o comando é necessario que o servidor X11 esteja parado. 
-Esse arquivo pode ser utilizado principalmente no caso  de configurações específicas necessárias para algum dispositivo que esteja utilizando.
+Esse arquivo pode ser utilizado principalmente no caso de configurações específicas necessárias para algum dispositivo que esteja utilizando.
 
 Veja abaixo o arquivo `xorg.conf`:
 
@@ -117,7 +117,7 @@ Ao rodar o comando `Xorg -configure` é criado um arquivo `xorg.conf.new` com as
 
 * Module : Carregamento dinâmico de módulos.
 * Files : Arquivos utilizados pelo X (modulos e fontes)
-* InputDevice : COnfigurações sobre Teclado ou sobre o Mouse
+* InputDevice : Configurações sobre teclado ou sobre o mouse
 * Device : informações sobre placa de video
 * Monitor: Configurações específicas do monitor utilizado, como HorizSync e VertRefresh.
 * Screen : A seção screen é uma combinação entre o monitor e a placa de vídeo, dizendo ao X quais os modos que ele pode trabalhar. Na sub-seção Display, são informados por exemplo as resoluções suportadas, color depth (bits por pixel), e etc.
@@ -129,7 +129,8 @@ Comando que inicia o servidor X
 
 ## xdpyinfo
 
-texto aqui!
+Xdpyinfo é um utilitário para exibir informações sobre um servidor X. É usado para examinar as capacidades de um servidor, valores predefinidos de parametros utilizados na comuniação entre clientes e servidor e diferentes tipos de telas e visuais deisponiveis.
+
 
 ## xvinfo 
 
@@ -218,15 +219,13 @@ Comando que exibe informações sobre uma janela já aberta do X:
 
 ### Qual o arquivo de configuração em que são definidos os diretórios que contém as fontes que podem ser utilizadas pelo servidor X?
 
-Resposta: /etc/xorg.conf CONFIRMAR
+tetxo aqui
 
+## xhost
 
+texto aqui
 
-Termos e utilitários:
+## DISPLAY
 
-* /etc/X11/xorg.conf
-* xhost
-* DISPLAY
-* xwininfo
-* xdpyinfo
-* X
+texto aqui
+
