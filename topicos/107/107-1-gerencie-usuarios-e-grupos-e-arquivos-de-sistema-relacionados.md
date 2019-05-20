@@ -69,7 +69,7 @@ mysql : mysql
 	uuidd:x:107:111::/run/uuidd:/bin/false
 	lightdm:x:108:114:Light Display Manager:/var/lib/lightdm:/bin/false
 
-As colunas são:
+A ordem das colunas é:
 
 * 1 - Login
 * 2 - Representa a senha que hoje fica no arquivo `passwd`
@@ -171,7 +171,7 @@ O arquivo /etc/group deve ser editado com o comando `vigr` para evitar que o arq
 
 ## /etc/login.defs
 
-É um arquivo que contem varias configurações relativas a usuários como:
+É um arquivo que contém várias configurações relativas a usuários como:
 
 ### criação do diretório home de forma automatica 
 
@@ -185,8 +185,9 @@ O arquivo /etc/group deve ser editado com o comando `vigr` para evitar que o arq
 
 ## /etc/skel/
 
-é o diretorio que é copiado para todo novo usuário criado com o comando `useradd` utizando a opção `-m`
+É o diretório que é copiado para todo novo usuário criado com o comando `useradd` utizando a opção `-m`. A opção  `-m` serve para criar o diretório home e o diretorio home é criado baseado na estrutura de diretórios do `/etc/skel`. 
 
+	#useradd -m fulano
 
 
 ## chage
@@ -308,7 +309,72 @@ O comando acima muda o gid do grupo devops para 505.
 
 ## passwd
 
-Comando utilizado para mudar a senha de usuarios.
+Comando realiza a alteração de senha de usuario.
+
+	$ passwd
+
+O comando acima muda a senha do usuário que executa o comando. O usuário root pode mudar a senha de qualquer usuário, basta passa como parâmetro o nome do usuário:
+
+	$ passwd fulano
+
+## useradd
+
+Esse comando é responsável pela adição de novos usuários no sistema. A forma mais simples de utilização do mesmo é:
+
+
+	# useradd fulano
+
+O comando acima realiza a adição de um usuário no sistema, inserindo registros nos arquivos `/etc/passwd`, `/etc/shadow` e `/etc/group`. Mas vale lembrar que apenas com esse comando não existe um senha válida para esse usuário e nem diretório home para o mesmo. O número maximo de caracteres para o nome de usuário são 8.
+
+
+Os parametros mais utilizados desse comando são:
+
+* `-m` para a a criação do home
+* `-c` para os comentários (quinto campo do /etc/passwd )
+* `-s` para definir o shell padrão do usuário
+* `-g` para definir o grupo padrão
+* `-G` definir os outros grupos do usuário
+
+
+	# useradd -c "um usuario legal" -m -s /bin/bash -g testes fulano
+
+
+Veja abaixo a lista de opções quie o comando possui:
+
+	# useradd --help
+	Usage: useradd [options] LOGIN
+	       useradd -D
+	       useradd -D [options]
+
+	Options:
+	  -c, --comment COMMENT         GECOS field of the new account
+	  -d, --home-dir HOME_DIR       home directory of the new account
+	  -D, --defaults                print or change default useradd configuration
+	  -e, --expiredate EXPIRE_DATE  expiration date of the new account
+	  -f, --inactive INACTIVE       password inactivity period of the new account
+	  -g, --gid GROUP               name or ID of the primary group of the new
+	                                account
+	  -G, --groups GROUPS           list of supplementary groups of the new
+	                                account
+	  -h, --help                    display this help message and exit
+	  -k, --skel SKEL_DIR           use this alternative skeleton directory
+	  -K, --key KEY=VALUE           override /etc/login.defs defaults
+	  -l, --no-log-init             do not add the user to the lastlog and
+	                                faillog databases
+	  -m, --create-home             create the user's home directory
+	  -M, --no-create-home          do not create the user's home directory
+	  -N, --no-user-group           do not create a group with the same name as
+	                                the user
+	  -o, --non-unique              allow to create users with duplicate
+	                                (non-unique) UID
+	  -p, --password PASSWORD       encrypted password of the new account
+	  -r, --system                  create a system account
+	  -R, --root CHROOT_DIR         directory to chroot into
+	  -s, --shell SHELL             login shell of the new account
+	  -u, --uid UID                 user ID of the new account
+	  -U, --user-group              create a group with the same name as the user
+	  -Z, --selinux-user SEUSER     use a specific SEUSER for the SELinux user mapping
+	      --extrausers              Use the extra users database
 
 Vale lembrar que esse comando pode ser utilizado para bloquear uma conta com o parametro `-l`:
 
@@ -360,9 +426,12 @@ Podemos usar tambem o `adduser` Diversas Definições podem ser preestabelecidas
 
 ## userdel
 
-Serve para apagar uma conta de usuário:
+O comando `userdel` é responsalvel pela removoção de um usuário do sistema, sua sintaxe é simples:
 
-	$userdel alphabraga
+
+	# userdel fulano
+
+O comando acima realiza a remoção do usuário do sistema. As linhas correspondentes ao usuário `fulano` dos arquivos `/etc/passwd`, `/etc/shadow` e `/etc/group` são removidas. Já o diretório `/home/fulano` não é removido. Para realizar a remoção do diretório home é preciso passar o parametro `-r` ( r de remove) que remove o home e o spool de emails do usuário.
 
 Usado com a opção `-r` serve para apagar tambem o diretório pessoal:
 
@@ -391,6 +460,5 @@ Veja que o grupo do arquivo é o grupo padrão do usuario. Para mudar para um do
 	-rw-rw-r-- 1 alphabraga devops 0 Jan 24 13:11 teste-devops
 
 Pronto agora o grupo é o devops. Para voltar ao grupo padão basta utilizar o comando sem parametros:
-
 
 	$ newgrp
